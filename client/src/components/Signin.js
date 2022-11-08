@@ -1,89 +1,99 @@
-import React from 'react';
-import { Button, Form, Input, Row, Col, Divider, Image } from 'antd';
-import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
+import React from "react";
+import { Button, Form, Input, Row, Col, Divider, Image } from "antd";
+// import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 
 const Signin = () => {
-    const onFinish = (values) => {
-        console.log('Success:', values);
-    };
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
 
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
 
-    return (
-        <div className='signin-view'>
-            <Row>
-                <Col span={10} offset={4} className="lv_form-container">
-                    <div className="lv_form">
-                        <div className="lv_form-header"> Login </div>
-                        <Form
-                            name="basic"
-                            layout="vertical"
-                            initialValues={{
-                                remember: true,
-                            }}
-                            onFinish={onFinish}
-                            onFinishFailed={onFinishFailed}
-                            requiredMark={false}
-                            autoComplete="off"
-                        >
-                            <Form.Item
-                                label="Username"
-                                name="username"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: 'Please input your username!',
-                                    },
-                                ]}
-                            >
-                                <Input />
-                            </Form.Item>
+  return (
+    <div className="signin-view">
+      <Row>
+        <Col span={10} offset={4} className="lv_form-container">
+          <div className="lv_form">
+            <div className="lv_form-header"> Login </div>
+            <Form
+              name="basic"
+              layout="vertical"
+              initialValues={{
+                remember: true,
+              }}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              requiredMark={false}
+              autoComplete="off"
+            >
+              <Form.Item
+                label="Username"
+                name="username"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your username!",
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
 
-                            <Form.Item
-                                label="Password"
-                                name="password"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: 'Please input your password!',
-                                    },
-                                ]}
-                            >
-                                <Input.Password />
-                            </Form.Item>
+              <Form.Item
+                label="Password"
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your password!",
+                  },
+                ]}
+              >
+                <Input.Password />
+              </Form.Item>
 
-                            <Form.Item>
-                                <Button className="login-button" type="primary" htmlType="submit" block>
-                                    Submit
-                                </Button>
-                            </Form.Item>
-                        </Form>
-                        {/* <Row align='center'>
+              <Form.Item>
+                <Button
+                  className="login-button"
+                  type="primary"
+                  htmlType="submit"
+                  block
+                >
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
+            {/* <Row align='center'>
                         OR
                     </Row> */}
-                        <Divider orientation="center">OR</Divider>
-                        <Row className='fb'>
+            <Divider orientation="center">OR</Divider>
+            {/* <Row className='fb'>
                             <FacebookLoginButton />
                         </Row>
                         <Row className='gg'>
                             <GoogleLoginButton />
-                        </Row>
-                        <Row className='prompt'>
-                            <div>
-                                <span>Not registered yet? </span>
-                                <a href='/'>Create an account</a>
-                            </div>
-                        </Row>
-                    </div>
-                </Col>
-                <Col span={10}>
-                    <Image src='login.jpeg' alt='login' preview={false} className='signin-img' />
-                </Col>
+                        </Row> */}
+            <Row className="prompt">
+              <div>
+                <span>Not registered yet? </span>
+                <a href="/">Create an account</a>
+              </div>
             </Row>
-        </div>
-    );
+          </div>
+        </Col>
+        <Col span={10}>
+          <Image
+            src="login.jpeg"
+            alt="login"
+            preview={false}
+            className="signin-img"
+          />
+        </Col>
+      </Row>
+    </div>
+  );
 };
 
 export default Signin;
