@@ -13,10 +13,13 @@ passport.deserializeUser((id, done) => {
   db.query(
     `SELECT * FROM User WHERE authUserId = '${id}'`,
     (error, results, fields) => {
-      if (results) {
+      if (error) {
+        done(error, null);
+      } else if (results && results.length > 0) {
         console.log("banana2", results);
         done(null, results[0]);
       }
+      done(null, null);
     }
   );
 });
