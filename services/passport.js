@@ -27,6 +27,7 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: "/auth/google/callback",
+      proxy: true,
     },
     (accessToken, refreshToken, profile, done) => {
       db.query(
@@ -65,6 +66,7 @@ passport.use(
       clientID: keys.facebookClientID,
       clientSecret: keys.facebookClientSecret,
       callbackURL: "/auth/facebook/callback",
+      proxy: true,
     },
     (accessToken, refreshToken, profile, done) => {}
   )
