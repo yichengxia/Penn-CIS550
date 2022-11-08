@@ -65,9 +65,7 @@ const Signin = () => {
                 </Button>
               </Form.Item>
             </Form>
-            {/* <Row align='center'>
-                        OR
-                    </Row> */}
+            <Row align="center">OR</Row>
             <Divider orientation="center">OR</Divider>
             {/* <Row className='fb'>
                             <FacebookLoginButton />

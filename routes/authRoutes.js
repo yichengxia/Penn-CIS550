@@ -39,4 +39,8 @@ module.exports = (app) => {
       res.redirect("/");
     }
   );
+
+  app.post("/api/login", passport.authenticate("local"), (req, res) => {
+    res.redirect("/");
+  });
 };
