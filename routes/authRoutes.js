@@ -13,7 +13,7 @@ module.exports = (app) => {
   app.get(
     "/auth/google",
     passport.authenticate("google", {
-      scope: ["profile", "email"],
+      scope: ["profile"],
     })
   );
 
@@ -24,4 +24,23 @@ module.exports = (app) => {
       res.redirect("/");
     }
   );
+
+  app.get(
+    "/auth/facebook",
+    passport.authenticate("facebook", {
+      scope: ["public_profile"],
+    })
+  );
+
+  app.get(
+    "/auth/facebook/callback",
+    passport.authenticate("facebook"),
+    (req, res) => {
+      res.redirect("/");
+    }
+  );
+
+  app.post("/api/login", passport.authenticate("local"), (req, res) => {
+    res.redirect("/");
+  });
 };

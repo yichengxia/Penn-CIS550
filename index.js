@@ -12,6 +12,11 @@ app.use((req, res, next) => {
   console.log("handling request for: " + req.url);
   next();
 });
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 app.use(bodyParser.json());
 app.use(
   cookieSession({

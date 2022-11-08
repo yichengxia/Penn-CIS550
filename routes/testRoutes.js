@@ -2,13 +2,14 @@ const db = require("../database");
 
 module.exports = (app) => {
   app.post("/api/test", (req, res) => {
+    console.log("test: request body is", req.body);
     db.query(
-      "INSERT INTO User VALUES (default, 'Ruichen', 'nekomimi', NULL)",
+      `INSERT INTO User VALUES (default, '${req.body.username}', '${req.body.password}', NULL)`,
       (error, results, fields) => {
         if (error) {
           res.status(400).json({ error });
         } else if (results) {
-          res.status(201).json({ results });
+          res.status(200).json({ results });
         }
       }
     );
