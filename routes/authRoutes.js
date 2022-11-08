@@ -2,6 +2,7 @@ const passport = require("passport");
 
 module.exports = (app) => {
   app.get("/api/current_user", (req, res) => {
+    console.log("auth banana1", req.user);
     res.send(req.user);
   });
 

@@ -14,12 +14,11 @@ passport.deserializeUser((id, done) => {
     `SELECT * FROM User WHERE authUserId = '${id}'`,
     (error, results, fields) => {
       if (error) {
-        done(error, null);
+        done(error);
       } else if (results && results.length > 0) {
         console.log("banana2", results);
         done(null, results[0]);
       }
-      done(null, null);
     }
   );
 });
@@ -36,8 +35,8 @@ passport.use(
       db.query(
         `SELECT * FROM User WHERE authUserId = '${profile.id}'`,
         (error, results, fields) => {
-          // console.log("banana3", results);
-          if (results.length === 0) {
+          console.log("banana3", results);
+          if (!results || results.length === 0) {
             db.query(
               `INSERT INTO User VALUES (default, '${profile.displayName}', NULL, '${profile.id}')`,
               (error, results, fields) => {
@@ -46,7 +45,7 @@ passport.use(
                     `SELECT * FROM User WHERE authUserId = '${profile.id}'`,
                     (error, results, fields) => {
                       if (results) {
-                        // console.log("banana4", results);
+                        console.log("banana4", results);
                         done(null, results[0]);
                       }
                     }
@@ -55,6 +54,7 @@ passport.use(
               }
             );
           } else {
+            console.log("banana5", results);
             done(null, results[0]);
           }
         }
