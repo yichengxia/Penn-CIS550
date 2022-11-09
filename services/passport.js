@@ -138,7 +138,7 @@ passport.use(
       consumerKey: keys.twitterConsumerKey,
       consumerSecret: keys.twitterConsumerSecret,
       callbackURL: "/auth/twitter/callback",
-      // proxy: true,
+      proxy: true,
     },
     (token, tokenSecret, profile, done) => {
       console.log(profile);
