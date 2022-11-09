@@ -7,7 +7,7 @@ require("./services/passport");
 
 const app = express();
 
-// debug
+// DEBUG
 app.use((req, res, next) => {
   console.log("handling request for: " + req.url);
   next();
@@ -28,6 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./routes/authRoutes")(app);
+require("./routes/userRoutes")(app);
 require("./routes/testRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
