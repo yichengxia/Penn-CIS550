@@ -32,7 +32,7 @@ module.exports = (app) => {
 
   app.get(
     "/auth/google/callback",
-    passport.authenticate("google"),
+    passport.authenticate("google", { failureRedirect: "/" }),
     (req, res) => {
       res.redirect(200, "/");
     }
@@ -47,7 +47,17 @@ module.exports = (app) => {
 
   app.get(
     "/auth/facebook/callback",
-    passport.authenticate("facebook"),
+    passport.authenticate("facebook", { failureRedirect: "/" }),
+    (req, res) => {
+      res.redirect(200, "/");
+    }
+  );
+
+  app.get("/auth/twitter", passport.authenticate("twitter"));
+
+  app.get(
+    "/auth/twitter/callback",
+    passport.authenticate("twitter", { failureRedirect: "/" }),
     (req, res) => {
       res.redirect(200, "/");
     }

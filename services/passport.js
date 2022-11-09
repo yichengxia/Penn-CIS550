@@ -2,6 +2,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
+const TwitterStrategy = require("passport-twitter").Strategy;
 const keys = require("../config/keys");
 const db = require("../database");
 const bcrypt = require("bcrypt");
@@ -127,6 +128,20 @@ passport.use(
       console.log(profile);
       console.log(profile.id);
       console.log(profile.displayName);
+    }
+  )
+);
+
+passport.use(
+  new TwitterStrategy(
+    {
+      consumerKey: keys.twitterClientID,
+      consumerSecret: keys.twitterClientSecret,
+      callbackURL: "/auth/twitter/callback",
+      // proxy: true,
+    },
+    (token, tokenSecret, profile, done) => {
+      console.log(profile);
     }
   )
 );
