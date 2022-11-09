@@ -10,7 +10,7 @@ module.exports = (app) => {
 
   app.get("/api/logout", (req, res) => {
     req.logout();
-    res.redirect(200, "/");
+    res.redirect("/");
   });
 
   app.post(
@@ -19,7 +19,7 @@ module.exports = (app) => {
     passport.authenticate("local"),
     (req, res) => {
       console.log("login: req.user is", req.user);
-      res.redirect(200, "/");
+      res.redirect("/");
     }
   );
 
@@ -34,7 +34,7 @@ module.exports = (app) => {
     "/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/" }),
     (req, res) => {
-      res.redirect(200, "/");
+      res.redirect("/");
     }
   );
 
@@ -49,7 +49,7 @@ module.exports = (app) => {
     "/auth/facebook/callback",
     passport.authenticate("facebook", { failureRedirect: "/" }),
     (req, res) => {
-      res.redirect(200, "/");
+      res.redirect("/");
     }
   );
 
@@ -59,7 +59,7 @@ module.exports = (app) => {
     "/auth/twitter/callback",
     passport.authenticate("twitter", { failureRedirect: "/" }),
     (req, res) => {
-      res.redirect(200, "/");
+      res.redirect("/");
     }
   );
 };
