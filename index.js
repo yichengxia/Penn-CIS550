@@ -7,7 +7,7 @@ require("./services/passport");
 
 const app = express();
 
-// debug
+// DEBUG
 app.use((req, res, next) => {
   console.log("handling request for: " + req.url);
   next();
@@ -28,7 +28,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./routes/authRoutes")(app);
-require("./routes/testRoutes")(app);
+require("./routes/userRoutes")(app);
+require("./routes/restaurantRoutes.js")(app);
+require("./routes/reviewRoutes.js")(app);
+require("./routes/reviewerRoutes")(app);
+require("./routes/testRoutes")(app); // REMOVE IN PROD
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
