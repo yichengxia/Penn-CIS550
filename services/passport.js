@@ -98,7 +98,7 @@ passport.use(
                         return done(error);
                       }
                       if (results) {
-                        console.log("passport: created user is", results);
+                        console.log("google: created user is", results);
                         return done(null, results[0]);
                       }
                     }
@@ -107,7 +107,7 @@ passport.use(
               }
             );
           } else {
-            console.log("passport: existing user is", results);
+            console.log("google: existing user is", results);
             return done(null, results[0]);
           }
         }
@@ -141,7 +141,41 @@ passport.use(
       proxy: true,
     },
     (token, tokenSecret, profile, done) => {
-      console.log(profile);
+      db.query(
+        `SELECT * FROM User WHERE authUserId = '${profile.id}'`,
+        (error, results, fields) => {
+          if (error) {
+            return done(error);
+          }
+          if (!results || results.length === 0) {
+            db.query(
+              `INSERT INTO User VALUES (default, '${profile.displayName}', NULL, '${profile.id}')`,
+              (error, results, fields) => {
+                if (error) {
+                  return done(error);
+                }
+                if (results) {
+                  db.query(
+                    `SELECT * FROM User WHERE authUserId = '${profile.id}'`,
+                    (error, results, fields) => {
+                      if (error) {
+                        return done(error);
+                      }
+                      if (results) {
+                        console.log("twitter: created user is", results);
+                        return done(null, results[0]);
+                      }
+                    }
+                  );
+                }
+              }
+            );
+          } else {
+            console.log("twitter: existing user is", results);
+            return done(null, results[0]);
+          }
+        }
+      );
     }
   )
 );
