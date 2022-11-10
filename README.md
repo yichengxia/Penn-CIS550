@@ -8,7 +8,7 @@ Deployment on Heroku: [https://forxnews.herokuapp.com](https://forxnews.herokuap
 
 ## Tech Stack
 
-<img src="https://img.shields.io/badge/-React-000000?style=flat&logo=react&logoColor=00C8FF"><img src="http://img.shields.io/badge/-Node.js-4DB33D?style=flat&logo=Node.js&logoColor=white"><img src="https://img.shields.io/badge/-Express.js-eed718?style=flat&logo=express&logoColor=white"><img src="https://img.shields.io/badge/-MySQL-F29111?style=flat&logo=mysql&logoColor=white"><img src="http://img.shields.io/badge/-Heroku-430098?style=flat&logo=heroku&logoColor=white">
+<img src="https://img.shields.io/badge/-React-000000?style=flat&logo=react&logoColor=00C8FF"> <img src="http://img.shields.io/badge/-Node.js-4DB33D?style=flat&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/-Express.js-eed718?style=flat&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/-MySQL-F29111?style=flat&logo=mysql&logoColor=white"> <img src="http://img.shields.io/badge/-Heroku-430098?style=flat&logo=heroku&logoColor=white">
 
 ## Folder Structure
 
