@@ -1,8 +1,7 @@
 import React from "react";
 import { Button, Form, Input, Row, Col, Divider, Image } from "antd";
-// import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 
-const Signin = () => {
+const Login = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -12,7 +11,7 @@ const Signin = () => {
   };
 
   return (
-    <div className="signin-view">
+    <div className="login-view">
       <Row>
         <Col span={10} offset={4} className="lv_form-container">
           <div className="lv_form">
@@ -82,10 +81,10 @@ const Signin = () => {
         </Col>
         <Col span={10}>
           <Image
-            src="login.jpeg"
+            src="images/login.jpeg"
             alt="login"
             preview={false}
-            className="signin-img"
+            className="login-img"
           />
         </Col>
       </Row>
@@ -93,4 +92,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Login;
