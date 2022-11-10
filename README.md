@@ -8,11 +8,7 @@ Deployment on Heroku: [https://forxnews.herokuapp.com](https://forxnews.herokuap
 
 ## Tech Stack
 
-<img src="https://img.shields.io/badge/-React-000000?style=flat&logo=react&logoColor=00C8FF">
-<img src="http://img.shields.io/badge/-Node.js-4DB33D?style=flat&logo=Node.js&logoColor=white">
-<img src="https://img.shields.io/badge/-Express.js-eed718?style=flat&logo=express&logoColor=white">
-<img src="https://img.shields.io/badge/-MySQL-F29111?style=flat&logo=mysql&logoColor=white">
-<img src="http://img.shields.io/badge/-Heroku-430098?style=flat&logo=heroku&logoColor=white">
+<img src="https://img.shields.io/badge/-React-000000?style=flat&logo=react&logoColor=00C8FF"><img src="http://img.shields.io/badge/-Node.js-4DB33D?style=flat&logo=Node.js&logoColor=white"><img src="https://img.shields.io/badge/-Express.js-eed718?style=flat&logo=express&logoColor=white"><img src="https://img.shields.io/badge/-MySQL-F29111?style=flat&logo=mysql&logoColor=white"><img src="http://img.shields.io/badge/-Heroku-430098?style=flat&logo=heroku&logoColor=white">
 
 ## Folder Structure
 
@@ -20,18 +16,18 @@ We host our backend codes in the root project folder, and nest frontend codes in
 
 ```
 .
-├── client                  # Frontend 
+├── client                  # Frontend
 │   ├── public              # Static resources, such as icons and images
-│   └── src              
-│       ├── components      # React pages   
+│   └── src
+│       ├── components      # React pages
 │       ├── styles          # CSS files
-│       ├── App.js          
+│       ├── App.js
 │       ├── index.css
-│       └── index.js          
+│       └── index.js
 ├── config                  # Env variables, such as API keys and secrets
-├── middlewares             # Custom middleware functions         
+├── middlewares             # Custom middleware functions
 ├── routes                  # Route handlers
-├── services                # Third-party services, such as Passport.js                        
+├── services                # Third-party services, such as Passport.js
 ├── database.js             # MySQL connection
 ├── index.js                # Configures server, middlewares and routes
 └── schema.js               # Schema validation rules
