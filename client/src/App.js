@@ -1,16 +1,18 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Signin from './components/Signin';
+import Login from "./components/Login";
+import AppFooter from "./components/AppFooter";
 
 const App = () => {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Signin />} />
-                <Route path="/signin" element={<Signin />} />
-            </Routes>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/footer" element={<AppFooter />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
