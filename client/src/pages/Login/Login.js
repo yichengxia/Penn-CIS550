@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Form, Input, Row, Col, Divider, Image } from "antd";
+import { Button, Form, Input, Row, Divider } from "antd";
+import SplitLayout from "../../components/SplitLayout/SplitLayout";
 
 const Login = () => {
   const onFinish = (values) => {
@@ -11,11 +12,13 @@ const Login = () => {
   };
 
   return (
-    <div className="login-view">
-      <Row>
-        <Col span={10} offset={4} className="lv_form-container">
-          <div className="lv_form">
-            <div className="lv_form-header"> Login </div>
+    <>
+      <img className="login-logo" src="images/logo.svg" alt="logo" />
+
+      <SplitLayout imageUrl="images/login.jpeg" contentLayout="left">
+        <Row className="login-form-container" justify="center">
+          <div className="login-form">
+            <div className="login-form-header"> Login </div>
             <Form
               name="basic"
               layout="vertical"
@@ -33,11 +36,11 @@ const Login = () => {
                 rules={[
                   {
                     required: true,
-                    message: "Please input your username!",
+                    message: "Username is required",
                   },
                 ]}
               >
-                <Input />
+                <Input placeholder="Username" />
               </Form.Item>
 
               <Form.Item
@@ -46,49 +49,51 @@ const Login = () => {
                 rules={[
                   {
                     required: true,
-                    message: "Please input your password!",
+                    message: "Password is required",
                   },
                 ]}
               >
-                <Input.Password />
+                <Input.Password placeholder="Password" />
               </Form.Item>
 
               <Form.Item>
                 <Button
-                  className="login-button"
-                  type="primary"
+                  className="login-form-button"
                   htmlType="submit"
+                  type="primary"
                   block
                 >
-                  Submit
+                  Login
                 </Button>
               </Form.Item>
             </Form>
-            <Divider orientation="center">OR</Divider>
-            {/* <Row className='fb'>
-                            <FacebookLoginButton />
-                        </Row>
-                        <Row className='gg'>
-                            <GoogleLoginButton />
-                        </Row> */}
-            <Row className="prompt">
+
+            <Row className="login-prompt">
               <div>
                 <span>Not registered yet? </span>
                 <a href="/">Create an account</a>
               </div>
             </Row>
+
+            <Divider plain>OR</Divider>
+
+            <div className="login-icon-container">
+              <img
+                className="login-icon-google"
+                src="icons/google.svg"
+                alt="google"
+              />
+
+              <img
+                className="login-icon-twitter"
+                src="icons/twitter.svg"
+                alt="twitter"
+              />
+            </div>
           </div>
-        </Col>
-        <Col span={10}>
-          <Image
-            src="images/login.jpeg"
-            alt="login"
-            preview={false}
-            className="login-img"
-          />
-        </Col>
-      </Row>
-    </div>
+        </Row>
+      </SplitLayout>
+    </>
   );
 };
 
