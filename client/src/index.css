@@ -4,11 +4,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Cabin:wght@500&display=swap");
 /* Import CSS files */
-@import "pages/Landing/Landing.css";
-@import "pages/Login/Login.css";
-@import "pages/Signup/Signup.css";
-@import "components/Footer/AppFooter.css";
-@import "components/SplitLayout/SplitLayout.css";
+@import "styles/AppFooter.css";
+@import "styles/Auth.css";
+@import "styles/Landing.css";
+@import "styles/SplitLayout.css";
 /* Global CSS */
 .ant-form-item-label label {
   font-size: 18px;

@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Form, Input, Row, Divider } from "antd";
-import SplitLayout from "../../components/SplitLayout/SplitLayout";
+import SplitLayout from "../components/SplitLayout";
 
-const Login = () => {
+const Signup = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -13,12 +13,12 @@ const Login = () => {
 
   return (
     <>
-      <img className="login-logo" src="images/logo.svg" alt="logo" />
+      <img className="auth-logo" src="images/logo.svg" alt="logo" />
 
-      <SplitLayout imageUrl="images/login.jpeg" contentLayout="left">
-        <Row className="login-form-container" justify="center">
-          <div className="login-form">
-            <div className="login-form-header"> Login </div>
+      <SplitLayout imageUrl="images/signup.jpeg" contentLayout="right">
+        <Row className="auth-form-container" justify="center">
+          <div className="auth-form">
+            <div className="auth-form-header"> Sign Up </div>
             <Form
               name="basic"
               layout="vertical"
@@ -58,34 +58,34 @@ const Login = () => {
 
               <Form.Item>
                 <Button
-                  className="login-form-button"
+                  className="auth-form-button"
                   htmlType="submit"
                   type="primary"
                   block
                 >
-                  Login
+                  Sign Up
                 </Button>
               </Form.Item>
             </Form>
 
-            <Row className="login-prompt">
+            <Row className="auth-prompt">
               <div>
-                <span>Not registered yet? </span>
-                <a href="/">Create an account</a>
+                <span>Already have an account? </span>
+                <a href="/">Log in</a>
               </div>
             </Row>
 
             <Divider plain>OR</Divider>
 
-            <div className="login-icon-container">
+            <div className="auth-icon-container">
               <img
-                className="login-icon-google"
+                className="auth-icon-google"
                 src="icons/google.svg"
                 alt="google"
               />
 
               <img
-                className="login-icon-twitter"
+                className="auth-icon-twitter"
                 src="icons/twitter.svg"
                 alt="twitter"
               />
@@ -97,4 +97,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
