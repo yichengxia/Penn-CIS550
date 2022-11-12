@@ -1,0 +1,71 @@
+.login-logo {
+  position: absolute;
+  left: -50px;
+  top: -150px;
+  z-index: 1;
+  height: auto;
+  width: auto;
+  max-width: 550px;
+  max-height: 550px;
+}
+
+.login-logo:hover {
+  cursor: pointer;
+}
+
+.login-form {
+  width: 70%;
+}
+
+.login-form-header {
+  font-family: "Arvo";
+  font-size: 50px;
+  text-align: center;
+  margin: 140px 0 40px 0;
+}
+
+.login-form-button {
+  font-family: "Cabin";
+  font-size: 26px;
+  background-color: #25c8c1;
+  border-color: #25c8c1;
+  border-radius: 20px;
+  margin: 20px 0 0 0;
+  height: auto;
+}
+
+.login-form-button:hover {
+  background: #25c8c1;
+  border-color: #25c8c1;
+}
+
+.login-form-button:focus {
+  background: #25c8c1;
+  border-color: #25c8c1;
+}
+
+.login-prompt {
+  font-size: 16px;
+  justify-content: center;
+  margin: 25px 0 40px 0;
+}
+
+.login-icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  margin: 20px 0 0 0;
+}
+
+.login-icon-google:hover {
+  cursor: pointer;
+}
+
+.login-icon-twitter {
+  margin: 5px 0 0 0;
+}
+
+.login-icon-twitter:hover {
+  cursor: pointer;
+}

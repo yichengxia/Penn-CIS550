@@ -13,6 +13,7 @@ const AppFooter = () => {
           type="text"
           href="https://github.com/ruichen199801/cis550-fa22-project/wiki/Forx-News-Wiki"
           target="_blank"
+          className="footer-text"
         >
           About us
         </Button>
@@ -27,6 +28,7 @@ const AppFooter = () => {
           type="text"
           href="https://github.com/ruichen199801/cis550-fa22-project"
           target="_blank"
+          className="footer-text"
         >
           GitHub
         </Button>
