@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const useLogin = () => {
-  const login = async (username, password) => {
+const useSignup = () => {
+  const signup = async (username, password) => {
     try {
-      const response = await axios.post("/api/login", {
+      const response = await axios.post("/api/signup", {
         username,
         password,
       });
@@ -14,7 +14,7 @@ const useLogin = () => {
     }
   };
 
-  return [login];
+  return [signup];
 };
 
-export default useLogin;
+export default useSignup;

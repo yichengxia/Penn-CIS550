@@ -14,19 +14,25 @@ const Login = () => {
     password: "",
   });
   const { username, password } = formData;
-
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const onFinish = async () => {
     form.resetFields();
-    const isAuthenticated = await login(username, password);
-    if (isAuthenticated) {
-      message.success("Login successful.");
-      navigate("/");
-    } else {
-      message.error("Login failed.");
+    const responseStatus = await login(username, password);
+    switch (responseStatus) {
+      case 200:
+        message.success(`Login Success: Welcome back, ${username}!`);
+        navigate("/");
+        break;
+      case 401:
+        message.error(
+          "Login Failed: Incorrect password, or account doesn't exist."
+        );
+        break;
+      default:
+        message.error("Login Failed: Something went wrong!");
     }
   };
 
@@ -43,9 +49,9 @@ const Login = () => {
           <div className="auth-form">
             <div className="auth-form-header"> Login </div>
             <Form
-              form={form}
               name="login-form"
               layout="vertical"
+              form={form}
               initialValues={{
                 remember: true,
               }}

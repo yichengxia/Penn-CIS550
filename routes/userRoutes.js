@@ -25,8 +25,8 @@ module.exports = (app) => {
                 if (error) {
                   res.status(400).json({ error });
                 } else if (results) {
-                  // res.status(201).json({ message: "Account created." });
-                  res.redirect("/");
+                  res.status(201).json({ message: "Account created." });
+                  // res.redirect("/");
                 }
               }
             );

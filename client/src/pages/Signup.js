@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Button, Form, Input, Row, Divider } from "antd";
+import { Button, Form, Input, Row, Divider, message } from "antd";
 import SplitLayout from "../components/SplitLayout";
+import useSignup from "../hooks/useSignup";
 
 const Signup = () => {
+  const [signup] = useSignup();
   const navigate = useNavigate();
+  const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+  const { username, password } = formData;
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const onFinish = async () => {
+    form.resetFields();
+    const responseStatus = await signup(username, password);
+    switch (responseStatus) {
+      case 201:
+        message.success(`Registration Success: Welcome, ${username}!`);
+        navigate("/");
+        break;
+      case 409:
+        message.error("Registration Failed: You already have an account.");
+        break;
+      default:
+        message.error("Registration Failed: Something went wrong!");
+    }
   };
 
   return (
@@ -25,6 +49,7 @@ const Signup = () => {
             <Form
               name="signup-form"
               layout="vertical"
+              form={form}
               initialValues={{
                 remember: true,
               }}
@@ -42,7 +67,11 @@ const Signup = () => {
                   },
                 ]}
               >
-                <Input placeholder="Username" />
+                <Input
+                  placeholder="Username"
+                  name="username"
+                  onChange={onChange}
+                />
               </Form.Item>
 
               <Form.Item
@@ -55,7 +84,11 @@ const Signup = () => {
                   },
                 ]}
               >
-                <Input.Password placeholder="Password" />
+                <Input.Password
+                  placeholder="Password"
+                  name="password"
+                  onChange={onChange}
+                />
               </Form.Item>
 
               <Form.Item>

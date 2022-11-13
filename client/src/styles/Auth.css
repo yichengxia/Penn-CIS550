@@ -1,12 +1,8 @@
 .auth-logo {
   position: absolute;
-  left: -50px;
-  top: -150px;
+  top: 15px;
+  left: 25px;
   z-index: 1;
-  height: auto;
-  width: auto;
-  max-width: 550px;
-  max-height: 550px;
 }
 
 .auth-logo:hover {
@@ -21,7 +17,7 @@
   font-family: "Arvo";
   font-size: 50px;
   text-align: center;
-  margin: 140px 0 40px 0;
+  margin: 120px 0 40px 0;
 }
 
 .auth-form-button {
