@@ -28,6 +28,7 @@ const Signup = () => {
         break;
       case 409:
         message.error("Registration Failed: You already have an account.");
+        navigate("/login");
         break;
       default:
         message.error("Registration Failed: Something went wrong!");
