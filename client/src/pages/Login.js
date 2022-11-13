@@ -3,11 +3,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { Button, Form, Input, Row, Divider, message } from "antd";
 import SplitLayout from "../components/SplitLayout";
 import useLogin from "../hooks/useLogin";
-import useThirdPartyLogin from "../hooks/useThirdPartyLogin";
 
 const Login = () => {
   const [login] = useLogin();
-  const [thirdPartyLogin] = useThirdPartyLogin();
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
@@ -111,19 +109,21 @@ const Login = () => {
             <Divider plain>OR</Divider>
 
             <div className="auth-icon-container">
-              <img
-                className="auth-icon-google"
-                src="icons/google.svg"
-                alt="google"
-                onClick={() => thirdPartyLogin("google")}
-              />
+              <a href="/auth/google">
+                <img
+                  className="auth-icon-google"
+                  src="icons/google.svg"
+                  alt="google"
+                />
+              </a>
 
-              <img
-                className="auth-icon-twitter"
-                src="icons/twitter.svg"
-                alt="twitter"
-                onClick={() => navigate("/auth/twitter")}
-              />
+              <a href="/auth/twitter">
+                <img
+                  className="auth-icon-twitter"
+                  src="icons/twitter.svg"
+                  alt="twitter"
+                />
+              </a>
             </div>
           </div>
         </Row>

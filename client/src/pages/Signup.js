@@ -1,32 +1,34 @@
 import React from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { Button, Form, Input, Row, Divider } from "antd";
 import SplitLayout from "../components/SplitLayout";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const onFinish = (values) => {
     console.log("Success:", values);
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-
   return (
     <>
-      <img className="auth-logo" src="images/logo.svg" alt="logo" />
-
+      <img
+        className="auth-logo"
+        src="images/logo.svg"
+        alt="logo"
+        onClick={() => navigate("/")}
+      />
       <SplitLayout imageUrl="images/signup.jpeg" contentLayout="right">
         <Row className="auth-form-container" justify="center">
           <div className="auth-form">
             <div className="auth-form-header"> Sign Up </div>
             <Form
-              name="basic"
+              name="signup-form"
               layout="vertical"
               initialValues={{
                 remember: true,
               }}
               onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
               requiredMark={false}
               autoComplete="off"
             >
@@ -71,24 +73,28 @@ const Signup = () => {
             <Row className="auth-prompt">
               <div>
                 <span>Already have an account? </span>
-                <a href="/">Log in</a>
+                <Link to="/login">Log in</Link>
               </div>
             </Row>
 
             <Divider plain>OR</Divider>
 
             <div className="auth-icon-container">
-              <img
-                className="auth-icon-google"
-                src="icons/google.svg"
-                alt="google"
-              />
+              <a href="/auth/google">
+                <img
+                  className="auth-icon-google"
+                  src="icons/google.svg"
+                  alt="google"
+                />
+              </a>
 
-              <img
-                className="auth-icon-twitter"
-                src="icons/twitter.svg"
-                alt="twitter"
-              />
+              <a href="/auth/twitter">
+                <img
+                  className="auth-icon-twitter"
+                  src="icons/twitter.svg"
+                  alt="twitter"
+                />
+              </a>
             </div>
           </div>
         </Row>
