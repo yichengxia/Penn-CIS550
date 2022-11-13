@@ -1,32 +1,57 @@
-import React from "react";
-import { Button, Form, Input, Row, Divider } from "antd";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { Button, Form, Input, Row, Divider, message } from "antd";
 import SplitLayout from "../components/SplitLayout";
+import useLogin from "../hooks/useLogin";
+import useThirdPartyLogin from "../hooks/useThirdPartyLogin";
 
 const Login = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const [login] = useLogin();
+  const [thirdPartyLogin] = useThirdPartyLogin();
+  const navigate = useNavigate();
+  const [form] = Form.useForm();
+
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+  const { username, password } = formData;
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+  const onFinish = async () => {
+    form.resetFields();
+    const isAuthenticated = await login(username, password);
+    if (isAuthenticated) {
+      message.success("Login successful.");
+      navigate("/");
+    } else {
+      message.error("Login failed.");
+    }
   };
 
   return (
     <>
-      <img className="auth-logo" src="images/logo.svg" alt="logo" />
-
+      <img
+        className="auth-logo"
+        src="images/logo.svg"
+        alt="logo"
+        onClick={() => navigate("/")}
+      />
       <SplitLayout imageUrl="images/login.jpeg" contentLayout="left">
         <Row className="auth-form-container" justify="center">
           <div className="auth-form">
             <div className="auth-form-header"> Login </div>
             <Form
-              name="basic"
+              form={form}
+              name="login-form"
               layout="vertical"
               initialValues={{
                 remember: true,
               }}
               onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
               requiredMark={false}
               autoComplete="off"
             >
@@ -40,7 +65,11 @@ const Login = () => {
                   },
                 ]}
               >
-                <Input placeholder="Username" />
+                <Input
+                  placeholder="Username"
+                  name="username"
+                  onChange={onChange}
+                />
               </Form.Item>
 
               <Form.Item
@@ -53,7 +82,11 @@ const Login = () => {
                   },
                 ]}
               >
-                <Input.Password placeholder="Password" />
+                <Input.Password
+                  placeholder="Password"
+                  name="password"
+                  onChange={onChange}
+                />
               </Form.Item>
 
               <Form.Item>
@@ -71,7 +104,7 @@ const Login = () => {
             <Row className="auth-prompt">
               <div>
                 <span>Not registered yet? </span>
-                <a href="/">Create an account</a>
+                <Link to="/signup">Create an account</Link>
               </div>
             </Row>
 
@@ -82,12 +115,14 @@ const Login = () => {
                 className="auth-icon-google"
                 src="icons/google.svg"
                 alt="google"
+                onClick={() => thirdPartyLogin("google")}
               />
 
               <img
                 className="auth-icon-twitter"
                 src="icons/twitter.svg"
                 alt="twitter"
+                onClick={() => navigate("/auth/twitter")}
               />
             </div>
           </div>
