@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Button, Form, Input, Row, Divider, message } from "antd";
 import SplitLayout from "../components/SplitLayout";
-import useLogin from "../hooks/useLogin";
+import { useLogin } from "hooks";
 
 const Login = () => {
   const [login] = useLogin();
