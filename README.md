@@ -19,8 +19,10 @@ We host our backend codes in the root project folder, and nest frontend codes in
 ├── client                  # Frontend
 │   ├── public              # Static resources, such as icons and images
 │   └── src
-│       ├── components      # React pages
+│       ├── pages           # Main pages of the app
+│       ├── components      # Reusable UI components
 │       ├── styles          # CSS files
+│       ├── hooks           # Custom hooks
 │       ├── App.js
 │       ├── index.css
 │       └── index.js

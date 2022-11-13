@@ -1,14 +1,17 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login/Login";
-import AppFooter from "./components/Footer/AppFooter";
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import AppFooter from "./components/AppFooter";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/footer" element={<AppFooter />} />
       </Routes>
     </BrowserRouter>
