@@ -1,3 +1,5 @@
 module.exports = (app) => {
-  // TODO
+  app.get("/api/reviewer/:reviewerId", (req, res) => {
+    // TODO
+  });
 };

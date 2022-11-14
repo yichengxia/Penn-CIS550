@@ -1,3 +1,5 @@
 module.exports = (app) => {
-  // TODO
+  app.get("/api/reviews", (req, res) => {
+    // TODO
+  });
 };

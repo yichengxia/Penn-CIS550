@@ -8,7 +8,7 @@ const db = require("../database");
 const bcrypt = require("bcrypt");
 
 passport.serializeUser((user, done) => {
-  console.log("passport: serialized user is", user);
+  // console.log("passport: serialized user is", user);
   if (!user) {
     return done(error);
   }
@@ -25,7 +25,7 @@ passport.deserializeUser((id, done) => {
       if (!results || results.length === 0) {
         return done(null, false);
       }
-      console.log("passport: deserialized user is", results);
+      // console.log("passport: deserialized user is", results);
       return done(null, results[0]);
     }
   );
@@ -33,15 +33,15 @@ passport.deserializeUser((id, done) => {
 
 passport.use(
   new LocalStrategy((username, password, done) => {
-    console.log("passport: input username is", username);
-    console.log("passport: input password is", password);
+    // console.log("passport: input username is", username);
+    // console.log("passport: input password is", password);
     db.query(
       `SELECT * FROM User WHERE username = '${username}' AND password IS NOT NULL`,
       (error, results, fields) => {
         if (error) {
           return done(error);
         }
-        console.log("passport: stored user is", results);
+        // console.log("passport: stored user is", results);
         if (!results || results.length === 0) {
           console.log(
             "The user either does not exist, or needs to sign in with third party authentication."
@@ -98,7 +98,7 @@ passport.use(
                         return done(error);
                       }
                       if (results) {
-                        console.log("google: created user is", results);
+                        // console.log("google: created user is", results);
                         return done(null, results[0]);
                       }
                     }
@@ -107,7 +107,7 @@ passport.use(
               }
             );
           } else {
-            console.log("google: existing user is", results);
+            // console.log("google: existing user is", results);
             return done(null, results[0]);
           }
         }
@@ -162,7 +162,7 @@ passport.use(
                         return done(error);
                       }
                       if (results) {
-                        console.log("twitter: created user is", results);
+                        // console.log("twitter: created user is", results);
                         return done(null, results[0]);
                       }
                     }
@@ -171,7 +171,7 @@ passport.use(
               }
             );
           } else {
-            console.log("twitter: existing user is", results);
+            // console.log("twitter: existing user is", results);
             return done(null, results[0]);
           }
         }
