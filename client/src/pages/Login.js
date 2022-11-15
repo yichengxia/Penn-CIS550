@@ -44,6 +44,7 @@ const Login = () => {
         alt="logo"
         onClick={() => navigate("/")}
       />
+
       <SplitLayout imageUrl="images/login.jpeg" contentLayout="left">
         <Row className="auth-form-container" justify="center">
           <div className="auth-form">
@@ -72,6 +73,7 @@ const Login = () => {
                 <Input
                   placeholder="Username"
                   name="username"
+                  value={formData.username}
                   onChange={onChange}
                 />
               </Form.Item>
@@ -89,6 +91,7 @@ const Login = () => {
                 <Input.Password
                   placeholder="Password"
                   name="password"
+                  value={formData.password}
                   onChange={onChange}
                 />
               </Form.Item>

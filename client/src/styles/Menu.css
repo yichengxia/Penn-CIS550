@@ -1,0 +1,18 @@
+.ant-menu-horizontal {
+  font-size: 16px;
+  border: none;
+}
+
+.ant-menu-horizontal > .ant-menu-item {
+  color: #000000d9 !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item::after,
+.ant-menu-horizontal > .ant-menu-submenu::after {
+  border-bottom: none !important;
+  transition: none !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover {
+  text-decoration: underline;
+}

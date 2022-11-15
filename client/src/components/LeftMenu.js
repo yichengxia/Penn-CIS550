@@ -1,7 +1,11 @@
 import React from "react";
 
 const LeftMenu = () => {
-  return <div>Left</div>;
+  return window.location.pathname === "/" ? null : (
+    <>
+      <img src="images/logo-sm.svg" alt="logo-sm" />
+    </>
+  );
 };
 
 export default LeftMenu;
