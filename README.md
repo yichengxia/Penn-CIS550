@@ -4,6 +4,8 @@
 
 Forx News is a restaurant review website based on Yelp datasets. It aims to help users search restaurants in a simplistic way, and present them with insightful restaurant reviews.
 
+Project Wiki: [https://github.com/ruichen199801/cis550-fa22-project/wiki](https://github.com/ruichen199801/cis550-fa22-project/wiki)
+
 Deployment on Heroku: [https://forxnews.herokuapp.com](https://forxnews.herokuapp.com/)
 
 ## Tech Stack
@@ -67,3 +69,4 @@ Make sure you have installed `git`, `node`, `npm` before starting.
 2. Push untested or bugged codes
 3. Use API keys and secrets explicitly in code
 4. Include node_modules in commits
+5. Overwrite package-lock.json (use `npm ci` instead for subsequent `npm install`)

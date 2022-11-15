@@ -1,7 +1,7 @@
 import React from "react";
 import LeftMenu from "./LeftMenu";
 import RightMenu from "./RightMenu";
-import { Layout, Col, Row } from "antd";
+import { Col, Row } from "antd";
 
 const AppHeader = () => {
   return (

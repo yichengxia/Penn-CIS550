@@ -1,8 +1,13 @@
-.footer-col {
-  text-align: left;
+.footer-text span {
   font-size: 16px;
 }
 
-.footer-text span {
+.footer-text-col {
+  text-align: center;
+}
+
+.footer-copyright {
   font-size: 16px;
+  margin: 4px 0 0 0;
+  text-align: center;
 }
