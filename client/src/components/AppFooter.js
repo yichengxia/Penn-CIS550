@@ -1,32 +1,30 @@
 import React from "react";
-import { Col, Row, Button } from "antd";
+import { Col, Row } from "antd";
 
 const AppFooter = () => {
   return (
     <Row justify="space-evenly">
-      <Col className="footer-text-col" span={8}>
-        <Button
-          type="text"
+      <Col className="footer-col" span={8}>
+        <a
           href="https://github.com/ruichen199801/cis550-fa22-project/wiki/Forx-News-Wiki"
           target="_blank"
-          className="footer-text"
+          rel="noopener noreferrer"
         >
           About us
-        </Button>
+        </a>
       </Col>
 
-      <Col className="footer-text-col" span={8}>
-        <Button
-          type="text"
+      <Col className="footer-col" span={8}>
+        <a
           href="https://github.com/ruichen199801/cis550-fa22-project"
           target="_blank"
-          className="footer-text"
+          rel="noopener noreferrer"
         >
           GitHub
-        </Button>
+        </a>
       </Col>
 
-      <Col className="footer-copyright" span={8}>
+      <Col className="footer-col" span={8}>
         &#169; 2022 Forx News
       </Col>
     </Row>

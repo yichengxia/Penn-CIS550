@@ -1,32 +1,12 @@
-/* Import AntD */
+/* AntD */
 @import "~antd/dist/antd.css";
-/* Import Fonts */
+/* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Cabin:wght@500&display=swap");
-/* Import CSS files */
+/* CSS files */
+@import "styles/AppHeader.css";
 @import "styles/AppFooter.css";
 @import "styles/Auth.css";
 @import "styles/Landing.css";
 @import "styles/SplitLayout.css";
-/* Global CSS */
-.ant-form-item-label label {
-  font-size: 18px;
-}
-
-#basic_username {
-  font-size: 16px;
-}
-
-#basic_password {
-  font-size: 16px;
-}
-
-.ant-divider-inner-text {
-  font-size: 16px;
-  color: #c4c4c4;
-}
-
-.ant-layout-footer {
-  padding: 12px;
-  background: #f7f7f7;
-}
+@import "styles/Menu.css";

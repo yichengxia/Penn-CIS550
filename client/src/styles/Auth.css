@@ -19,17 +19,11 @@
 .auth-form-button {
   font-family: "Cabin";
   font-size: 26px;
-  background-color: #25c8c1;
-  border-color: #25c8c1;
+  background-color: #25c8c1 !important;
+  border-color: #25c8c1 !important;
   border-radius: 20px;
-  margin: 20px 0 0 0;
+  margin-top: 20px;
   height: auto;
-}
-
-.auth-form-button:hover,
-.auth-form-button:focus {
-  background: #25c8c1;
-  border-color: #25c8c1;
 }
 
 .auth-prompt {
@@ -43,15 +37,26 @@
   flex-direction: row;
   justify-content: center;
   gap: 50px;
-  margin: 20px 0 0 0;
+  margin-top: 20px;
 }
 
 .auth-icon-twitter {
-  margin: 5px 0 0 0;
+  margin-top: 5px;
 }
 
 .auth-logo:hover,
 .auth-icon-google:hover,
 .auth-icon-twitter:hover {
   cursor: pointer;
+}
+
+.ant-form-item-label label,
+#basic_username,
+#basic_password {
+  font-size: 16px;
+}
+
+.ant-divider-inner-text {
+  font-size: 16px;
+  color: #c4c4c4;
 }

@@ -71,6 +71,7 @@ const Signup = () => {
                 <Input
                   placeholder="Username"
                   name="username"
+                  value={formData.username}
                   onChange={onChange}
                 />
               </Form.Item>
@@ -88,6 +89,7 @@ const Signup = () => {
                 <Input.Password
                   placeholder="Password"
                   name="password"
+                  value={formData.password}
                   onChange={onChange}
                 />
               </Form.Item>

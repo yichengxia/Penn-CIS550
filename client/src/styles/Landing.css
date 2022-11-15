@@ -4,4 +4,29 @@
 
 .landing-content {
   background: #fff;
+  text-align: center;
+}
+
+.landing-logo {
+  display: block;
+  margin: 100px auto 30px auto;
+}
+
+.landing-input {
+  width: 50%;
+  min-width: 450px;
+  border: 2px solid #c4c4c4;
+  border-radius: 30px;
+}
+
+.landing-icon-search {
+  width: 20px;
+  height: 20px;
+  margin: 0 4px 0 8px;
+}
+
+.landing-icon-menu {
+  width: 25px;
+  height: 25px;
+  margin-right: 4px;
 }

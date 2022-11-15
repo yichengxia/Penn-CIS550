@@ -1,3 +1,4 @@
-export { default as useLogin } from "./useLogin";
-export { default as useLogout } from "./useLogout";
-export { default as useSignup } from "./useSignup";
+export { default as useLogin } from "./use-login";
+export { default as useLogout } from "./use-logout";
+export { default as useSignup } from "./use-signup";
+export { default as useFetchCurrentUser } from "./use-fetch-current-user";
