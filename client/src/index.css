@@ -25,3 +25,8 @@
   font-size: 16px;
   color: #c4c4c4;
 }
+
+.ant-layout-footer {
+  padding: 12px;
+  background: #f7f7f7;
+}

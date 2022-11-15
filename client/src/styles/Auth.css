@@ -5,10 +5,6 @@
   z-index: 1;
 }
 
-.auth-logo:hover {
-  cursor: pointer;
-}
-
 .auth-form {
   width: 70%;
 }
@@ -30,11 +26,7 @@
   height: auto;
 }
 
-.auth-form-button:hover {
-  background: #25c8c1;
-  border-color: #25c8c1;
-}
-
+.auth-form-button:hover,
 .auth-form-button:focus {
   background: #25c8c1;
   border-color: #25c8c1;
@@ -54,14 +46,12 @@
   margin: 20px 0 0 0;
 }
 
-.auth-icon-google:hover {
-  cursor: pointer;
-}
-
 .auth-icon-twitter {
   margin: 5px 0 0 0;
 }
 
+.auth-logo:hover,
+.auth-icon-google:hover,
 .auth-icon-twitter:hover {
   cursor: pointer;
 }
