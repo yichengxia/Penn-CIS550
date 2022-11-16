@@ -1,0 +1,17 @@
+.sf-container {
+  z-index: 1;
+}
+
+.sf-select {
+  width: 240px;
+  border: 1px solid #b8bbc2;
+  border-radius: 8px;
+  padding-left: 4px;
+}
+
+.sf-text {
+  display: inline-block;
+  width: 90px;
+  height: 30px;
+  vertical-align: top;
+}

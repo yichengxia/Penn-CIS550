@@ -23,7 +23,7 @@ const Login = () => {
     const responseStatus = await login(username, password);
     switch (responseStatus) {
       case 200:
-        message.success(`Login Success: Welcome back, ${username}!`);
+        message.success(`Login Success: Welcome, ${username}!`);
         navigate("/");
         break;
       case 401:
