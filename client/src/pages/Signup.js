@@ -23,8 +23,8 @@ const Signup = () => {
     const responseStatus = await signup(username, password);
     switch (responseStatus) {
       case 201:
-        message.success(`Registration Success: Welcome, ${username}!`);
-        navigate("/");
+        message.success(`Registration Success!`);
+        navigate("/login");
         break;
       case 409:
         message.error("Registration Failed: You already have an account.");

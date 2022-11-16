@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Layout, Input, Affix } from "antd";
 import AppHeader from "components/AppHeader";
+import SearchFilter from "components/SearchFilter";
 import AppFooter from "components/AppFooter";
 
 const { Content, Footer } = Layout;
@@ -11,10 +12,18 @@ const Landing = () => {
   const onChange = (e) => {
     setSearchTerm(e.target.value);
   };
-
   const onPressEnter = () => {
     setSearchTerm("");
   };
+
+  const [searchParams, setSearchParams] = useState({
+    city: "",
+    category: "",
+    ratingLow: 0,
+    ratingHigh: 5,
+    open: "Y",
+    sort: "avgRating",
+  });
 
   return (
     <>
