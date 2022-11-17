@@ -1,5 +1,7 @@
 # CIS550 Course Project: Forx News
 
+<p align="center"><img src="client/public/github/forxnews.svg" alt="forxnews"></p>
+
 ## Description
 
 Forx News is a restaurant review website based on Yelp datasets. It aims to help users search restaurants in a simplistic way, and present them with insightful restaurant reviews.
