@@ -1,6 +1,6 @@
 # CIS550 Course Project: Forx News
 
-<p align="center"><img src="client/public/github/forxnews.svg" alt="forxnews"></p>
+<p align="center"><img src="client/public/github/forxnews.png" alt="forxnews"></p>
 
 ## Description
 
