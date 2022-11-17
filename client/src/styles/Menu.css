@@ -16,3 +16,7 @@
 .ant-menu-horizontal > .ant-menu-item:hover {
   text-decoration: underline;
 }
+
+.lmenu-logo:hover {
+  cursor: pointer;
+}

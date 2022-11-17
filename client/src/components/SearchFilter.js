@@ -9,9 +9,35 @@ import {
 } from "constants/constants";
 import { sortFilterOptions } from "utils";
 
-const SearchFilter = ({ setSearchParams }) => {
-  const onChange = (value) => {
-    console.log(`selected ${value}`);
+const SearchFilter = ({ searchParams, setSearchParams }) => {
+  const onCityChange = (value) => {
+    if (searchParams) {
+      setSearchParams({ ...searchParams, city: value });
+    }
+  };
+
+  const onCategoryChange = (value) => {
+    if (searchParams) {
+      setSearchParams({ ...searchParams, category: value });
+    }
+  };
+
+  const onRatingChange = (value) => {
+    if (searchParams) {
+      setSearchParams({ ...searchParams, ratingLow: value });
+    }
+  };
+
+  const onOpenChange = (value) => {
+    if (searchParams) {
+      setSearchParams({ ...searchParams, open: value });
+    }
+  };
+
+  const onSortChange = (value) => {
+    if (searchParams) {
+      setSearchParams({ ...searchParams, sort: value });
+    }
   };
 
   return (
@@ -28,49 +54,67 @@ const SearchFilter = ({ setSearchParams }) => {
         <Select
           className="sf-select"
           bordered={false}
-          defaultValue={restaurantCityOptions[0].value}
+          defaultValue={
+            searchParams ? searchParams.city : restaurantCityOptions[0].value
+          }
           options={sortFilterOptions(restaurantCityOptions)}
-          onChange={onChange}
+          onChange={onCityChange}
         />
       </div>
+
       <div>
         <div className="sf-text">Category</div>
         <Select
           className="sf-select"
           bordered={false}
-          defaultValue={restaurantCategoryOptions[0].value}
+          defaultValue={
+            searchParams
+              ? searchParams.category
+              : restaurantCategoryOptions[0].value
+          }
           options={sortFilterOptions(restaurantCategoryOptions)}
-          onChange={onChange}
+          onChange={onCategoryChange}
         />
       </div>
+
       <div>
         <div className="sf-text">Rating</div>
         <Select
           className="sf-select"
           bordered={false}
-          defaultValue={restaurantRatingOptions[0].value}
+          defaultValue={
+            searchParams
+              ? searchParams.ratingLow
+              : restaurantRatingOptions[0].value
+          }
           options={restaurantRatingOptions}
-          onChange={onChange}
+          onChange={onRatingChange}
         />
       </div>
+
       <div>
         <div className="sf-text">Open</div>
         <Select
           className="sf-select"
           bordered={false}
-          defaultValue={restaurantOpenOptions[0].value}
+          defaultValue={
+            searchParams ? searchParams.open : restaurantOpenOptions[0].value
+          }
           options={restaurantOpenOptions}
-          onChange={onChange}
+          onChange={onOpenChange}
         />
       </div>
+
       <div>
         <div className="sf-text">Sort</div>
         <Select
           className="sf-select"
           bordered={false}
-          defaultValue={restaurantSortOptions[0].value}
+          defaultValue={
+            searchParams ? searchParams.sort : restaurantSortOptions[0].value
+          }
           options={restaurantSortOptions}
-          onChange={onChange}
+          onChange={onSortChange}
         />
       </div>
     </Space>
