@@ -13,7 +13,9 @@ const RightMenu = () => {
   useEffect(() => {
     const fetchUser = async () => {
       const user = await fetchCurrentUser();
-      setCurrentUser(user.username);
+      if (user) {
+        setCurrentUser(user.username);
+      }
     };
     fetchUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -23,6 +25,7 @@ const RightMenu = () => {
     await logout();
     setCurrentUser("");
     message.success("You have successfully logged out.");
+    window.location.reload(); // interrupt message
     // navigate("/");
   };
 
@@ -64,7 +67,6 @@ const RightMenu = () => {
   return (
     <Menu
       mode="horizontal"
-      className="rmenu"
       style={{ display: "flex", flexDirection: "row-reverse" }}
       disabledOverflow="true" // TBD
       items={currentUser ? menuItemsLoggedIn : menuItemsUnloggedIn}

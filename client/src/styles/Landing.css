@@ -9,14 +9,14 @@
 
 .landing-logo {
   display: block;
-  margin: 100px auto 30px auto;
+  margin: 70px auto 20px auto;
 }
 
 .landing-input {
-  width: 50%;
-  min-width: 400px;
+  width: 40%;
+  min-width: 480px;
   border: 2px solid #c4c4c4;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
 .landing-icon-search {
@@ -29,4 +29,17 @@
   width: 25px;
   height: 25px;
   margin-right: 4px;
+}
+
+.landing-icon-menu:hover {
+  cursor: pointer;
+}
+
+.landing-sf {
+  display: inline-block;
+  text-align: left;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 25px 100px 20px 30px;
+  margin: 15px 0 20px 0;
 }

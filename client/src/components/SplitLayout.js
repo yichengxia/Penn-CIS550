@@ -8,6 +8,7 @@ const SplitLayout = ({ imageUrl, contentLayout, children }) => {
       <div className={contentLayout === "left" ? "sl-content" : ""}>
         {contentLayout === "left" ? children : image}
       </div>
+
       <div className={contentLayout === "left" ? "" : "sl-content"}>
         {contentLayout === "left" ? image : children}
       </div>
