@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Avatar, Menu, message } from "antd";
+import { Menu, Avatar, Tooltip, message } from "antd";
 import { useFetchCurrentUser, useLogout } from "hooks";
 import { getInitial } from "utils";
 
@@ -25,42 +25,89 @@ const RightMenu = () => {
     await logout();
     setCurrentUser("");
     message.success("You have successfully logged out.");
-    window.location.reload(); // interrupt message
-    // navigate("/");
+    if (window.location.pathname === "/") {
+      window.location.reload();
+    }
+    navigate("/", { state: { from: window.location.pathname } });
   };
 
   const menuItemsUnloggedIn = [
     {
       key: "signup",
-      label: "Sign up",
-      onClick: () => navigate("/signup"),
+      label: (
+        <div
+          className="rmenu-text"
+          onClick={() =>
+            navigate("/signup", { state: { from: window.location.pathname } })
+          }
+        >
+          Sign up
+        </div>
+      ),
     },
     {
       key: "login",
-      label: "Login",
-      onClick: () => navigate("/login"),
+      label: (
+        <div
+          className="rmenu-text"
+          onClick={() =>
+            navigate("/login", { state: { from: window.location.pathname } })
+          }
+        >
+          Login
+        </div>
+      ),
+    },
+    {
+      key: "insights",
+      label: (
+        <Tooltip placement="bottom" title={"Forx Insights 🔥"}>
+          <img
+            className="rmenu-insights"
+            src="icons/insights.png"
+            alt="insights"
+            onClick={() => {
+              navigate("/login", {
+                state: { from: window.location.pathname },
+              });
+              message.error("You need to log in first!");
+            }}
+          />
+        </Tooltip>
+      ),
     },
   ];
 
   const menuItemsLoggedIn = [
     {
       key: "logout",
-      label: "Log out",
-      onClick: handleLogout,
+      label: (
+        <div className="rmenu-text" onClick={handleLogout}>
+          Log out
+        </div>
+      ),
     },
     {
       key: "avatar",
       label: (
-        <Avatar
-          style={{
-            verticalAlign: "middle",
-            backgroundColor: "#25c8c1",
-          }}
-        >
-          {getInitial(currentUser)}
-        </Avatar>
+        <Tooltip placement="bottom" title="Saved Restaurants">
+          <Avatar className="rmenu-avatar">{getInitial(currentUser)}</Avatar>
+        </Tooltip>
       ),
       // onClick: () => navigate("/user"), navigate to saved restaurants page
+    },
+    {
+      key: "insights",
+      label: (
+        <Tooltip placement="bottom" title={"Forx Insights 🔥"}>
+          <img
+            className="rmenu-insights"
+            src="icons/insights.png"
+            alt="insights"
+          />
+        </Tooltip>
+      ),
+      // onClick: () => navigate("/insights"), navigate to insights page
     },
   ];
 
@@ -68,7 +115,7 @@ const RightMenu = () => {
     <Menu
       mode="horizontal"
       style={{ display: "flex", flexDirection: "row-reverse" }}
-      disabledOverflow="true" // TBD
+      disabledOverflow="true"
       items={currentUser ? menuItemsLoggedIn : menuItemsUnloggedIn}
     ></Menu>
   );

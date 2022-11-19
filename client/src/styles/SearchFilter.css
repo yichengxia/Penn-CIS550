@@ -1,5 +1,5 @@
-.sf-container {
-  z-index: 1;
+.sf-item {
+  max-height: 35px;
 }
 
 .sf-select {

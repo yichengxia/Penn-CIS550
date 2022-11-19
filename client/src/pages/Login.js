@@ -1,30 +1,38 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button, Form, Input, Row, Divider, message } from "antd";
 import SplitLayout from "../components/SplitLayout";
 import { useLogin } from "hooks";
 
 const Login = () => {
-  const [login] = useLogin();
   const navigate = useNavigate();
-  const [form] = Form.useForm();
+  const location = useLocation();
+  const loginNavigateTo =
+    location.state && location.state.from !== "/signup"
+      ? location.state.from
+      : "/";
 
+  const [login] = useLogin();
+  const [form] = Form.useForm();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
   const { username, password } = formData;
-  const onChange = (e) => {
+
+  const onInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const onFinish = async () => {
+  const onInputFinish = async () => {
     form.resetFields();
     const responseStatus = await login(username, password);
     switch (responseStatus) {
       case 200:
         message.success(`Login Success: Welcome, ${username}!`);
-        navigate("/");
+        navigate(loginNavigateTo, {
+          state: { from: window.location.pathname },
+        });
         break;
       case 401:
         message.error(
@@ -42,7 +50,9 @@ const Login = () => {
         className="auth-logo"
         src="images/logo.svg"
         alt="logo"
-        onClick={() => navigate("/")}
+        onClick={() =>
+          navigate("/", { state: { from: window.location.pathname } })
+        }
       />
 
       <SplitLayout imageUrl="images/login.jpeg" contentLayout="left">
@@ -56,7 +66,7 @@ const Login = () => {
               initialValues={{
                 remember: true,
               }}
-              onFinish={onFinish}
+              onFinish={onInputFinish}
               requiredMark={false}
               autoComplete="off"
             >
@@ -74,7 +84,7 @@ const Login = () => {
                   placeholder="Username"
                   name="username"
                   value={formData.username}
-                  onChange={onChange}
+                  onChange={onInputChange}
                 />
               </Form.Item>
 
@@ -92,7 +102,7 @@ const Login = () => {
                   placeholder="Password"
                   name="password"
                   value={formData.password}
-                  onChange={onChange}
+                  onChange={onInputChange}
                 />
               </Form.Item>
 
@@ -111,7 +121,9 @@ const Login = () => {
             <Row className="auth-prompt">
               <div>
                 <span>Not registered yet? </span>
-                <Link to="/signup">Create an account</Link>
+                <Link to="/signup" state={{ from: window.location.pathname }}>
+                  Create an account
+                </Link>
               </div>
             </Row>
 

@@ -9,8 +9,3 @@
 .footer-col a:hover {
   text-decoration: underline;
 }
-
-.ant-layout-footer {
-  padding: 15px 0;
-  background: #f7f7f7;
-}
