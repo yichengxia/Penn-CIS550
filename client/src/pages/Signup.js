@@ -14,21 +14,22 @@ const Signup = () => {
     password: "",
   });
   const { username, password } = formData;
-  const onChange = (e) => {
+
+  const onInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const onFinish = async () => {
+  const onInputFinish = async () => {
     form.resetFields();
     const responseStatus = await signup(username, password);
     switch (responseStatus) {
       case 201:
         message.success(`Registration Success!`);
-        navigate("/login");
+        navigate("/login", { state: { from: window.location.pathname } });
         break;
       case 409:
         message.error("Registration Failed: You already have an account.");
-        navigate("/login");
+        navigate("/login", { state: { from: window.location.pathname } });
         break;
       default:
         message.error("Registration Failed: Something went wrong!");
@@ -41,7 +42,9 @@ const Signup = () => {
         className="auth-logo"
         src="images/logo.svg"
         alt="logo"
-        onClick={() => navigate("/")}
+        onClick={() =>
+          navigate("/", { state: { from: window.location.pathname } })
+        }
       />
       <SplitLayout imageUrl="images/signup.jpeg" contentLayout="right">
         <Row className="auth-form-container" justify="center">
@@ -54,7 +57,7 @@ const Signup = () => {
               initialValues={{
                 remember: true,
               }}
-              onFinish={onFinish}
+              onFinish={onInputFinish}
               requiredMark={false}
               autoComplete="off"
             >
@@ -72,7 +75,7 @@ const Signup = () => {
                   placeholder="Username"
                   name="username"
                   value={formData.username}
-                  onChange={onChange}
+                  onChange={onInputChange}
                 />
               </Form.Item>
 
@@ -90,7 +93,7 @@ const Signup = () => {
                   placeholder="Password"
                   name="password"
                   value={formData.password}
-                  onChange={onChange}
+                  onChange={onInputChange}
                 />
               </Form.Item>
 
@@ -109,7 +112,9 @@ const Signup = () => {
             <Row className="auth-prompt">
               <div>
                 <span>Already have an account? </span>
-                <Link to="/login">Log in</Link>
+                <Link to="/login" state={{ from: window.location.pathname }}>
+                  Log in
+                </Link>
               </div>
             </Row>
 

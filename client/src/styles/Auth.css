@@ -49,14 +49,3 @@
 .auth-icon-twitter:hover {
   cursor: pointer;
 }
-
-.ant-form-item-label label,
-#basic_username,
-#basic_password {
-  font-size: 16px;
-}
-
-.ant-divider-inner-text {
-  font-size: 16px;
-  color: #c4c4c4;
-}

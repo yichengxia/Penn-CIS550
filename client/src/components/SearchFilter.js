@@ -42,14 +42,13 @@ const SearchFilter = ({ searchParams, setSearchParams }) => {
 
   return (
     <Space
-      className="sf-container"
       direction="vertical"
       size="middle"
       style={{
         display: "flex",
       }}
     >
-      <div>
+      <div className="sf-item">
         <div className="sf-text">Location</div>
         <Select
           className="sf-select"
@@ -62,7 +61,7 @@ const SearchFilter = ({ searchParams, setSearchParams }) => {
         />
       </div>
 
-      <div>
+      <div className="sf-item">
         <div className="sf-text">Category</div>
         <Select
           className="sf-select"
@@ -77,7 +76,7 @@ const SearchFilter = ({ searchParams, setSearchParams }) => {
         />
       </div>
 
-      <div>
+      <div className="sf-item">
         <div className="sf-text">Rating</div>
         <Select
           className="sf-select"
@@ -92,7 +91,7 @@ const SearchFilter = ({ searchParams, setSearchParams }) => {
         />
       </div>
 
-      <div>
+      <div className="sf-item">
         <div className="sf-text">Open</div>
         <Select
           className="sf-select"
@@ -105,7 +104,7 @@ const SearchFilter = ({ searchParams, setSearchParams }) => {
         />
       </div>
 
-      <div>
+      <div className="sf-item">
         <div className="sf-text">Sort</div>
         <Select
           className="sf-select"

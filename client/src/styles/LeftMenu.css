@@ -1,0 +1,51 @@
+.lmenu-logo-container {
+  margin-right: 50px;
+}
+
+.lmenu-input {
+  min-width: 350px;
+  border: 2px solid #c4c4c4;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.lmenu-icon-search {
+  width: 16px;
+  height: 16px;
+  margin: 0 4px 0 8px;
+}
+
+.lmenu-icon-menu {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+}
+
+.lmenu-sf {
+  position: absolute;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px 65px 30px 20px;
+  left: 280px;
+  top: 60px;
+}
+
+.lmenu-sf .sf-text {
+  width: 90px;
+}
+
+.lmenu-sf .sf-select {
+  width: 160px;
+}
+
+.lmenu-logo-container:hover,
+.lmenu-icon-menu:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 925px) {
+  .lmenu-input,
+  .lmenu-sf {
+    display: none;
+  }
+}

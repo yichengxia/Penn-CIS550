@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Input, Affix } from "antd";
+import { useNavigate } from "react-router-dom";
+import { Layout, Input, Affix, Tooltip } from "antd";
 import AppHeader from "components/AppHeader";
 import SearchFilter from "components/SearchFilter";
 import AppFooter from "components/AppFooter";
@@ -7,6 +8,8 @@ import AppFooter from "components/AppFooter";
 const { Content, Footer } = Layout;
 
 const Landing = () => {
+  const navigate = useNavigate();
+
   const [showSearchFilter, setShowSearchFilter] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchParams, setSearchParams] = useState({
@@ -24,12 +27,13 @@ const Landing = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onChange = (e) => {
+  const onInputChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  const onPressEnter = () => {
-    setSearchTerm("");
+  const search = () => {
+    // call search hook
+    navigate("/restaurants", { state: { from: window.location.pathname } });
   };
 
   return (
@@ -45,9 +49,13 @@ const Landing = () => {
           <Input
             className="landing-input"
             size="large"
+            placeholder="Search Restaurants"
             ref={(input) => {
               searchRef = input;
             }}
+            value={searchTerm}
+            onChange={onInputChange}
+            onPressEnter={search}
             prefix={
               <img
                 className="landing-icon-search"
@@ -56,19 +64,20 @@ const Landing = () => {
               />
             }
             suffix={
-              <img
-                className="landing-icon-menu"
-                src="icons/menu.svg"
-                alt="menu"
-                onClick={() => {
-                  setShowSearchFilter(!showSearchFilter);
-                }}
-              />
+              <Tooltip
+                placement="bottom"
+                title={showSearchFilter ? "Hide Filter" : "Show Filter"}
+              >
+                <img
+                  className="landing-icon-menu"
+                  src="icons/menu.svg"
+                  alt="menu"
+                  onClick={() => {
+                    setShowSearchFilter(!showSearchFilter);
+                  }}
+                />
+              </Tooltip>
             }
-            placeholder="Search Restaurants"
-            value={searchTerm}
-            onChange={onChange}
-            onPressEnter={onPressEnter}
           />
 
           <div>

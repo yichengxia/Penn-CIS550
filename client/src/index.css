@@ -9,5 +9,50 @@
 @import "styles/Auth.css";
 @import "styles/Landing.css";
 @import "styles/SplitLayout.css";
-@import "styles/Menu.css";
+@import "styles/LeftMenu.css";
+@import "styles/RightMenu.css";
 @import "styles/SearchFilter.css";
+/* Global */
+.ant-form-item-label label,
+#basic_username,
+#basic_password {
+  font-size: 16px;
+}
+
+.ant-divider-inner-text {
+  font-size: 16px;
+  color: #c4c4c4;
+}
+
+.ant-menu-horizontal {
+  font-size: 16px;
+  border: none;
+}
+
+.ant-menu-horizontal > .ant-menu-item {
+  color: #000000d9 !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item::after,
+.ant-menu-horizontal > .ant-menu-submenu::after {
+  border-bottom: none !important;
+  transition: none !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
+.ant-tooltip-inner {
+  font-size: 12px;
+}
+
+.ant-layout-header {
+  padding: 5px 35px 0 10px;
+}
+
+.ant-layout-footer {
+  padding: 15px 0;
+  background: #f7f7f7;
+}
