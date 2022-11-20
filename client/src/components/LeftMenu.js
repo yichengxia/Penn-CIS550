@@ -80,7 +80,7 @@ const LeftMenu = () => {
   ];
 
   return window.location.pathname === "/" ? null : (
-    <div>
+    <>
       <Menu
         mode="horizontal"
         style={{ display: "flex" }}
@@ -97,7 +97,7 @@ const LeftMenu = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

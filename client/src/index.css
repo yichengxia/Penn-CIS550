@@ -12,6 +12,7 @@
 @import "styles/LeftMenu.css";
 @import "styles/RightMenu.css";
 @import "styles/SearchFilter.css";
+@import "styles/RestaurantItem.css";
 /* Global */
 .ant-form-item-label label,
 #basic_username,
@@ -48,8 +49,16 @@
   font-size: 12px;
 }
 
+.ant-badge-dot {
+  background: #30d915;
+  top: 28px;
+  left: 20px;
+  width: 8px;
+  height: 8px;
+}
+
 .ant-layout-header {
-  padding: 5px 35px 0 10px;
+  padding: 5px 35px 100px 10px;
 }
 
 .ant-layout-footer {

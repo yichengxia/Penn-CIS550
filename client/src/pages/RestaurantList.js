@@ -9,7 +9,7 @@ const RestaurantList = () => {
   return (
     <>
       <Layout className="landing-layout">
-        <Affix offsetTop={0}>
+        <Affix>
           <AppHeader />
         </Affix>
 

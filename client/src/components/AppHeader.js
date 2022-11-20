@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Layout } from "antd";
+import { Col, Row, Layout, Divider } from "antd";
 import LeftMenu from "./LeftMenu";
 import RightMenu from "./RightMenu";
 
@@ -16,6 +16,15 @@ const AppHeader = () => {
           <RightMenu />
         </Col>
       </Row>
+      {window.location.pathname === "/" ? null : (
+        <Divider
+          style={{
+            border: "1px solid #f3f3f3",
+            minWidth: "100vw",
+            marginTop: "8px",
+          }}
+        />
+      )}
     </Header>
   );
 };
