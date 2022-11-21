@@ -1,9 +1,4 @@
-.landing-layout {
-  min-height: 100vh;
-}
-
 .landing-content {
-  background: #fff;
   text-align: center;
 }
 
@@ -13,10 +8,10 @@
 }
 
 .landing-input {
-  width: 40%;
-  min-width: 480px;
   border: 2px solid #c4c4c4;
   border-radius: 20px;
+  width: 40%;
+  min-width: 480px;
 }
 
 .landing-icon-search {

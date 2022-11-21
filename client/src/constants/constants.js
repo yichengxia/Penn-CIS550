@@ -154,7 +154,7 @@ export const restaurantCategoryOptions = [
 
 export const restaurantRatingOptions = [
   {
-    value: 1.0,
+    value: 1,
     label: "All",
   },
   {
@@ -162,7 +162,7 @@ export const restaurantRatingOptions = [
     label: "Excellent 4.5+",
   },
   {
-    value: 4.0,
+    value: 4,
     label: "Very Good 4+",
   },
   {

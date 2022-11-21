@@ -63,7 +63,7 @@ const RightMenu = () => {
     <Tooltip placement="bottom" title={"Forx Insights 🔥"}>
       <img
         className="rmenu-insights"
-        src="icons/insights.png"
+        src="/icons/insights.png"
         alt="insights"
         onClick={() => {
           navigate("/login", {
@@ -77,9 +77,17 @@ const RightMenu = () => {
 
   const InsightsLoggedIn = (
     <Tooltip placement="bottom" title={"Forx Insights 🔥"}>
-      <img className="rmenu-insights" src="icons/insights.png" alt="insights" />
+      <img
+        className="rmenu-insights"
+        src="/icons/insights.png"
+        alt="insights"
+        onClick={() => {
+          navigate("/insights", {
+            state: { from: window.location.pathname },
+          });
+        }}
+      />
     </Tooltip>
-    // onClick: () => navigate("/insights"), navigate to insights page
   );
 
   const menuItemsUnloggedIn = [
@@ -107,10 +115,18 @@ const RightMenu = () => {
       label: (
         <Tooltip placement="bottom" title="Saved Restaurants">
           <Badge dot>
-            <Avatar className="rmenu-avatar">{getInitial(currentUser)}</Avatar>
+            <Avatar
+              className="rmenu-avatar"
+              onClick={() => {
+                navigate("/user", {
+                  state: { from: window.location.pathname },
+                });
+              }}
+            >
+              {getInitial(currentUser)}
+            </Avatar>
           </Badge>
         </Tooltip>
-        // onClick: () => navigate("/user"), navigate to saved restaurants page
       ),
     },
     {
@@ -124,6 +140,7 @@ const RightMenu = () => {
       mode="horizontal"
       style={{ display: "flex", flexDirection: "row-reverse" }}
       items={currentUser ? menuItemsLoggedIn : menuItemsUnloggedIn}
+      disabledOverflow="true"
     ></Menu>
   );
 };

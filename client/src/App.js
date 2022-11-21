@@ -1,28 +1,30 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Landing from "./pages/Landing";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import LandingPage from "pages/LandingPage";
+import LoginPage from "pages/LoginPage";
+import SignupPage from "pages/SignupPage";
+import RestaurantListPage from "pages/RestaurantListPage";
+import RestaurantPage from "pages/RestaurantPage";
+import ReviewerPage from "pages/ReviewerPage";
+import UserPage from "pages/UserPage";
+import InsightsPage from "pages/InsightsPage";
 import AppHeader from "components/AppHeader";
-import AppFooter from "./components/AppFooter";
-import SearchFilter from "components/SearchFilter";
-import RestaurantList from "pages/RestaurantList";
-import RestaurantItem from "components/RestaurantItem";
-import Restaurant from "pages/Restaurant";
+import AppFooter from "components/AppFooter";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/restaurants" element={<RestaurantListPage />} />
+        <Route path="/restaurant/:restaurantId" element={<RestaurantPage />} />
+        <Route path="/reviewer/:reviewerId" element={<ReviewerPage />} />
+        <Route path="/user" element={<UserPage />} />
+        <Route path="/insights" element={<InsightsPage />} />
         <Route path="/header" element={<AppHeader />} />
         <Route path="/footer" element={<AppFooter />} />
-        <Route path="/filter" element={<SearchFilter />} />
-        <Route path="/restaurants" element={<RestaurantList />} />
-        <Route path="/restaurant_item" element={<RestaurantItem />} />
-        <Route path="/restaurant/:restaurantId" element={<Restaurant />} />
       </Routes>
     </BrowserRouter>
   );

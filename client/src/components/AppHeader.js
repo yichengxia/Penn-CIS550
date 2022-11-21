@@ -7,7 +7,7 @@ const { Header } = Layout;
 
 const AppHeader = () => {
   return (
-    <Header className="header">
+    <Header>
       <Row align="bottom">
         <Col xs={22} sm={20} md={18} lg={16} xl={14}>
           <LeftMenu />
@@ -17,13 +17,7 @@ const AppHeader = () => {
         </Col>
       </Row>
       {window.location.pathname === "/" ? null : (
-        <Divider
-          style={{
-            border: "1px solid #f3f3f3",
-            minWidth: "100vw",
-            marginTop: "8px",
-          }}
-        />
+        <Divider className="header-divider" />
       )}
     </Header>
   );
