@@ -1,3 +1,5 @@
-.header {
-  background-color: #fff;
+.header-divider {
+  border: 1px solid #f3f3f3;
+  min-width: 100vw;
+  margin-top: 8px;
 }

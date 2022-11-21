@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button, Form, Input, Row, Divider, message } from "antd";
 import SplitLayout from "../components/SplitLayout";
-import { useLogin } from "hooks";
+import { useSignup } from "hooks";
 
-const Login = () => {
+const SignupPage = () => {
+  const [signup] = useSignup();
   const navigate = useNavigate();
-  const location = useLocation();
-  const loginNavigateTo =
-    location.state && location.state.from !== "/signup"
-      ? location.state.from
-      : "/";
-
-  const [login] = useLogin();
   const [form] = Form.useForm();
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -26,21 +21,18 @@ const Login = () => {
 
   const onInputFinish = async () => {
     form.resetFields();
-    const responseStatus = await login(username, password);
+    const responseStatus = await signup(username, password);
     switch (responseStatus) {
-      case 200:
-        message.success(`Login Success: Welcome, ${username}!`);
-        navigate(loginNavigateTo, {
-          state: { from: window.location.pathname },
-        });
+      case 201:
+        message.success(`Registration Success!`);
+        navigate("/login", { state: { from: window.location.pathname } });
         break;
-      case 401:
-        message.error(
-          "Login Failed: Incorrect password, or account doesn't exist."
-        );
+      case 409:
+        message.error("Registration Failed: You already have an account.");
+        navigate("/login", { state: { from: window.location.pathname } });
         break;
       default:
-        message.error("Login Failed: Something went wrong!");
+        message.error("Registration Failed: Something went wrong!");
     }
   };
 
@@ -48,19 +40,18 @@ const Login = () => {
     <>
       <img
         className="auth-logo"
-        src="images/logo.svg"
+        src="/images/logo.svg"
         alt="logo"
         onClick={() =>
           navigate("/", { state: { from: window.location.pathname } })
         }
       />
-
-      <SplitLayout imageUrl="images/login.jpeg" contentLayout="left">
+      <SplitLayout imageUrl="images/signup.jpeg" contentLayout="right">
         <Row className="auth-form-container" justify="center">
           <div className="auth-form">
-            <div className="auth-form-header"> Login </div>
+            <div className="auth-form-header"> Sign Up </div>
             <Form
-              name="login-form"
+              name="signup-form"
               layout="vertical"
               form={form}
               initialValues={{
@@ -113,16 +104,16 @@ const Login = () => {
                   type="primary"
                   block
                 >
-                  Login
+                  Sign Up
                 </Button>
               </Form.Item>
             </Form>
 
             <Row className="auth-prompt">
               <div>
-                <span>Not registered yet? </span>
-                <Link to="/signup" state={{ from: window.location.pathname }}>
-                  Create an account
+                <span>Already have an account? </span>
+                <Link to="/login" state={{ from: window.location.pathname }}>
+                  Log in
                 </Link>
               </div>
             </Row>
@@ -133,7 +124,7 @@ const Login = () => {
               <a href="/auth/google">
                 <img
                   className="auth-icon-google"
-                  src="icons/google.svg"
+                  src="/icons/google.svg"
                   alt="google"
                 />
               </a>
@@ -141,7 +132,7 @@ const Login = () => {
               <a href="/auth/twitter">
                 <img
                   className="auth-icon-twitter"
-                  src="icons/twitter.svg"
+                  src="/icons/twitter.svg"
                   alt="twitter"
                 />
               </a>
@@ -153,4 +144,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignupPage;

@@ -1,0 +1,8 @@
+.rl-item {
+  margin-left: 15%;
+}
+
+.rl-empty {
+  position: absolute;
+  margin: 40px 0 0 300px;
+}

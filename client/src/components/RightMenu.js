@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Menu, Avatar, Tooltip, message } from "antd";
+import { Menu, Avatar, Badge, Tooltip, message } from "antd";
 import { useFetchCurrentUser, useLogout } from "hooks";
 import { getInitial } from "utils";
 
@@ -31,83 +31,107 @@ const RightMenu = () => {
     navigate("/", { state: { from: window.location.pathname } });
   };
 
+  const SignUp = (
+    <div
+      className="rmenu-text"
+      onClick={() =>
+        navigate("/signup", { state: { from: window.location.pathname } })
+      }
+    >
+      Sign up
+    </div>
+  );
+
+  const Login = (
+    <div
+      className="rmenu-text"
+      onClick={() =>
+        navigate("/login", { state: { from: window.location.pathname } })
+      }
+    >
+      Login
+    </div>
+  );
+
+  const Logout = (
+    <div className="rmenu-text" onClick={handleLogout}>
+      Log out
+    </div>
+  );
+
+  const InsightsUnloggedIn = (
+    <Tooltip placement="bottom" title={"Forx Insights 🔥"}>
+      <img
+        className="rmenu-insights"
+        src="/icons/insights.png"
+        alt="insights"
+        onClick={() => {
+          navigate("/login", {
+            state: { from: window.location.pathname },
+          });
+          message.error("You need to log in first!");
+        }}
+      />
+    </Tooltip>
+  );
+
+  const InsightsLoggedIn = (
+    <Tooltip placement="bottom" title={"Forx Insights 🔥"}>
+      <img
+        className="rmenu-insights"
+        src="/icons/insights.png"
+        alt="insights"
+        onClick={() => {
+          navigate("/insights", {
+            state: { from: window.location.pathname },
+          });
+        }}
+      />
+    </Tooltip>
+  );
+
   const menuItemsUnloggedIn = [
     {
       key: "signup",
-      label: (
-        <div
-          className="rmenu-text"
-          onClick={() =>
-            navigate("/signup", { state: { from: window.location.pathname } })
-          }
-        >
-          Sign up
-        </div>
-      ),
+      label: SignUp,
     },
     {
       key: "login",
-      label: (
-        <div
-          className="rmenu-text"
-          onClick={() =>
-            navigate("/login", { state: { from: window.location.pathname } })
-          }
-        >
-          Login
-        </div>
-      ),
+      label: Login,
     },
     {
       key: "insights",
-      label: (
-        <Tooltip placement="bottom" title={"Forx Insights 🔥"}>
-          <img
-            className="rmenu-insights"
-            src="icons/insights.png"
-            alt="insights"
-            onClick={() => {
-              navigate("/login", {
-                state: { from: window.location.pathname },
-              });
-              message.error("You need to log in first!");
-            }}
-          />
-        </Tooltip>
-      ),
+      label: InsightsUnloggedIn,
     },
   ];
 
   const menuItemsLoggedIn = [
     {
       key: "logout",
-      label: (
-        <div className="rmenu-text" onClick={handleLogout}>
-          Log out
-        </div>
-      ),
+      label: Logout,
     },
     {
       key: "avatar",
       label: (
         <Tooltip placement="bottom" title="Saved Restaurants">
-          <Avatar className="rmenu-avatar">{getInitial(currentUser)}</Avatar>
+          <Badge dot>
+            <Avatar
+              className="rmenu-avatar"
+              onClick={() => {
+                navigate("/user", {
+                  state: { from: window.location.pathname },
+                });
+              }}
+            >
+              {getInitial(currentUser)}
+            </Avatar>
+          </Badge>
         </Tooltip>
       ),
-      // onClick: () => navigate("/user"), navigate to saved restaurants page
     },
     {
       key: "insights",
-      label: (
-        <Tooltip placement="bottom" title={"Forx Insights 🔥"}>
-          <img
-            className="rmenu-insights"
-            src="icons/insights.png"
-            alt="insights"
-          />
-        </Tooltip>
-      ),
-      // onClick: () => navigate("/insights"), navigate to insights page
+      label: InsightsLoggedIn,
     },
   ];
 
@@ -115,8 +139,8 @@ const RightMenu = () => {
     <Menu
       mode="horizontal"
       style={{ display: "flex", flexDirection: "row-reverse" }}
-      disabledOverflow="true"
       items={currentUser ? menuItemsLoggedIn : menuItemsUnloggedIn}
+      disabledOverflow="true"
     ></Menu>
   );
 };

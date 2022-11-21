@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button, Form, Input, Row, Divider, message } from "antd";
 import SplitLayout from "../components/SplitLayout";
-import { useSignup } from "hooks";
+import { useLogin } from "hooks";
 
-const Signup = () => {
-  const [signup] = useSignup();
+const LoginPage = () => {
   const navigate = useNavigate();
-  const [form] = Form.useForm();
+  const location = useLocation();
+  const loginNavigateTo =
+    location.state && location.state.from && location.state.from !== "/signup"
+      ? location.state.from
+      : "/";
 
+  const [login] = useLogin();
+  const [form] = Form.useForm();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -21,18 +26,21 @@ const Signup = () => {
 
   const onInputFinish = async () => {
     form.resetFields();
-    const responseStatus = await signup(username, password);
+    const responseStatus = await login(username, password);
     switch (responseStatus) {
-      case 201:
-        message.success(`Registration Success!`);
-        navigate("/login", { state: { from: window.location.pathname } });
+      case 200:
+        message.success(`Login Success: Welcome, ${username}!`);
+        navigate(loginNavigateTo, {
+          state: { from: window.location.pathname },
+        });
         break;
-      case 409:
-        message.error("Registration Failed: You already have an account.");
-        navigate("/login", { state: { from: window.location.pathname } });
+      case 401:
+        message.error(
+          "Login Failed: Incorrect password, or account doesn't exist."
+        );
         break;
       default:
-        message.error("Registration Failed: Something went wrong!");
+        message.error("Login Failed: Something went wrong!");
     }
   };
 
@@ -40,18 +48,19 @@ const Signup = () => {
     <>
       <img
         className="auth-logo"
-        src="images/logo.svg"
+        src="/images/logo.svg"
         alt="logo"
         onClick={() =>
           navigate("/", { state: { from: window.location.pathname } })
         }
       />
-      <SplitLayout imageUrl="images/signup.jpeg" contentLayout="right">
+
+      <SplitLayout imageUrl="images/login.jpeg" contentLayout="left">
         <Row className="auth-form-container" justify="center">
           <div className="auth-form">
-            <div className="auth-form-header"> Sign Up </div>
+            <div className="auth-form-header"> Login </div>
             <Form
-              name="signup-form"
+              name="login-form"
               layout="vertical"
               form={form}
               initialValues={{
@@ -104,16 +113,16 @@ const Signup = () => {
                   type="primary"
                   block
                 >
-                  Sign Up
+                  Login
                 </Button>
               </Form.Item>
             </Form>
 
             <Row className="auth-prompt">
               <div>
-                <span>Already have an account? </span>
-                <Link to="/login" state={{ from: window.location.pathname }}>
-                  Log in
+                <span>Not registered yet? </span>
+                <Link to="/signup" state={{ from: window.location.pathname }}>
+                  Create an account
                 </Link>
               </div>
             </Row>
@@ -124,7 +133,7 @@ const Signup = () => {
               <a href="/auth/google">
                 <img
                   className="auth-icon-google"
-                  src="icons/google.svg"
+                  src="/icons/google.svg"
                   alt="google"
                 />
               </a>
@@ -132,7 +141,7 @@ const Signup = () => {
               <a href="/auth/twitter">
                 <img
                   className="auth-icon-twitter"
-                  src="icons/twitter.svg"
+                  src="/icons/twitter.svg"
                   alt="twitter"
                 />
               </a>
@@ -144,4 +153,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default LoginPage;

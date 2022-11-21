@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Layout } from "antd";
+import { Col, Row, Layout, Divider } from "antd";
 import LeftMenu from "./LeftMenu";
 import RightMenu from "./RightMenu";
 
@@ -7,7 +7,7 @@ const { Header } = Layout;
 
 const AppHeader = () => {
   return (
-    <Header className="header">
+    <Header>
       <Row align="bottom">
         <Col xs={22} sm={20} md={18} lg={16} xl={14}>
           <LeftMenu />
@@ -16,6 +16,9 @@ const AppHeader = () => {
           <RightMenu />
         </Col>
       </Row>
+      {window.location.pathname === "/" ? null : (
+        <Divider className="header-divider" />
+      )}
     </Header>
   );
 };

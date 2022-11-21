@@ -1,29 +1,52 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {
+  useNavigate,
+  createSearchParams,
+  useSearchParams,
+} from "react-router-dom";
 import { Menu, Input, Tooltip } from "antd";
 import SearchFilter from "components/SearchFilter";
 
 const LeftMenu = () => {
   const navigate = useNavigate();
+  let [currentSearchParams, setCurrentSearchParams] = useSearchParams();
 
-  const [showSearchFilter, setShowSearchFilter] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [searchParams, setSearchParams] = useState({
-    city: "",
-    category: "",
-    ratingLow: 1.0,
-    ratingHigh: 5.0,
-    open: "Y",
-    sort: "avgRating",
+    name: currentSearchParams.get("name")
+      ? currentSearchParams.get("name")
+      : "",
+    city: currentSearchParams.get("city")
+      ? currentSearchParams.get("city")
+      : "",
+    category: currentSearchParams.get("category")
+      ? currentSearchParams.get("category")
+      : "",
+    ratingLow: currentSearchParams.get("ratingLow")
+      ? +currentSearchParams.get("ratingLow")
+      : 1,
+    ratingHigh: 5,
+    open: currentSearchParams.get("open")
+      ? currentSearchParams.get("open")
+      : "Y",
+    sort: currentSearchParams.get("sort")
+      ? currentSearchParams.get("sort")
+      : "avgRating",
   });
 
+  const [showSearchFilter, setShowSearchFilter] = useState(false);
+
   const onInputChange = (e) => {
-    setSearchTerm(e.target.value);
+    setSearchParams({ ...searchParams, name: e.target.value });
   };
 
-  const search = () => {
-    // call search hook
-    navigate("/restaurants", { state: { from: window.location.pathname } });
+  const navigateToSearch = () => {
+    navigate(
+      {
+        pathname: "/restaurants",
+        search: `?${createSearchParams(searchParams)}`,
+      },
+      { state: { from: window.location.pathname } }
+    );
   };
 
   const menuItems = [
@@ -33,7 +56,7 @@ const LeftMenu = () => {
         <div className="lmenu-logo-container">
           <img
             className="lmenu-logo"
-            src="images/logo-sm.svg"
+            src="/images/logo-sm.svg"
             alt="logo-sm"
             onClick={() => {
               navigate("/", { state: { from: window.location.pathname } });
@@ -49,13 +72,13 @@ const LeftMenu = () => {
           className="lmenu-input"
           size="medium"
           placeholder="Search Restaurants"
-          value={searchTerm}
+          value={searchParams.name}
           onChange={onInputChange}
-          onPressEnter={search}
+          onPressEnter={navigateToSearch}
           prefix={
             <img
               className="lmenu-icon-search"
-              src="icons/search.svg"
+              src="/icons/search.svg"
               alt="search"
             />
           }
@@ -66,7 +89,7 @@ const LeftMenu = () => {
             >
               <img
                 className="lmenu-icon-menu"
-                src="icons/menu.svg"
+                src="/icons/menu.svg"
                 alt="menu"
                 onClick={() => {
                   setShowSearchFilter(!showSearchFilter);
@@ -80,12 +103,12 @@ const LeftMenu = () => {
   ];
 
   return window.location.pathname === "/" ? null : (
-    <div>
+    <>
       <Menu
         mode="horizontal"
         style={{ display: "flex" }}
-        disabledOverflow="true"
         items={menuItems}
+        disabledOverflow="true"
       ></Menu>
       <div>
         {!showSearchFilter ? null : (
@@ -97,7 +120,7 @@ const LeftMenu = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
