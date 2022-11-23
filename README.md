@@ -53,6 +53,13 @@ Make sure you have installed `git`, `node`, `npm` before starting.
 4. Install frontend dependencies: `cd client && npm i`
 5. Run frontend and backend concurrently: `cd .. && npm run dev`
 
+### Before Commit
+
+1. Stash uncommited changes on your local branch: `git stash`
+2. Fetch remote changes into local main: `git checkout main && git pull origin main`
+3. Sync your branch with local main: `git checkout <your branch name> && git merge main`
+4. Restore changes and continue your work: `git stash pop`
+
 ### Commit Your Work
 
 1. Sanity check: `git status`, `git branch`
@@ -60,12 +67,9 @@ Make sure you have installed `git`, `node`, `npm` before starting.
 3. Open pull request and assign code reviewer
 4. Merge codes after approval
 
-### Fetch from Remote
+### After Merge
 
-1. Stash uncommited changes on your local branch: `git stash`
-2. Fetch remote changes into local main: `git checkout main && git pull origin main`
-3. Sync your branch with local main: `git checkout <your branch name> && git merge main`
-4. Restore changes and continue your work: `git stash pop`
+Archive branch according to [https://gist.github.com/zkiraly/c378a1a43d8be9c9a8f9](https://gist.github.com/zkiraly/c378a1a43d8be9c9a8f9)
 
 ### DO NOT
 
