@@ -16,6 +16,7 @@ const AppHeader = () => {
           <RightMenu />
         </Col>
       </Row>
+
       {window.location.pathname === "/" ? null : (
         <Divider className="header-divider" />
       )}

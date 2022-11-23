@@ -8,8 +8,6 @@ import RestaurantPage from "pages/RestaurantPage";
 import ReviewerPage from "pages/ReviewerPage";
 import UserPage from "pages/UserPage";
 import InsightsPage from "pages/InsightsPage";
-import AppHeader from "components/AppHeader";
-import AppFooter from "components/AppFooter";
 
 const App = () => {
   return (
@@ -23,8 +21,6 @@ const App = () => {
         <Route path="/reviewer/:reviewerId" element={<ReviewerPage />} />
         <Route path="/user" element={<UserPage />} />
         <Route path="/insights" element={<InsightsPage />} />
-        <Route path="/header" element={<AppHeader />} />
-        <Route path="/footer" element={<AppFooter />} />
       </Routes>
     </BrowserRouter>
   );

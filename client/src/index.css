@@ -14,6 +14,7 @@
 @import "styles/AuthPage.css";
 @import "styles/LandingPage.css";
 @import "styles/RestaurantListPage.css";
+@import "styles/RestaurantCard.css";
 /* Global */
 .ant-form-item-label label,
 #basic_username,
@@ -88,10 +89,14 @@
 .ant-pagination {
   display: flex;
   text-align: left;
-  margin: 0 0 30px 200px;
+  margin: 0 0 30px 150px;
 }
 
 .ant-pagination-total-text {
   margin-right: 30px;
   overflow: hidden;
+}
+
+.gm-ui-hover-effect {
+  display: none !important;
 }

@@ -1,0 +1,16 @@
+.rc-header {
+  font-family: "Arvo";
+  margin-bottom: 5px;
+}
+
+.rc-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rc-score {
+  font-weight: 700;
+  color: #000000;
+  margin-left: 30px;
+}

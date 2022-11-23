@@ -4,3 +4,5 @@ export { default as splitString } from "./split-string";
 export { default as formatOpen } from "./format-open";
 export { default as formatStarRating } from "./format-star-rating";
 export { default as formatRatingScore } from "./format-rating-score";
+export { default as paginateResults } from "./paginate-results";
+export { default as averageGeolocation } from "./average-geolocation";
