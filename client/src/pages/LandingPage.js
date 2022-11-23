@@ -24,7 +24,6 @@ const LandingPage = () => {
   let searchRef = null;
   useEffect(() => {
     searchRef.focus();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onInputChange = (e) => {

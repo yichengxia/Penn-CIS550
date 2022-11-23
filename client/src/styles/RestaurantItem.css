@@ -27,7 +27,6 @@
 
 .ri-rating {
   display: flex;
-  flex-direction: row;
   align-items: center;
   margin-bottom: 14px;
 }
@@ -45,9 +44,6 @@
 }
 
 .ri-category {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
   margin-bottom: 14px;
 }
 

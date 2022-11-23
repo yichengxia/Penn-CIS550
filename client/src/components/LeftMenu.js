@@ -110,6 +110,7 @@ const LeftMenu = () => {
         items={menuItems}
         disabledOverflow="true"
       ></Menu>
+
       <div>
         {!showSearchFilter ? null : (
           <div className="lmenu-sf">

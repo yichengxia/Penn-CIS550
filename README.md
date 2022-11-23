@@ -73,4 +73,4 @@ Make sure you have installed `git`, `node`, `npm` before starting.
 2. Push untested or bugged codes
 3. Use API keys and secrets explicitly in code
 4. Include node_modules in commits
-5. Overwrite package-lock.json (use `npm ci` instead for subsequent `npm install`)
+5. Overwrite package-lock.json without introducing new dependencies (use `npm ci` instead for subsequent `npm install`)
