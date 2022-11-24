@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LandingPage from "pages/LandingPage";
-import LoginPage from "pages/LoginPage";
-import SignupPage from "pages/SignupPage";
-import RestaurantListPage from "pages/RestaurantListPage";
-import RestaurantPage from "pages/RestaurantPage";
-import ReviewerPage from "pages/ReviewerPage";
-import UserPage from "pages/UserPage";
-import InsightsPage from "pages/InsightsPage";
+import LandingPage from "components/Landing/LandingPage";
+import LoginPage from "components/Auth/LoginPage";
+import SignupPage from "components/Auth/SignupPage";
+import RestaurantListPage from "components/RestaurantList/RestaurantListPage";
+import RestaurantPage from "components/Restaurant/RestaurantPage";
+import ReviewerPage from "components/Reviewer/ReviewerPage";
+import UserPage from "components/User/UserPage";
+import InsightsPage from "components/Insights/InsightsPage";
+import ReviewItem from "components/Reviewer/ReviewItem";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/reviewer/:reviewerId" element={<ReviewerPage />} />
         <Route path="/user" element={<UserPage />} />
         <Route path="/insights" element={<InsightsPage />} />
+        <Route path="/item" element={<ReviewItem />} />
       </Routes>
     </BrowserRouter>
   );

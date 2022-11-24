@@ -5,7 +5,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { Menu, Input, Tooltip } from "antd";
-import SearchFilter from "components/SearchFilter";
+import SearchFilter from "components/Landing/SearchFilter";
 
 const LeftMenu = () => {
   const navigate = useNavigate();

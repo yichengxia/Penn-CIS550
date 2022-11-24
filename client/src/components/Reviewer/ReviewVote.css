@@ -1,0 +1,14 @@
+.rev-vote-container {
+  font-weight: 400;
+  color: #606060;
+  display: flex;
+  align-items: center;
+}
+
+.rev-vote {
+  margin-right: 10px;
+}
+
+.rev-vote-count {
+  font-weight: 700;
+}

@@ -24,8 +24,7 @@ const RestaurantItem = ({
 
   return (
     <Row
-      className="ri-container"
-      justify="start"
+      className="restitem-container"
       gutter={32}
       wrap={false}
       onClick={() =>
@@ -36,27 +35,30 @@ const RestaurantItem = ({
     >
       <Col>
         <img
-          className="ri-image"
+          className="restitem-image"
           src="/images/restaurant.png"
           alt="restaurant"
         />
       </Col>
 
       <Col>
-        <div className="ri-details">
-          <div className="ri-header">{restaurantName}</div>
-          <div className="ri-rating">
+        <div className="restitem-details">
+          <div className="restitem-header">{restaurantName}</div>
+          <div className="restitem-rating">
             <Rate
               disabled
               defaultValue={avgRating}
               style={{ color: "#FF643D" }}
             />
-            <div className="ri-score">{formatRatingScore(avgRating)}</div>
-            <div className="ri-review">&#40;{reviewCount} reviews&#41;</div>
+            <div className="restitem-score">{formatRatingScore(avgRating)}</div>
+            <div className="restitem-review">
+              &#40;{reviewCount} reviews&#41;
+            </div>
           </div>
-          <div className="ri-category">{categoryItems}</div>
-          <div className="ri-address">{address}</div>
-          <div className={open === "Y" ? "ri-open" : "ri-closed"}>
+
+          <div className="restitem-category">{categoryItems}</div>
+          <div className="restitem-address">{address}</div>
+          <div className={open === "Y" ? "restitem-open" : "restitem-closed"}>
             {formatOpen(open)}
           </div>
         </div>

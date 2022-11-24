@@ -1,24 +1,24 @@
-.rl-item {
+.restlist-item {
   margin-left: 8%;
 }
 
-.rl-empty {
+.restlist-empty {
   position: absolute;
   margin: 40px 0 0 300px;
 }
 
-.rl-map {
+.restlist-map {
   height: 80vh;
   width: 100%;
   margin: 20px 0 0 40px;
 }
 
-.rl-items {
+.restlist-items {
   min-width: 850px;
 }
 
 @media only screen and (min-width: 1500px) {
-  .rl-items {
+  .restlist-items {
     min-width: 1050px;
   }
 }
