@@ -14,6 +14,7 @@
 @import "components/Landing/SearchFilter.css";
 @import "components/Restaurant/RestaurantPage.css";
 @import "components/Restaurant/RestaurantReviewItem.css";
+@import "components/Restaurant/PageDivider.css";
 @import "components/RestaurantList/RestaurantCard.css";
 @import "components/RestaurantList/RestaurantItem.css";
 @import "components/RestaurantList/RestaurantListPage.css";
@@ -22,6 +23,8 @@
 @import "components/Reviewer/ReviewRate.css";
 @import "components/Reviewer/ReviewVote.css";
 @import "components/Reviewer/ReviewerPage.css";
+@import "components/Reviewer/ReviewerDetail.css";
+@import "components/Common/EmptyItem.css";
 /* Global */
 .ant-form-item-label label,
 #basic_username,

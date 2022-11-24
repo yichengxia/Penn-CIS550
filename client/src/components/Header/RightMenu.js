@@ -58,12 +58,12 @@ const RightMenu = () => {
     </div>
   );
 
-  const InsightsUnloggedIn = (
-    <Tooltip placement="bottom" title={"Forx Insights 🔥"}>
+  const AnalyticsUnloggedIn = (
+    <Tooltip placement="bottom" title={"Forx Analytics"}>
       <img
-        className="rmenu-insights"
-        src="/icons/insights.png"
-        alt="insights"
+        className="rmenu-analytics"
+        src="/icons/analytics.png"
+        alt="analytics"
         onClick={() => {
           navigate("/login", {
             state: { from: window.location.pathname },
@@ -74,14 +74,14 @@ const RightMenu = () => {
     </Tooltip>
   );
 
-  const InsightsLoggedIn = (
-    <Tooltip placement="bottom" title={"Forx Insights 🔥"}>
+  const AnalyticsLoggedIn = (
+    <Tooltip placement="bottom" title={"Forx Analytics"}>
       <img
-        className="rmenu-insights"
-        src="/icons/insights.png"
-        alt="insights"
+        className="rmenu-analytics"
+        src="/icons/analytics.png"
+        alt="analytics"
         onClick={() => {
-          navigate("/insights", {
+          navigate("/analytics", {
             state: { from: window.location.pathname },
           });
         }}
@@ -99,8 +99,8 @@ const RightMenu = () => {
       label: Login,
     },
     {
-      key: "insights",
-      label: InsightsUnloggedIn,
+      key: "analytics",
+      label: AnalyticsUnloggedIn,
     },
   ];
 
@@ -129,8 +129,8 @@ const RightMenu = () => {
       ),
     },
     {
-      key: "insights",
-      label: InsightsLoggedIn,
+      key: "analytics",
+      label: AnalyticsLoggedIn,
     },
   ];
 

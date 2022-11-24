@@ -197,6 +197,56 @@ export const restaurantSortOptions = [
   },
 ];
 
+export const reviewRatingOptions = [
+  {
+    value: "",
+    label: "All Ratings",
+  },
+  {
+    value: 5,
+    label: "5 Stars",
+  },
+  {
+    value: 4,
+    label: "4 Stars",
+  },
+  {
+    value: 3,
+    label: "3 Stars",
+  },
+  {
+    value: 2,
+    label: "2 Stars",
+  },
+  {
+    value: 1,
+    label: "1 Star",
+  },
+];
+
+export const reviewSortOptions = [
+  {
+    value: "date",
+    label: "Date",
+  },
+  {
+    value: "rating",
+    label: "Rating",
+  },
+  {
+    value: "usefulCount",
+    label: "Useful",
+  },
+  {
+    value: "funnyCount",
+    label: "Funny",
+  },
+  {
+    value: "coolCount",
+    label: "Cool",
+  },
+];
+
 export const defaultCoords = {
   lat: 33.448376,
   lng: -112.074036, // Phoenix, AZ

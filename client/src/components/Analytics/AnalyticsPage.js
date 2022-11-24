@@ -5,7 +5,7 @@ import AppFooter from "components/Footer/AppFooter";
 
 const { Content, Footer } = Layout;
 
-const InsightsPage = () => {
+const AnalyticsPage = () => {
   return (
     <Layout>
       <Affix>
@@ -21,4 +21,4 @@ const InsightsPage = () => {
   );
 };
 
-export default InsightsPage;
+export default AnalyticsPage;

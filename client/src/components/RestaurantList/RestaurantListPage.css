@@ -2,11 +2,6 @@
   margin-left: 8%;
 }
 
-.restlist-empty {
-  position: absolute;
-  margin: 40px 0 0 300px;
-}
-
 .restlist-map {
   height: 80vh;
   width: 100%;
