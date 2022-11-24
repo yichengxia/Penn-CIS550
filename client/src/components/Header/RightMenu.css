@@ -1,4 +1,4 @@
-.rmenu-insights {
+.rmenu-analytics {
   width: 28px;
   height: 28px;
   margin-right: 5px;
@@ -10,7 +10,7 @@
 }
 
 .rmenu-text:hover,
-.rmenu-insights:hover,
+.rmenu-analytics:hover,
 .rmenu-avatar:hover {
   cursor: pointer;
 }

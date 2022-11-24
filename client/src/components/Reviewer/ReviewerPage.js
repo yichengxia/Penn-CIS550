@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Layout, Affix, List, Empty } from "antd";
+import { Layout, Affix, List } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
+import PageDivider from "components/Restaurant/PageDivider";
 import ReviewItem from "./ReviewItem";
+import EmptyItem from "components/Common/EmptyItem";
 import { reviewListData } from "constants/mock";
 
 const { Content, Footer } = Layout;
@@ -10,6 +12,11 @@ const { Content, Footer } = Layout;
 const ReviewerPage = () => {
   const [totalPage, setTotalPage] = useState(100);
   const [pageSize, setPageSize] = useState(10);
+
+  const [searchParams, setSearchParams] = useState({
+    rating: "",
+    sort: "date",
+  });
 
   // fetch reviewer, send an error message and return to landing page if id not found
 
@@ -20,8 +27,13 @@ const ReviewerPage = () => {
       </Affix>
 
       <Content>
+        <PageDivider
+          searchParams={searchParams}
+          setSearchParams={setSearchParams}
+        />
+
         {totalPage === 0 ? (
-          <Empty className="reviewer-empty" description="No reviews yet" />
+          <EmptyItem description="No reviews yet" />
         ) : (
           <List
             className="reviewer-item"

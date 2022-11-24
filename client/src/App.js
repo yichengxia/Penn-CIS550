@@ -7,8 +7,7 @@ import RestaurantListPage from "components/RestaurantList/RestaurantListPage";
 import RestaurantPage from "components/Restaurant/RestaurantPage";
 import ReviewerPage from "components/Reviewer/ReviewerPage";
 import UserPage from "components/User/UserPage";
-import InsightsPage from "components/Insights/InsightsPage";
-import ReviewItem from "components/Reviewer/ReviewItem";
+import AnalyticsPage from "components/Analytics/AnalyticsPage";
 
 const App = () => {
   return (
@@ -21,8 +20,7 @@ const App = () => {
         <Route path="/restaurant/:restaurantId" element={<RestaurantPage />} />
         <Route path="/reviewer/:reviewerId" element={<ReviewerPage />} />
         <Route path="/user" element={<UserPage />} />
-        <Route path="/insights" element={<InsightsPage />} />
-        <Route path="/item" element={<ReviewItem />} />
+        <Route path="/analytics" element={<AnalyticsPage />} />
       </Routes>
     </BrowserRouter>
   );
