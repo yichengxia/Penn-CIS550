@@ -1,11 +1,11 @@
 import React from "react";
 import { Layout, Affix } from "antd";
-import AppHeader from "components/AppHeader";
-import AppFooter from "components/AppFooter";
+import AppHeader from "components/Header/AppHeader";
+import AppFooter from "components/Footer/AppFooter";
 
 const { Content, Footer } = Layout;
 
-const UserPage = () => {
+const InsightsPage = () => {
   return (
     <Layout>
       <Affix>
@@ -21,4 +21,4 @@ const UserPage = () => {
   );
 };
 
-export default UserPage;
+export default InsightsPage;

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, createSearchParams } from "react-router-dom";
 import { Layout, Input, Affix, Tooltip } from "antd";
-import AppHeader from "components/AppHeader";
-import SearchFilter from "components/SearchFilter";
-import AppFooter from "components/AppFooter";
+import AppHeader from "components/Header/AppHeader";
+import AppFooter from "components/Footer/AppFooter";
+import SearchFilter from "./SearchFilter";
 
 const { Content, Footer } = Layout;
 

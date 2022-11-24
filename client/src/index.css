@@ -4,17 +4,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Cabin:wght@500&display=swap");
 /* CSS files */
-@import "styles/AppHeader.css";
-@import "styles/AppFooter.css";
-@import "styles/SplitLayout.css";
-@import "styles/LeftMenu.css";
-@import "styles/RightMenu.css";
-@import "styles/SearchFilter.css";
-@import "styles/RestaurantItem.css";
-@import "styles/AuthPage.css";
-@import "styles/LandingPage.css";
-@import "styles/RestaurantListPage.css";
-@import "styles/RestaurantCard.css";
+@import "components/Auth/AuthPage.css";
+@import "components/Auth/SplitLayout.css";
+@import "components/Footer/AppFooter.css";
+@import "components/Header/AppHeader.css";
+@import "components/Header/LeftMenu.css";
+@import "components/Header/RightMenu.css";
+@import "components/Landing/LandingPage.css";
+@import "components/Landing/SearchFilter.css";
+@import "components/Restaurant/RestaurantPage.css";
+@import "components/Restaurant/RestaurantReviewItem.css";
+@import "components/RestaurantList/RestaurantCard.css";
+@import "components/RestaurantList/RestaurantItem.css";
+@import "components/RestaurantList/RestaurantListPage.css";
+@import "components/Reviewer/ReviewContent.css";
+@import "components/Reviewer/ReviewItem.css";
+@import "components/Reviewer/ReviewRate.css";
+@import "components/Reviewer/ReviewVote.css";
+@import "components/Reviewer/ReviewerPage.css";
 /* Global */
 .ant-form-item-label label,
 #basic_username,

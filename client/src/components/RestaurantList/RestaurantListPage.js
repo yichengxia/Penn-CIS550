@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Layout, Row, Col, Affix, List, Empty } from "antd";
-import AppHeader from "components/AppHeader";
-import RestaurantItem from "components/RestaurantItem";
-import GoogleMap from "components/GoogleMap";
-import AppFooter from "components/AppFooter";
+import AppHeader from "components/Header/AppHeader";
+import AppFooter from "components/Footer/AppFooter";
+import RestaurantItem from "./RestaurantItem";
+import GoogleMap from "./GoogleMap";
 import { paginateResults } from "utils";
 import { restaurantListData } from "constants/mock";
 
@@ -33,12 +33,15 @@ const RestaurantListPage = () => {
 
       <Content>
         <Row align="space-between" wrap={false}>
-          <Col className="rl-items">
+          <Col className="restlist-items">
             {totalPages === 0 ? (
-              <Empty className="rl-empty" description="No restaurants found" />
+              <Empty
+                className="restlist-empty"
+                description="No restaurants found"
+              />
             ) : (
               <List
-                className="rl-item"
+                className="restlist-item"
                 itemLayout="vertical"
                 size="large"
                 pagination={{
@@ -61,7 +64,7 @@ const RestaurantListPage = () => {
             )}
           </Col>
 
-          <Col className="rl-map">
+          <Col className="restlist-map">
             <GoogleMap
               restaurantItems={paginateResults(
                 restaurantListData,

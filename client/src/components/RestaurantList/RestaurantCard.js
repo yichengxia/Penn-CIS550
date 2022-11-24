@@ -11,14 +11,14 @@ const RestaurantCard = ({ restaurantId, restaurantName, avgRating }) => {
         bordered={false}
         cover={<img src="/images/restaurant.png" alt="restaurant" />}
       >
-        <div className="rc-header">{restaurantName}</div>
-        <div className="rc-rating">
+        <div className="restcard-header">{restaurantName}</div>
+        <div className="restcard-rating">
           <Rate
             disabled
             defaultValue={avgRating}
             style={{ color: "#FF643D" }}
           />
-          <div className="rc-score">{formatRatingScore(avgRating)}</div>
+          <div className="restcard-score">{formatRatingScore(avgRating)}</div>
         </div>
       </Card>
     </a>

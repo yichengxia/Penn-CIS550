@@ -1,62 +1,62 @@
-.ri-container {
+.restitem-container {
   border-bottom: 1.5px solid #ebebeb;
   max-width: 1000px;
   padding: 24px 24px 24px 0;
 }
 
-.ri-container:hover {
+.restitem-container:hover {
   cursor: pointer;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
 
-.ri-image {
+.restitem-image {
   height: 200px;
   width: 200px;
 }
 
-.ri-details {
+.restitem-details {
   min-width: 350px;
 }
 
-.ri-header {
+.restitem-header {
   font-family: "Arvo";
   font-size: 20px;
   margin-bottom: 8px;
 }
 
-.ri-rating {
+.restitem-rating {
   display: flex;
   align-items: center;
   margin-bottom: 14px;
 }
 
-.ri-score {
+.restitem-score {
   font-weight: 700;
   color: #000000;
   margin: 0 5px 0 20px;
 }
 
-.ri-review,
-.ri-address {
+.restitem-review,
+.restitem-address {
   font-weight: 400;
   color: #606060;
 }
 
-.ri-category {
+.restitem-category {
   margin-bottom: 14px;
 }
 
-.ri-address {
+.restitem-address {
   margin-bottom: 12px;
 }
 
-.ri-open {
+.restitem-open {
   font-weight: 700;
   color: #008055;
 }
 
-.ri-closed {
+.restitem-closed {
   font-weight: 700;
   color: #e00707;
 }

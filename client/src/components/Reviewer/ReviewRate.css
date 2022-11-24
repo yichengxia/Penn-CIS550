@@ -1,0 +1,10 @@
+.rev-rate-container {
+  display: flex;
+  align-items: center;
+}
+
+.rev-date {
+  margin: 4px 0 0 20px;
+  font-weight: 400;
+  color: #606060;
+}

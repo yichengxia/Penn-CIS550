@@ -1,0 +1,31 @@
+.revitem-container {
+  border-bottom: 1.5px solid #ebebeb;
+  max-width: 900px;
+  padding: 20px 0 0 24px;
+}
+
+.revitem-container:hover {
+  cursor: default;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.revitem-image {
+  height: 100px;
+  width: 100px;
+  margin-right: 20px;
+}
+
+.revitem-image:hover {
+  cursor: pointer;
+}
+
+.revitem-name {
+  font-family: "Arvo";
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.revitem-vote {
+  margin-top: 8px;
+}
