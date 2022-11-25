@@ -46,14 +46,18 @@
   width: 160px;
 }
 
-@media only screen and (min-width: 426px) and (max-width: 900px) {
-  .lmenu-input,
+@media only screen and (min-width: 700px) and (max-width: 900px) {
+  .lmenu-input {
+    min-width: 300px;
+    margin-left: -20px;
+  }
+
   .lmenu-sf {
-    display: none;
+    margin-left: -20px;
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 699px) {
   .lmenu-logo {
     width: 110px;
   }

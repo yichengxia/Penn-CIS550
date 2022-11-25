@@ -42,7 +42,7 @@
   margin-bottom: 20px;
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 430px) {
   .landing-logo {
     width: 250px;
   }

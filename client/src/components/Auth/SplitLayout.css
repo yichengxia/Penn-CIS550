@@ -13,7 +13,7 @@
   min-height: 720px;
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 430px) {
   .sl-content {
     min-width: 400px;
   }

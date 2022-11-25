@@ -62,7 +62,7 @@
   color: #e00707;
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 430px) {
   .restitem-image {
     height: 100px;
     width: 100px;
