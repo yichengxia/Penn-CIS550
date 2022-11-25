@@ -18,6 +18,10 @@ const RestaurantPage = () => {
     sort: "date",
   });
 
+  window.onbeforeunload = () => {
+    window.scrollTo(0, 0);
+  };
+
   // fetch restaurant, send an error message and return to landing page if id not found
 
   return (
@@ -46,6 +50,9 @@ const RestaurantPage = () => {
               showSizeChanger: false,
               showTotal: (total, range) =>
                 `${range[0]}-${range[1]} of ${total}`,
+              onChange: () => {
+                window.scrollTo(0, 0);
+              },
             }}
             dataSource={reviewListData}
             renderItem={(reviewItem) => (

@@ -18,7 +18,7 @@ const SavedPageDivider = ({ searchParams, setSearchParams }) => {
 
       <Col>
         <div className="savedivid-sort">
-          Sort:
+          <div className="divid-text">Sort:</div>
           <Select
             className="divid-select"
             bordered={false}

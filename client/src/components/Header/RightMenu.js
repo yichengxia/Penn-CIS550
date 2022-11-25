@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, Avatar, Badge, Tooltip, message } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
 import { useFetchCurrentUser, useLogout } from "hooks";
 import { getInitial } from "utils";
 
@@ -139,6 +140,7 @@ const RightMenu = () => {
       mode="horizontal"
       style={{ display: "flex", flexDirection: "row-reverse" }}
       items={currentUser ? menuItemsLoggedIn : menuItemsUnloggedIn}
+      overflowedIndicator={<MenuOutlined style={{ fontSize: "16px" }} />}
     />
   );
 };
