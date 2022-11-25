@@ -26,15 +26,27 @@
 }
 
 .revdivid-filter {
-  margin-left: 40px;
+  margin-left: 50px;
 }
 
 .revdivid-sort {
   margin-left: 20px;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 428px) {
+  .divid-container {
+    margin-left: 5%;
+  }
+
   .divid-text {
     display: none;
+  }
+
+  .revdivid-filter {
+    margin-left: 35px;
+  }
+
+  .revdivid-sort {
+    margin-left: 15px;
   }
 }

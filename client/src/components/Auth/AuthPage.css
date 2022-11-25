@@ -50,7 +50,7 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 428px) {
   .auth-logo {
     width: 200px;
   }
@@ -65,5 +65,15 @@
 
   .auth-form-button {
     font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .auth-logo {
+    width: 160px;
+  }
+
+  .auth-form {
+    width: 80%;
   }
 }

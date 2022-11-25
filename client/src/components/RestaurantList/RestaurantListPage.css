@@ -19,7 +19,13 @@
   }
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 1024px) {
+  .restlist-map {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 428px) {
   .restlist-item {
     margin-left: 2%;
   }

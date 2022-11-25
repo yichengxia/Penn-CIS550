@@ -27,18 +27,20 @@ const ReviewerDetail = (props) => {
               {reviewCount} {reviewCount === 1 ? "Review" : "Reviews"}
             </div>
 
-            <div className="rev-vote-container">
-              &#40;
-              <div className="reviewerdet-useful">
-                Useful <span className="rev-vote-count">{usefulCount}</span>
+            <div className="reviewerdet-vote-container">
+              <div className="rev-vote-container">
+                &#40;
+                <div className="reviewerdet-useful">
+                  Useful <span className="rev-vote-count">{usefulCount}</span>
+                </div>
+                <div className="reviewerdet-funny">
+                  Funny <span className="rev-vote-count">{funnyCount}</span>
+                </div>
+                <div className="reviewerdet-cool">
+                  Cool <span className="rev-vote-count">{coolCount}</span>
+                </div>
+                &#41;
               </div>
-              <div className="reviewerdet-funny">
-                Funny <span className="rev-vote-count">{funnyCount}</span>
-              </div>
-              <div className="reviewerdet-cool">
-                Cool <span className="rev-vote-count">{coolCount}</span>
-              </div>
-              &#41;
             </div>
           </div>
         </Col>
