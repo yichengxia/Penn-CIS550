@@ -139,8 +139,7 @@ const RightMenu = () => {
       mode="horizontal"
       style={{ display: "flex", flexDirection: "row-reverse" }}
       items={currentUser ? menuItemsLoggedIn : menuItemsUnloggedIn}
-      disabledOverflow="true"
-    ></Menu>
+    />
   );
 };
 

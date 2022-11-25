@@ -5,7 +5,8 @@
 .restlist-map {
   height: 80vh;
   width: 100%;
-  margin: 20px 0 0 40px;
+  margin-top: 20px;
+  margin-left: 40px;
 }
 
 .restlist-items {

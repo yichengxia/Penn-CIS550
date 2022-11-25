@@ -34,7 +34,8 @@
 .restitem-score {
   font-weight: 700;
   color: #000000;
-  margin: 0 5px 0 20px;
+  margin-right: 5px;
+  margin-left: 20px;
 }
 
 .restitem-review,

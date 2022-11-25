@@ -109,7 +109,7 @@ const LeftMenu = () => {
         style={{ display: "flex" }}
         items={menuItems}
         disabledOverflow="true"
-      ></Menu>
+      />
 
       <div>
         {!showSearchFilter ? null : (

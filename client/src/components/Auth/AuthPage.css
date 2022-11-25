@@ -12,7 +12,8 @@
   font-family: "Arvo";
   font-size: 50px;
   text-align: center;
-  margin: 120px 0 40px 0;
+  margin-top: 120px;
+  margin-bottom: 40px;
 }
 
 .auth-form-button {
@@ -28,7 +29,8 @@
 .auth-prompt {
   font-size: 16px;
   justify-content: center;
-  margin: 25px 0 40px 0;
+  margin-top: 25px;
+  margin-bottom: 40px;
 }
 
 .auth-icon-container {

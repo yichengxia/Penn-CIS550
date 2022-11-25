@@ -11,7 +11,8 @@
 .lmenu-icon-search {
   width: 16px;
   height: 16px;
-  margin: 0 4px 0 8px;
+  margin-right: 4px;
+  margin-left: 8px;
 }
 
 .lmenu-icon-menu {

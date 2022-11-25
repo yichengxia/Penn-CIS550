@@ -52,7 +52,7 @@ const RestaurantItem = ({
             />
             <div className="restitem-score">{formatRatingScore(avgRating)}</div>
             <div className="restitem-review">
-              &#40;{reviewCount} reviews&#41;
+              &#40;{reviewCount} {reviewCount === 1 ? "review" : "reviews"}&#41;
             </div>
           </div>
 

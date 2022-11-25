@@ -247,6 +247,17 @@ export const reviewSortOptions = [
   },
 ];
 
+export const savedRestaurantSortOptions = [
+  {
+    value: "lastUpdated",
+    label: "Recently Added",
+  },
+  {
+    value: "name",
+    label: "Name",
+  },
+];
+
 export const defaultCoords = {
   lat: 33.448376,
   lng: -112.074036, // Phoenix, AZ

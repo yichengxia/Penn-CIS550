@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Layout, Affix, List } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
-import PageDivider from "components/Restaurant/PageDivider";
+import ReviewerDetail from "./ReviewerDetail";
+import ReviewPageDivider from "components/Restaurant/ReviewPageDivider";
 import ReviewItem from "./ReviewItem";
 import EmptyItem from "components/Common/EmptyItem";
-import { reviewListData } from "constants/mock";
+import { reviewListData, reviewerItemData } from "constants/mock";
 
 const { Content, Footer } = Layout;
 
@@ -27,7 +28,9 @@ const ReviewerPage = () => {
       </Affix>
 
       <Content>
-        <PageDivider
+        <ReviewerDetail reviewer={reviewerItemData} />
+
+        <ReviewPageDivider
           searchParams={searchParams}
           setSearchParams={setSearchParams}
         />

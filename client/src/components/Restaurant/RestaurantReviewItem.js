@@ -46,7 +46,7 @@ const RestaurantReviewItem = (props) => {
           <div className="restrevitem-name-container">
             <div className="restrevitem-name">{name}</div>
             <div className="restrevitem-count">
-              &#40;{reviewCount} Reviews&#41;
+              &#40;{reviewCount} {reviewCount === 1 ? "Review" : "Reviews"}&#41;
             </div>
           </div>
 

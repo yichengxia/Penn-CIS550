@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Layout, Affix, List } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
-import PageDivider from "./PageDivider";
+import ReviewPageDivider from "./ReviewPageDivider";
 import RestaurantReviewItem from "./RestaurantReviewItem";
 import EmptyItem from "components/Common/EmptyItem";
 import { reviewListData } from "constants/mock";
@@ -27,7 +27,7 @@ const RestaurantPage = () => {
       </Affix>
 
       <Content>
-        <PageDivider
+        <ReviewPageDivider
           searchParams={searchParams}
           setSearchParams={setSearchParams}
         />
@@ -36,7 +36,7 @@ const RestaurantPage = () => {
           <EmptyItem description="No reviews yet" />
         ) : (
           <List
-            className="restdetail-item"
+            className="rest-item"
             itemLayout="vertical"
             size="large"
             pagination={{
