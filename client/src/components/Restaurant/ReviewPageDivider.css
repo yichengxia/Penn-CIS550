@@ -1,9 +1,10 @@
 .divid-container {
   border-bottom: 1.5px solid #ebebeb;
-  max-width: 925px;
+  max-width: 1000px;
   min-width: 500px;
-  padding-bottom: 5px;
+  padding-bottom: 16px;
   margin-left: 10%;
+  margin-bottom: 16px;
 }
 
 .divid-header {
@@ -13,21 +14,21 @@
   color: #25c8c1;
 }
 
-.divid-filter,
-.divid-sort {
+.divid-select .ant-select-selection-item {
+  font-weight: 700;
+}
+
+.revdivid-filter,
+.revdivid-sort {
   display: flex;
   align-items: center;
   margin-top: 4px;
 }
 
-.divid-filter {
+.revdivid-filter {
   margin-left: 50px;
 }
 
-.divid-sort {
+.revdivid-sort {
   margin-left: 20px;
-}
-
-.divid-select .ant-select-selection-item {
-  font-weight: 700;
 }

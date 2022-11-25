@@ -17,7 +17,8 @@
 .landing-icon-search {
   width: 20px;
   height: 20px;
-  margin: 0 4px 0 8px;
+  margin-right: 4px;
+  margin-left: 8px;
 }
 
 .landing-icon-menu {
@@ -36,5 +37,6 @@
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 25px 100px 20px 30px;
-  margin: 20px 0 20px 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

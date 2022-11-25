@@ -14,7 +14,7 @@
 @import "components/Landing/SearchFilter.css";
 @import "components/Restaurant/RestaurantPage.css";
 @import "components/Restaurant/RestaurantReviewItem.css";
-@import "components/Restaurant/PageDivider.css";
+@import "components/Restaurant/ReviewPageDivider.css";
 @import "components/RestaurantList/RestaurantCard.css";
 @import "components/RestaurantList/RestaurantItem.css";
 @import "components/RestaurantList/RestaurantListPage.css";
@@ -24,6 +24,8 @@
 @import "components/Reviewer/ReviewVote.css";
 @import "components/Reviewer/ReviewerPage.css";
 @import "components/Reviewer/ReviewerDetail.css";
+@import "components/User/UserDetail.css";
+@import "components/User/SavedPageDivider.css";
 @import "components/Common/EmptyItem.css";
 /* Global */
 .ant-form-item-label label,
@@ -63,10 +65,10 @@
 
 .ant-badge-dot {
   background: #30d915;
-  top: 28px;
-  left: 20px;
   width: 8px;
   height: 8px;
+  top: 28px;
+  left: 20px;
 }
 
 .ant-layout {
@@ -99,7 +101,8 @@
 .ant-pagination {
   display: flex;
   text-align: left;
-  margin: 0 0 30px 150px;
+  margin-bottom: 30px;
+  margin-left: 150px;
 }
 
 .ant-pagination-total-text {
