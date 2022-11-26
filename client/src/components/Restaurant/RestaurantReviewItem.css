@@ -37,3 +37,15 @@
   font-weight: 400;
   color: #606060;
 }
+
+@media only screen and (max-width: 428px) {
+  .restrevitem-name-container {
+    min-width: 300px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .restrevitem-name-container {
+    min-width: 200px;
+  }
+}

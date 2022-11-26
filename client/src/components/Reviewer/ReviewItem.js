@@ -15,7 +15,7 @@ const ReviewItem = ({
 }) => {
   const navigate = useNavigate();
 
-  const restaurantName = "Fry's Food & Drug Stores & Fry's Marketplace";
+  const restaurantName = "Black Chile Mexican Grill";
   const restaurantId = "_-9pMxBWtG_x8l4rHWBasg";
 
   return (
