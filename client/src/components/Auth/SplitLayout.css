@@ -12,3 +12,15 @@
   height: 100vh;
   min-height: 720px;
 }
+
+@media only screen and (max-width: 1024px) {
+  .sl-image {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .sl-content {
+    min-width: 400px;
+  }
+}

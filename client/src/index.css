@@ -98,6 +98,10 @@
   border-radius: 10px;
 }
 
+.gm-ui-hover-effect {
+  display: none !important;
+}
+
 .ant-pagination {
   display: flex;
   text-align: left;
@@ -110,6 +114,26 @@
   overflow: hidden;
 }
 
-.gm-ui-hover-effect {
-  display: none !important;
+@media only screen and (max-width: 768px) {
+  .ant-input {
+    font-size: 16px !important;
+  }
+
+  .ant-select {
+    font-size: 16px;
+  }
+
+  .ant-pagination {
+    margin-left: 100px;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .ant-pagination {
+    margin-left: 30px;
+  }
+
+  .ant-pagination-total-text {
+    display: none;
+  }
 }

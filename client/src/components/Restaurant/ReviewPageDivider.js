@@ -24,7 +24,7 @@ const ReviewPageDivider = ({ searchParams, setSearchParams }) => {
 
       <Col>
         <div className="revdivid-filter">
-          Filter:
+          <div className="divid-text">Filter:</div>
           <Select
             className="divid-select"
             bordered={false}
@@ -39,7 +39,7 @@ const ReviewPageDivider = ({ searchParams, setSearchParams }) => {
 
       <Col>
         <div className="revdivid-sort">
-          Sort:
+          <div className="divid-text">Sort:</div>
           <Select
             className="divid-select"
             bordered={false}

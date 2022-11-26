@@ -4,13 +4,16 @@ import { Row, Col, Tooltip } from "antd";
 import ReviewRate from "./ReviewRate";
 import ReviewContent from "./ReviewContent";
 import ReviewVote from "./ReviewVote";
-import { reviewItemData } from "constants/mock";
 
-const ReviewItem = (props) => {
+const ReviewItem = ({
+  rating,
+  funnyCount,
+  usefulCount,
+  coolCount,
+  content,
+  date,
+}) => {
   const navigate = useNavigate();
-
-  const { rating, funnyCount, usefulCount, coolCount, content, date } =
-    reviewItemData;
 
   const restaurantName = "Black Chile Mexican Grill";
   const restaurantId = "_-9pMxBWtG_x8l4rHWBasg";

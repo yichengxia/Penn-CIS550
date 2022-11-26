@@ -19,6 +19,10 @@ const ReviewerPage = () => {
     sort: "date",
   });
 
+  window.onbeforeunload = () => {
+    window.scrollTo(0, 0);
+  };
+
   // fetch reviewer, send an error message and return to landing page if id not found
 
   return (
@@ -49,9 +53,12 @@ const ReviewerPage = () => {
               showSizeChanger: false,
               showTotal: (total, range) =>
                 `${range[0]}-${range[1]} of ${total}`,
+              onChange: () => {
+                window.scrollTo(0, 0);
+              },
             }}
             dataSource={reviewListData}
-            renderItem={(reviewItem) => <ReviewItem {...reviewItem} />}
+            renderItem={(reviewItemData) => <ReviewItem {...reviewItemData} />}
           />
         )}
       </Content>

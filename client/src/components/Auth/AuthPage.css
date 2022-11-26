@@ -49,3 +49,31 @@
 .auth-icon-twitter:hover {
   cursor: pointer;
 }
+
+@media only screen and (max-width: 428px) {
+  .auth-logo {
+    width: 200px;
+  }
+
+  .auth-form {
+    width: 90%;
+  }
+
+  .auth-form-header {
+    font-size: 40px;
+  }
+
+  .auth-form-button {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .auth-logo {
+    width: 160px;
+  }
+
+  .auth-form {
+    width: 80%;
+  }
+}

@@ -15,6 +15,10 @@ const UserPage = () => {
     sort: "lastUpdated",
   });
 
+  window.onbeforeunload = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     // pass props to UserDetail
     <Layout>

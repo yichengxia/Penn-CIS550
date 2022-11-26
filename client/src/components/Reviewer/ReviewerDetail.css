@@ -4,7 +4,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: -8px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .det-container .rev-vote-container {
@@ -63,4 +63,14 @@
 
 .reviewerdet-cool {
   margin-right: 2px;
+}
+
+@media only screen and (max-width: 428px) {
+  .reviewerdet-vote-container {
+    display: none;
+  }
+
+  .det-row {
+    margin-left: 5%;
+  }
 }

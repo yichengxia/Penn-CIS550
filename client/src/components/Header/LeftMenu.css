@@ -31,6 +31,7 @@
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border-radius: 5px;
+  min-width: 350px;
   padding: 5px 65px 30px 20px;
   left: 260px;
   top: 60px;
@@ -45,9 +46,34 @@
   width: 160px;
 }
 
-@media only screen and (max-width: 900px) {
-  .lmenu-input,
+@media only screen and (min-width: 700px) and (max-width: 900px) {
+  .lmenu-input {
+    min-width: 300px;
+    margin-left: -20px;
+  }
+
   .lmenu-sf {
-    display: none;
+    margin-left: -20px;
+  }
+}
+
+@media only screen and (max-width: 699px) {
+  .lmenu-logo {
+    width: 110px;
+  }
+
+  .lmenu-input {
+    min-width: 160px;
+    margin-left: -50px;
+  }
+
+  .lmenu-sf {
+    margin-left: -200px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .lmenu-logo {
+    width: 80px;
   }
 }
