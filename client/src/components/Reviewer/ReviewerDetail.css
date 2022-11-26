@@ -1,54 +1,11 @@
-.det-container {
-  background: #f3f3f3;
-  border: 1px solid #f3f3f3;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-top: -8px;
-  margin-bottom: 20px;
-}
-
-.det-container .rev-vote-container {
-  font-size: 16px;
-}
-
-.det-row {
-  margin-left: 10%;
-  min-width: 550px;
-}
-
-.det-row:hover {
-  cursor: default;
-}
-
-.det-avatar {
-  font-size: 36px !important;
-  background-color: #25c8c1;
-  margin-right: 16px;
-  margin-top: 2px;
-}
-
-.det-name {
-  font-family: "Arvo";
-  font-size: 24px;
-  margin-bottom: 6px;
-  margin-left: 4px;
-}
-
-.det-stats {
-  display: flex;
-  align-items: center;
-}
-
 .reviewerdet-score {
   font-weight: 700;
-  font-size: 16px;
   color: #000000;
   margin-right: 20px;
   margin-left: 5px;
 }
 
 .reviewerdet-count {
-  font-size: 16px;
   margin-right: 20px;
 }
 
@@ -68,9 +25,5 @@
 @media only screen and (max-width: 428px) {
   .reviewerdet-vote-container {
     display: none;
-  }
-
-  .det-row {
-    margin-left: 5%;
   }
 }

@@ -38,7 +38,17 @@
 }
 
 @media only screen and (max-width: 428px) {
+  .restlist-items {
+    min-width: 300px;
+  }
+
   .restlist-item {
     margin-left: 2%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .restlist-items {
+    min-width: 200px;
   }
 }

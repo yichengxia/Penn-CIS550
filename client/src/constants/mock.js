@@ -1,8 +1,8 @@
 export const restaurantItemData = {
   restaurantId: "_-9pMxBWtG_x8l4rHWBasg",
-  restaurantName: "Black Chile Mexican Grill",
+  restaurantName: "Fry's Food & Drug Stores & Fry's Marketplace",
   reviewCount: 98,
-  address: "2502 E Camelback Rd Phoenix, AZ 85016",
+  address: "2502 E Camelback Rd Phoenix, AZ 85016 zsdfghdsadfghfdszAdfghjgfdszdfghjkgfdsfghjk",
   categories: "Mexican, Restaurants",
   avgRating: 3,
   open: "Y",

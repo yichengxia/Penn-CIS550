@@ -76,8 +76,8 @@
 
 @media only screen and (max-width: 375px) {
   .restitem-image {
-    height: 65px;
-    width: 65px;
+    height: 80px;
+    width: 80px;
     margin-right: -20px;
   }
 }

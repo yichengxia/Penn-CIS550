@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Layout, Affix, List } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
+import RestaurantDetail from "./RestaurantDetail";
 import ReviewPageDivider from "./ReviewPageDivider";
 import RestaurantReviewItem from "./RestaurantReviewItem";
 import EmptyItem from "components/Common/EmptyItem";
-import { reviewListData } from "constants/mock";
+import { restaurantItemData, reviewListData } from "constants/mock";
 
 const { Content, Footer } = Layout;
 
@@ -31,6 +32,8 @@ const RestaurantPage = () => {
       </Affix>
 
       <Content>
+        <RestaurantDetail {...restaurantItemData} />
+
         <ReviewPageDivider
           searchParams={searchParams}
           setSearchParams={setSearchParams}
