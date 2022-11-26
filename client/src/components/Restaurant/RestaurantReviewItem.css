@@ -24,6 +24,7 @@
 .restrevitem-name-container {
   display: flex;
   align-items: center;
+  min-width: 500px;
 }
 
 .restrevitem-name {

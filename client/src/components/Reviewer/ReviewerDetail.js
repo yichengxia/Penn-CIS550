@@ -2,12 +2,15 @@ import React from "react";
 import { Row, Col, Avatar } from "antd";
 import { StarFilled } from "@ant-design/icons";
 import { getInitial } from "utils";
-import { reviewerItemData } from "constants/mock";
 
-const ReviewerDetail = (props) => {
-  const { name, avgRating, funnyCount, usefulCount, coolCount, reviewCount } =
-    reviewerItemData;
-
+const ReviewerDetail = ({
+  name,
+  avgRating,
+  funnyCount,
+  usefulCount,
+  coolCount,
+  reviewCount,
+}) => {
   return (
     <div className="det-container">
       <Row className="det-row">

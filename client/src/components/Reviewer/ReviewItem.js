@@ -15,12 +15,12 @@ const ReviewItem = ({
 }) => {
   const navigate = useNavigate();
 
-  const restaurantName = "Black Chile Mexican Grill";
+  const restaurantName = "Fry's Food & Drug Stores & Fry's Marketplace";
   const restaurantId = "_-9pMxBWtG_x8l4rHWBasg";
 
   return (
     <div className="revitem-container">
-      <Row>
+      <Row wrap={false}>
         <Col>
           <Tooltip placement="bottom" title="View Restaurant">
             <img

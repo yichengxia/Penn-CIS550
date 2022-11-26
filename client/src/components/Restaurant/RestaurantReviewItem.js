@@ -25,7 +25,7 @@ const RestaurantReviewItem = (props) => {
 
   return (
     <div className="restrevitem-container">
-      <Row>
+      <Row wrap={false}>
         <Col>
           <Tooltip placement="bottom" title="Reviewer Profile">
             <Avatar

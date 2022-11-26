@@ -1,6 +1,7 @@
 .rev-rate-container {
   display: flex;
   align-items: center;
+  min-width: 500px;
 }
 
 .rev-date {

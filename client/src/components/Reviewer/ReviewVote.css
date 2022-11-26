@@ -3,6 +3,7 @@
   color: #606060;
   display: flex;
   align-items: center;
+  min-width: 500px;
 }
 
 .rev-vote {

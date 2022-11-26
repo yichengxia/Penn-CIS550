@@ -32,7 +32,7 @@ const ReviewerPage = () => {
       </Affix>
 
       <Content>
-        <ReviewerDetail reviewer={reviewerItemData} />
+        <ReviewerDetail {...reviewerItemData} />
 
         <ReviewPageDivider
           searchParams={searchParams}

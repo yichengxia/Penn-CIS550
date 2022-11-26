@@ -1,0 +1,49 @@
+.restdet-image {
+  width: 225px;
+  height: 225px;
+  margin-right: 40px;
+}
+
+.restdet-details {
+  font-size: 16px;
+}
+
+.restdet-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: -8px;
+}
+
+.restdet-icon {
+  width: 26px;
+  height: 26px;
+  margin-left: 250px;
+}
+
+.restdet-score {
+  font-weight: 700;
+  padding-right: 20px;
+  margin-right: 20px;
+  margin-left: 5px;
+}
+
+.restdet-category {
+  font-weight: 700;
+}
+
+.restdet-icon:hover,
+.restdet-address:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  .restdet-image {
+    display: none;
+  }
+
+  .restdet-icon {
+    width: 22px;
+    height: 22px;
+    margin-left: 30px;
+  }
+}

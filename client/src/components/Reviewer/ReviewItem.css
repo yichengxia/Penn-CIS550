@@ -42,3 +42,15 @@
     font-size: 16px;
   }
 }
+
+@media only screen and (max-width: 428px) {
+  .revitem-container {
+    min-width: 300px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .revitem-container {
+    min-width: 200px;
+  }
+}

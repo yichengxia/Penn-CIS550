@@ -1,0 +1,29 @@
+.divid-container {
+  border-bottom: 1.5px solid #ebebeb;
+  max-width: 1000px;
+  min-width: 500px;
+  padding-bottom: 16px;
+  margin-left: 10%;
+  margin-bottom: 16px;
+}
+
+.divid-header {
+  font-family: "Arvo";
+  font-weight: 700;
+  font-size: 24px;
+  color: #25c8c1;
+}
+
+.divid-select .ant-select-selection-item {
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 428px) {
+  .divid-text {
+    display: none;
+  }
+
+  .divid-container {
+    margin-left: 5%;
+  }
+}
