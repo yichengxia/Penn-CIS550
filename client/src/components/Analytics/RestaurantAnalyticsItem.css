@@ -1,0 +1,17 @@
+.restanalyt-header {
+  font-family: "Arvo";
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.restanalyt-rating {
+  display: flex;
+  align-items: center;
+}
+
+.restanalyt-score {
+  font-weight: 700;
+  color: #000000;
+  margin-left: 30px;
+}

@@ -1,0 +1,29 @@
+.analyt-items {
+  margin-left: 2%;
+}
+
+.analyt-item {
+  margin-bottom: 30px;
+}
+
+.analyt-first {
+  margin-top: 20px;
+}
+
+.analyt-text {
+  font-family: "Arvo";
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 576px) {
+  .analyt-items {
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .analyt-items {
+    margin-left: 15%;
+  }
+}
