@@ -1,18 +1,54 @@
 import React from "react";
-import { Layout, Affix } from "antd";
+import { Layout, Affix, List } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
+import AnalyticsRestaurantItem from "./RestaurantAnalyticsItem";
+import {
+  restaurantAnalyticsData,
+  reviewAnalyticsData,
+  reviewerAnalyticsData,
+} from "constants/mock";
 
 const { Content, Footer } = Layout;
 
+const contentStyle = {
+  height: "400px",
+  background: "#364d79",
+  border: "1px solid #f3f3f3",
+};
+
 const AnalyticsPage = () => {
+  const gridConfig = {
+    xs: 1,
+    sm: 2,
+    md: 3,
+    lg: 4,
+    xl: 5,
+    xxl: 6,
+  };
+
   return (
     <Layout>
       <Affix>
         <AppHeader />
       </Affix>
 
-      <Content></Content>
+      <Content>
+        <div className="analyt-items">
+          <div className="analyt-item analyt-first">
+            <div className="analyt-text">Best Restaurants</div>
+            <List
+              grid={gridConfig}
+              dataSource={restaurantAnalyticsData}
+              renderItem={(item) => (
+                <List.Item>
+                  <AnalyticsRestaurantItem {...item} />
+                </List.Item>
+              )}
+            />
+          </div>
+        </div>
+      </Content>
 
       <Footer>
         <AppFooter />

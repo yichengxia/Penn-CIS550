@@ -27,6 +27,10 @@
 @import "components/Reviewer/ReviewerDetail.css";
 @import "components/User/UserDetail.css";
 @import "components/User/SavedPageDivider.css";
+@import "components/Analytics/AnalyticsPage.css";
+@import "components/Analytics/RestaurantAnalyticsItem.css";
+@import "components/Analytics/ReviewerAnalyticsItem.css";
+@import "components/Analytics/ReviewAnalyticsItem.css";
 @import "components/Common/EmptyItem.css";
 @import "components/Common/Detail.css";
 @import "components/Common/PageDivider.css";

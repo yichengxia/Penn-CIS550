@@ -13,7 +13,6 @@ const RestaurantDetail = ({
 }) => {
   // TODO: call hook in useEffect to get saved or not, and populate the saved state.
   const [restaurantSaved, setRestaurantSaved] = useState(false);
-  const [addressTextCopied, setAddressTextCopied] = useState(false);
 
   const onBookmarkClick = () => {
     setRestaurantSaved(!restaurantSaved);
@@ -26,6 +25,7 @@ const RestaurantDetail = ({
       message.success(
         "You have successfully saved this restaurant to your profile."
       );
+      // handle save failure message
     }
   };
 
@@ -83,16 +83,10 @@ const RestaurantDetail = ({
               </Space>
             </div>
 
-            <Tooltip
-              placement="bottom"
-              title={
-                addressTextCopied ? "Text copied!" : "Copy text to clipboard"
-              }
-            >
+            <Tooltip placement="bottom" title={"Copy text to clipboard"}>
               <div
                 className="restdet-address"
                 onClick={() => {
-                  setAddressTextCopied(true);
                   navigator.clipboard.writeText(address);
                 }}
               >
