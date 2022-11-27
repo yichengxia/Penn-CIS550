@@ -11,12 +11,6 @@ import {
 
 const { Content, Footer } = Layout;
 
-const contentStyle = {
-  height: "400px",
-  background: "#364d79",
-  border: "1px solid #f3f3f3",
-};
-
 const AnalyticsPage = () => {
   const gridConfig = {
     xs: 1,

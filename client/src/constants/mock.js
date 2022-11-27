@@ -41,6 +41,6 @@ export const reviewListData = Array(100).fill(reviewItemData);
 
 export const restaurantAnalyticsData = Array(5).fill(restaurantItemData);
 
-export const reviewAnalyticsData = Array(4).fill(reviewItemData);
+export const reviewAnalyticsData = Array(5).fill(reviewItemData);
 
-export const reviewerAnalyticsData = Array(4).fill(reviewerItemData);
+export const reviewerAnalyticsData = Array(5).fill(reviewerItemData);
