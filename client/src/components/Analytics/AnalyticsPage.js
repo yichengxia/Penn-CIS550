@@ -2,17 +2,14 @@ import React from "react";
 import { Layout, Affix, List } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
-import AnalyticsRestaurantItem from "./RestaurantAnalyticsItem";
-import {
-  restaurantAnalyticsData,
-  reviewAnalyticsData,
-  reviewerAnalyticsData,
-} from "constants/mock";
+import RestaurantAnalyticsItem from "./RestaurantAnalyticsItem";
+import { restaurantAnalyticsData } from "constants/mock";
 
 const { Content, Footer } = Layout;
 
 const AnalyticsPage = () => {
   const gridConfig = {
+    gutter: 16,
     xs: 1,
     sm: 2,
     md: 3,
@@ -30,13 +27,13 @@ const AnalyticsPage = () => {
       <Content>
         <div className="analyt-items">
           <div className="analyt-item analyt-first">
-            <div className="analyt-text">Best Restaurants</div>
+            <div className="analyt-text">Steakhouse Choices</div>
             <List
               grid={gridConfig}
               dataSource={restaurantAnalyticsData}
               renderItem={(item) => (
                 <List.Item>
-                  <AnalyticsRestaurantItem {...item} />
+                  <RestaurantAnalyticsItem {...item} />
                 </List.Item>
               )}
             />

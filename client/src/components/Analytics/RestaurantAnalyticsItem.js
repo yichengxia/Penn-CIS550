@@ -4,14 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { formatRatingScore } from "utils";
 import { restaurantItemData } from "constants/mock";
 
-const AnalyticsRestaurantItem = (props) => {
+const RestaurantAnalyticsItem = (props) => {
   const navigate = useNavigate();
   const { restaurantId, restaurantName, avgRating } = restaurantItemData;
 
   return (
     <Card
       hoverable
-      className="analyt-card"
       style={{ width: 260, height: 380, border: "1.5px solid #f3f3f3" }}
       size="small"
       cover={<img src="/images/restaurant.png" alt="restaurant" />}
@@ -30,4 +29,4 @@ const AnalyticsRestaurantItem = (props) => {
   );
 };
 
-export default AnalyticsRestaurantItem;
+export default RestaurantAnalyticsItem;

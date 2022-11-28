@@ -1,3 +1,5 @@
+const db = require("../database");
+
 module.exports = (app) => {
   app.get("/api/restaurants", (req, res) => {
     // TODO

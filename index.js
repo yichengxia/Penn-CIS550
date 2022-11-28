@@ -29,9 +29,10 @@ app.use(passport.session());
 
 require("./routes/authRoutes")(app);
 require("./routes/userRoutes")(app);
-require("./routes/restaurantRoutes.js")(app);
-require("./routes/reviewRoutes.js")(app);
+require("./routes/restaurantRoutes")(app);
+require("./routes/reviewRoutes")(app);
 require("./routes/reviewerRoutes")(app);
+require("./routes/analyticsRoutes")(app);
 require("./routes/testRoutes")(app); // REMOVE IN PROD
 
 if (process.env.NODE_ENV === "production") {
