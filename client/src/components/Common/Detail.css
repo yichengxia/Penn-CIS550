@@ -12,10 +12,6 @@
   min-width: 1000px;
 }
 
-.det-row:hover {
-  cursor: default;
-}
-
 .det-avatar {
   font-size: 36px !important;
   background-color: #25c8c1;
