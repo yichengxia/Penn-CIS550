@@ -1,17 +1,24 @@
-import React, { useState } from "react";
-import { Layout, Affix, List } from "antd";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { Layout, Affix, List, message } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
 import RestaurantDetail from "./RestaurantDetail";
 import ReviewPageDivider from "./ReviewPageDivider";
 import RestaurantReviewItem from "./RestaurantReviewItem";
 import EmptyItem from "components/Common/EmptyItem";
-import { restaurantItemData, reviewListData } from "constants/mock";
+import { useFetchReviews, useFetchRestaurant } from "hooks";
 
 const { Content, Footer } = Layout;
 
 const RestaurantPage = () => {
-  const [totalPage, setTotalPage] = useState(100);
+  const navigate = useNavigate();
+  const [fetchRestaurant] = useFetchRestaurant();
+  const [fetchReviews] = useFetchReviews();
+
+  const [restaurantItemData, setRestaurantItemData] = useState({});
+  const [reviewListData, setReviewListData] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
   const [pageSize, setPageSize] = useState(10);
 
   const [searchParams, setSearchParams] = useState({
@@ -19,11 +26,40 @@ const RestaurantPage = () => {
     sort: "date",
   });
 
-  window.onbeforeunload = () => {
-    window.scrollTo(0, 0);
-  };
+  const routeParams = useParams();
+  const restaurantId = routeParams.restaurantId ? routeParams.restaurantId : "";
 
-  // fetch restaurant, send an error message and return to landing page if id not found
+  useEffect(() => {
+    const fetchRestaurantData = async () => {
+      window.scrollTo(0, 0);
+
+      const restaurantResults = await fetchRestaurant(restaurantId);
+      if (restaurantResults && restaurantResults.length === 1) {
+        setRestaurantItemData(restaurantResults[0]);
+      } else {
+        message.error("Restaurant not found!");
+        navigate("/", { state: { from: window.location.pathname } });
+      }
+    };
+    fetchRestaurantData();
+  }, []);
+
+  useEffect(() => {
+    const fetchReviewsData = async () => {
+      const reviewResults = await fetchReviews({
+        ...searchParams,
+        restaurantId,
+      });
+      if (reviewResults) {
+        setTotalPages(reviewResults.length);
+        setReviewListData(reviewResults);
+      } else {
+        message.error("Unable to load reviews!");
+        navigate("/", { state: { from: window.location.pathname } });
+      }
+    };
+    fetchReviewsData();
+  }, [searchParams]);
 
   return (
     <Layout>
@@ -39,7 +75,7 @@ const RestaurantPage = () => {
           setSearchParams={setSearchParams}
         />
 
-        {totalPage === 0 ? (
+        {totalPages === 0 ? (
           <EmptyItem description="No reviews yet" />
         ) : (
           <List
@@ -47,7 +83,7 @@ const RestaurantPage = () => {
             itemLayout="vertical"
             size="large"
             pagination={{
-              total: totalPage,
+              total: totalPages,
               pageSize,
               hideOnSinglePage: true,
               showSizeChanger: false,

@@ -22,7 +22,13 @@ const RestaurantAnalyticsItem = (props) => {
     >
       <div className="restanalyt-header">{restaurantName}</div>
       <div className="restanalyt-rating">
-        <Rate disabled defaultValue={avgRating} style={{ color: "#FF643D" }} />
+        <Rate
+          disabled
+          allowHalf
+          defaultValue={5}
+          value={avgRating}
+          style={{ color: "#FF643D" }}
+        />
         <div className="restanalyt-score">{formatRatingScore(avgRating)}</div>
       </div>
     </Card>

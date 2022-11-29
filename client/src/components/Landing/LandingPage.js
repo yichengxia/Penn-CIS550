@@ -15,8 +15,8 @@ const LandingPage = () => {
     name: "",
     city: "",
     category: "",
-    ratingLow: 1,
-    ratingHigh: 5,
+    ratingLow: "1",
+    ratingHigh: "5",
     open: "Y",
     sort: "avgRating",
   });

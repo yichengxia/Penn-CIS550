@@ -40,7 +40,3 @@ export const restaurantListData = Array(100).fill(restaurantItemData);
 export const reviewListData = Array(100).fill(reviewItemData);
 
 export const restaurantAnalyticsData = Array(5).fill(restaurantItemData);
-
-export const reviewAnalyticsData = Array(5).fill(reviewItemData);
-
-export const reviewerAnalyticsData = Array(5).fill(reviewerItemData);

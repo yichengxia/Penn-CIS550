@@ -22,9 +22,9 @@ const LeftMenu = () => {
       ? currentSearchParams.get("category")
       : "",
     ratingLow: currentSearchParams.get("ratingLow")
-      ? +currentSearchParams.get("ratingLow")
-      : 1,
-    ratingHigh: 5,
+      ? currentSearchParams.get("ratingLow")
+      : "1",
+    ratingHigh: "5",
     open: currentSearchParams.get("open")
       ? currentSearchParams.get("open")
       : "Y",
@@ -47,6 +47,10 @@ const LeftMenu = () => {
       },
       { state: { from: window.location.pathname } }
     );
+
+    if (window.location.pathname === "/restaurants") {
+      window.location.reload();
+    }
   };
 
   const menuItems = [

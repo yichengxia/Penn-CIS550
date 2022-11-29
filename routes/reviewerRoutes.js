@@ -5,7 +5,8 @@ module.exports = (app) => {
     const reviewerId = req.params.reviewerId ? req.params.reviewerId : "";
 
     db.query(
-      `SELECT * FROM Reviewer WHERE reviewerId = '${reviewerId}'`,
+      "SELECT * FROM Reviewer WHERE reviewerId = ?",
+      reviewerId,
       (error, results, fields) => {
         if (error) {
           res.status(404).json({ error });

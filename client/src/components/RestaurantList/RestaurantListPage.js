@@ -1,30 +1,44 @@
-import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { Layout, Row, Col, Affix, List } from "antd";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { Layout, Row, Col, Affix, List, message } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
 import RestaurantItem from "./RestaurantItem";
 import EmptyItem from "components/Common/EmptyItem";
 import GoogleMap from "./GoogleMap";
-import { paginateResults } from "utils";
-import { restaurantListData } from "constants/mock";
+import { useFetchRestaurants } from "hooks";
+import { paramsToObject, paginateResults } from "utils";
 
 const { Content, Footer } = Layout;
 
 const RestaurantListPage = () => {
-  const [totalPages, setTotalPages] = useState(100); // total number of restaurants, change to 0
+  const navigate = useNavigate();
+  const [fetchRestaurants] = useFetchRestaurants();
+
+  const [restaurantListData, setRestaurantListData] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
   const [pageSize, setPageSize] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
   let [currentSearchParams, setCurrentSearchParams] = useSearchParams();
-  // TODO: call search hook using currentSearchParams in useEffect().
-  // convert string to number for ratingLow and ratingHigh
-  // set total page and page size
-  // handle null and empty case here
 
-  window.onbeforeunload = () => {
-    window.scrollTo(0, 0);
-  };
+  useEffect(() => {
+    const fetchPageData = async () => {
+      window.scrollTo(0, 0);
+
+      const restaurantResults = await fetchRestaurants(
+        paramsToObject(currentSearchParams.entries())
+      );
+      if (restaurantResults) {
+        setTotalPages(restaurantResults.length);
+        setRestaurantListData(restaurantResults);
+      } else {
+        message.error("Search failed!");
+        navigate("/", { state: { from: window.location.pathname } });
+      }
+    };
+    fetchPageData();
+  }, []);
 
   return (
     <Layout>

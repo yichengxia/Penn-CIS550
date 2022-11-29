@@ -15,7 +15,9 @@ const RestaurantCard = ({ restaurantId, restaurantName, avgRating }) => {
         <div className="restcard-rating">
           <Rate
             disabled
-            defaultValue={avgRating}
+            allowHalf
+            defaultValue={5}
+            value={avgRating}
             style={{ color: "#FF643D" }}
           />
           <div className="restcard-score">{formatRatingScore(avgRating)}</div>

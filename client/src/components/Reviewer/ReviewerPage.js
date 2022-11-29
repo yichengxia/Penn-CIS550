@@ -1,17 +1,24 @@
-import React, { useState } from "react";
-import { Layout, Affix, List } from "antd";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { Layout, Affix, List, message } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
 import ReviewerDetail from "./ReviewerDetail";
 import ReviewPageDivider from "components/Restaurant/ReviewPageDivider";
 import ReviewItem from "./ReviewItem";
 import EmptyItem from "components/Common/EmptyItem";
-import { reviewListData, reviewerItemData } from "constants/mock";
+import { useFetchReviewer, useFetchReviews } from "hooks";
 
 const { Content, Footer } = Layout;
 
 const ReviewerPage = () => {
-  const [totalPage, setTotalPage] = useState(100);
+  const navigate = useNavigate();
+  const [fetchReviewer] = useFetchReviewer();
+  const [fetchReviews] = useFetchReviews();
+
+  const [reviewerItemData, setReviewerItemData] = useState({});
+  const [reviewListData, setReviewListData] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
   const [pageSize, setPageSize] = useState(10);
 
   const [searchParams, setSearchParams] = useState({
@@ -19,11 +26,40 @@ const ReviewerPage = () => {
     sort: "date",
   });
 
-  window.onbeforeunload = () => {
-    window.scrollTo(0, 0);
-  };
+  const routeParams = useParams();
+  const reviewerId = routeParams.reviewerId ? routeParams.reviewerId : "";
 
-  // fetch reviewer, send an error message and return to landing page if id not found
+  useEffect(() => {
+    const fetchReviewerData = async () => {
+      window.scrollTo(0, 0);
+
+      const reviewerResults = await fetchReviewer(reviewerId);
+      if (reviewerResults && reviewerResults.length === 1) {
+        setReviewerItemData(reviewerResults[0]);
+      } else {
+        message.error("Reviewer not found!");
+        navigate("/", { state: { from: window.location.pathname } });
+      }
+    };
+    fetchReviewerData();
+  }, []);
+
+  useEffect(() => {
+    const fetchReviewsData = async () => {
+      const reviewResults = await fetchReviews({
+        ...searchParams,
+        reviewerId,
+      });
+      if (reviewResults) {
+        setTotalPages(reviewResults.length);
+        setReviewListData(reviewResults);
+      } else {
+        message.error("Unable to load reviews!");
+        navigate("/", { state: { from: window.location.pathname } });
+      }
+    };
+    fetchReviewsData();
+  }, [searchParams]);
 
   return (
     <Layout>
@@ -39,7 +75,7 @@ const ReviewerPage = () => {
           setSearchParams={setSearchParams}
         />
 
-        {totalPage === 0 ? (
+        {totalPages === 0 ? (
           <EmptyItem description="No reviews yet" />
         ) : (
           <List
@@ -47,7 +83,7 @@ const ReviewerPage = () => {
             itemLayout="vertical"
             size="large"
             pagination={{
-              total: totalPage,
+              total: totalPages,
               pageSize,
               hideOnSinglePage: true,
               showSizeChanger: false,
