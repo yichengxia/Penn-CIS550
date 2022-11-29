@@ -4,3 +4,5 @@ export { default as useSignup } from "./use-signup";
 export { default as useFetchCurrentUser } from "./use-fetch-current-user";
 export { default as useFetchRestaurants } from "./use-fetch-restaurants";
 export { default as useFetchRestaurant } from "./use-fetch-restaurant";
+export { default as useFetchReviews } from "./use-fetch-reviews";
+export { default as useFetchReviewer } from "./use-fetch-reviewer";

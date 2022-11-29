@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { Layout, Affix, List, message } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
@@ -7,40 +7,58 @@ import RestaurantDetail from "./RestaurantDetail";
 import ReviewPageDivider from "./ReviewPageDivider";
 import RestaurantReviewItem from "./RestaurantReviewItem";
 import EmptyItem from "components/Common/EmptyItem";
-import { useFetchRestaurant } from "hooks";
-import { reviewListData } from "constants/mock";
+import { useFetchReviews, useFetchRestaurant } from "hooks";
 
 const { Content, Footer } = Layout;
 
 const RestaurantPage = () => {
   const navigate = useNavigate();
   const [fetchRestaurant] = useFetchRestaurant();
+  const [fetchReviews] = useFetchReviews();
 
   const [restaurantItemData, setRestaurantItemData] = useState({});
-  const [totalPage, setTotalPage] = useState(100);
+  const [reviewListData, setReviewListData] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
   const [pageSize, setPageSize] = useState(10);
-
-  const [searchParams, setSearchParams] = useState({
-    rating: "",
-    sort: "date",
-  });
 
   const routeParams = useParams();
   const restaurantId = routeParams.restaurantId ? routeParams.restaurantId : "";
 
+  let [currentSearchParams, setCurrentSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useState({
+    rating: currentSearchParams.get("rating")
+      ? +currentSearchParams.get("rating")
+      : "",
+    sort: currentSearchParams.get("sort")
+      ? currentSearchParams.get("sort")
+      : "date",
+  });
+
   useEffect(() => {
-    const fetchRestaurantItem = async () => {
+    const fetchPageData = async () => {
       window.scrollTo(0, 0);
 
-      const result = await fetchRestaurant(restaurantId);
-      if (result && result.length === 1) {
-        setRestaurantItemData(result[0]);
+      const restaurantResults = await fetchRestaurant(restaurantId);
+      if (restaurantResults && restaurantResults.length === 1) {
+        setRestaurantItemData(restaurantResults[0]);
       } else {
         message.error("Restaurant not found!");
         navigate("/", { state: { from: window.location.pathname } });
       }
+
+      const reviewResults = await fetchReviews({
+        ...searchParams,
+        restaurantId,
+      });
+      if (reviewResults) {
+        setTotalPages(reviewResults.length);
+        setReviewListData(reviewResults);
+      } else {
+        message.error("Unable to load reviews!");
+        navigate("/", { state: { from: window.location.pathname } });
+      }
     };
-    fetchRestaurantItem();
+    fetchPageData();
   }, []);
 
   return (
@@ -57,7 +75,7 @@ const RestaurantPage = () => {
           setSearchParams={setSearchParams}
         />
 
-        {totalPage === 0 ? (
+        {totalPages === 0 ? (
           <EmptyItem description="No reviews yet" />
         ) : (
           <List
@@ -65,7 +83,7 @@ const RestaurantPage = () => {
             itemLayout="vertical"
             size="large"
             pagination={{
-              total: totalPage,
+              total: totalPages,
               pageSize,
               hideOnSinglePage: true,
               showSizeChanger: false,

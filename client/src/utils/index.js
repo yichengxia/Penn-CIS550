@@ -7,3 +7,4 @@ export { default as formatRatingScore } from "./format-rating-score";
 export { default as paginateResults } from "./paginate-results";
 export { default as averageGeolocation } from "./average-geolocation";
 export { default as paramsToObject } from "./params-to-object";
+export { default as trimContent } from "./trim-content";

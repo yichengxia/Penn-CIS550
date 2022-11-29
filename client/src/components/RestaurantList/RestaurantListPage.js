@@ -23,21 +23,21 @@ const RestaurantListPage = () => {
   let [currentSearchParams, setCurrentSearchParams] = useSearchParams();
 
   useEffect(() => {
-    const fetchRestaurantList = async () => {
+    const fetchPageData = async () => {
       window.scrollTo(0, 0);
 
-      const results = await fetchRestaurants(
+      const restaurantResults = await fetchRestaurants(
         paramsToObject(currentSearchParams.entries())
       );
-      if (results) {
-        setTotalPages(results.length);
-        setRestaurantListData(results);
+      if (restaurantResults) {
+        setTotalPages(restaurantResults.length);
+        setRestaurantListData(restaurantResults);
       } else {
         message.error("Search failed!");
         navigate("/", { state: { from: window.location.pathname } });
       }
     };
-    fetchRestaurantList();
+    fetchPageData();
   }, []);
 
   return (
