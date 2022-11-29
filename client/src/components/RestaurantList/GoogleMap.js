@@ -26,23 +26,10 @@ const GoogleMap = ({ google, restaurantItems }) => {
 
   /**
    * Set initialCenter to average coordinates.
-   * Set to user's current coordinates if there is no restaurant data.
-   * Set to default coordinates if location permission on browser is not enabled.
+   * Set to default coordinates if there is no restaurant data.
    */
   useEffect(() => {
-    if (!restaurantItems || restaurantItems.length === 0) {
-      navigator.geolocation.getCurrentPosition((pos) => {
-        if (pos) {
-          setCenterCoords({
-            ...centerCoords,
-            lat: pos.coords.latitude,
-            lng: pos.coords.longitude,
-          });
-        } else {
-          setCenterCoords(defaultCoords);
-        }
-      });
-    } else {
+    if (restaurantItems && restaurantItems.length > 0) {
       const coords = restaurantItems.map((item) => {
         const { longitude, latitude } = item;
         return { longitude, latitude };
@@ -51,7 +38,6 @@ const GoogleMap = ({ google, restaurantItems }) => {
     }
   }, [restaurantItems]);
 
-  // TODO: change key from index to restaurantId with real data
   return (
     <Map
       google={google}
@@ -61,9 +47,9 @@ const GoogleMap = ({ google, restaurantItems }) => {
       center={centerCoords}
       onClick={onMapClick}
     >
-      {restaurantItems.map((item, index) => (
+      {restaurantItems.map((item) => (
         <Marker
-          key={index}
+          key={item.restaurantId}
           item={item}
           position={{
             lat: item.latitude,

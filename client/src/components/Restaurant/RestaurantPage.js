@@ -1,16 +1,22 @@
-import React, { useState } from "react";
-import { Layout, Affix, List } from "antd";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { Layout, Affix, List, message } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
 import RestaurantDetail from "./RestaurantDetail";
 import ReviewPageDivider from "./ReviewPageDivider";
 import RestaurantReviewItem from "./RestaurantReviewItem";
 import EmptyItem from "components/Common/EmptyItem";
-import { restaurantItemData, reviewListData } from "constants/mock";
+import { useFetchRestaurant } from "hooks";
+import { reviewListData } from "constants/mock";
 
 const { Content, Footer } = Layout;
 
 const RestaurantPage = () => {
+  const navigate = useNavigate();
+  const [fetchRestaurant] = useFetchRestaurant();
+
+  const [restaurantItemData, setRestaurantItemData] = useState({});
   const [totalPage, setTotalPage] = useState(100);
   const [pageSize, setPageSize] = useState(10);
 
@@ -19,11 +25,23 @@ const RestaurantPage = () => {
     sort: "date",
   });
 
-  window.onbeforeunload = () => {
-    window.scrollTo(0, 0);
-  };
+  const routeParams = useParams();
+  const restaurantId = routeParams.restaurantId ? routeParams.restaurantId : "";
 
-  // fetch restaurant, send an error message and return to landing page if id not found
+  useEffect(() => {
+    const fetchRestaurantItem = async () => {
+      window.scrollTo(0, 0);
+
+      const result = await fetchRestaurant(restaurantId);
+      if (result && result.length === 1) {
+        setRestaurantItemData(result[0]);
+      } else {
+        message.error("Restaurant not found!");
+        navigate("/", { state: { from: window.location.pathname } });
+      }
+    };
+    fetchRestaurantItem();
+  }, []);
 
   return (
     <Layout>

@@ -47,6 +47,10 @@ const LeftMenu = () => {
       },
       { state: { from: window.location.pathname } }
     );
+
+    if (window.location.pathname === "/restaurants") {
+      window.location.reload();
+    }
   };
 
   const menuItems = [
