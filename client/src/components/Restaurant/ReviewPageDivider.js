@@ -1,41 +1,17 @@
 import React from "react";
-import { useNavigate, useParams, createSearchParams } from "react-router-dom";
 import { Row, Col, Select } from "antd";
 import { reviewRatingOptions, reviewSortOptions } from "constants/constants";
 
 const ReviewPageDivider = ({ searchParams, setSearchParams }) => {
-  const navigate = useNavigate();
-
-  const routeParams = useParams();
-  const restaurantId = routeParams.restaurantId ? routeParams.restaurantId : "";
-
   const onRatingChange = (value) => {
     if (searchParams) {
       setSearchParams({ ...searchParams, rating: value });
-
-      navigate(
-        {
-          pathname: `/restaurant/${restaurantId}`,
-          search: `?${createSearchParams({ ...searchParams, rating: value })}`,
-        },
-        { state: { from: window.location.pathname } }
-      );
-      window.location.reload();
     }
   };
 
   const onSortChange = (value) => {
     if (searchParams) {
       setSearchParams({ ...searchParams, sort: value });
-
-      navigate(
-        {
-          pathname: `/restaurant/${restaurantId}`,
-          search: `?${createSearchParams({ ...searchParams, sort: value })}`,
-        },
-        { state: { from: window.location.pathname } }
-      );
-      window.location.reload();
     }
   };
 

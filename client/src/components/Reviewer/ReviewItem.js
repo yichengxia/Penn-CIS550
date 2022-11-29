@@ -6,6 +6,8 @@ import ReviewContent from "./ReviewContent";
 import ReviewVote from "./ReviewVote";
 
 const ReviewItem = ({
+  restaurantName,
+  restaurantId,
   rating,
   funnyCount,
   usefulCount,
@@ -14,9 +16,6 @@ const ReviewItem = ({
   date,
 }) => {
   const navigate = useNavigate();
-
-  const restaurantName = "Black Chile Mexican Grill";
-  const restaurantId = "_-9pMxBWtG_x8l4rHWBasg";
 
   return (
     <div className="revitem-container">

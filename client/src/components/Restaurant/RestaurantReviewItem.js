@@ -4,7 +4,7 @@ import { Row, Col, Avatar, Tooltip } from "antd";
 import ReviewRate from "components/Reviewer/ReviewRate";
 import ReviewContent from "components/Reviewer/ReviewContent";
 import ReviewVote from "components/Reviewer/ReviewVote";
-import { getInitial, trimContent } from "utils";
+import { getInitial } from "utils";
 
 const RestaurantReviewItem = ({
   reviewerName,
@@ -51,7 +51,7 @@ const RestaurantReviewItem = ({
         </Col>
       </Row>
 
-      <ReviewContent content={trimContent(content)} />
+      <ReviewContent content={content} />
 
       <Row>
         <ReviewVote

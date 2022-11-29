@@ -22,9 +22,9 @@ const LeftMenu = () => {
       ? currentSearchParams.get("category")
       : "",
     ratingLow: currentSearchParams.get("ratingLow")
-      ? +currentSearchParams.get("ratingLow")
-      : 1,
-    ratingHigh: 5,
+      ? currentSearchParams.get("ratingLow")
+      : "1",
+    ratingHigh: "5",
     open: currentSearchParams.get("open")
       ? currentSearchParams.get("open")
       : "Y",

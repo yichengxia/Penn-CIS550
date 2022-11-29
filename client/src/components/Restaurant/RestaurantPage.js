@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Layout, Affix, List, message } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
@@ -21,21 +21,16 @@ const RestaurantPage = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [pageSize, setPageSize] = useState(10);
 
+  const [searchParams, setSearchParams] = useState({
+    rating: "",
+    sort: "date",
+  });
+
   const routeParams = useParams();
   const restaurantId = routeParams.restaurantId ? routeParams.restaurantId : "";
 
-  let [currentSearchParams, setCurrentSearchParams] = useSearchParams();
-  const [searchParams, setSearchParams] = useState({
-    rating: currentSearchParams.get("rating")
-      ? +currentSearchParams.get("rating")
-      : "",
-    sort: currentSearchParams.get("sort")
-      ? currentSearchParams.get("sort")
-      : "date",
-  });
-
   useEffect(() => {
-    const fetchPageData = async () => {
+    const fetchRestaurantData = async () => {
       window.scrollTo(0, 0);
 
       const restaurantResults = await fetchRestaurant(restaurantId);
@@ -45,7 +40,12 @@ const RestaurantPage = () => {
         message.error("Restaurant not found!");
         navigate("/", { state: { from: window.location.pathname } });
       }
+    };
+    fetchRestaurantData();
+  }, []);
 
+  useEffect(() => {
+    const fetchReviewsData = async () => {
       const reviewResults = await fetchReviews({
         ...searchParams,
         restaurantId,
@@ -58,8 +58,8 @@ const RestaurantPage = () => {
         navigate("/", { state: { from: window.location.pathname } });
       }
     };
-    fetchPageData();
-  }, []);
+    fetchReviewsData();
+  }, [searchParams]);
 
   return (
     <Layout>

@@ -6,7 +6,6 @@ const schema = require("../schema");
 
 module.exports = (app) => {
   app.get("/api/current_user", (req, res) => {
-    // console.log("current_user: req.user is", req.user);
     res.status(200).send(req.user);
   });
 
@@ -20,34 +19,33 @@ module.exports = (app) => {
     validateSchema(schema.userSchema),
     passport.authenticate("local"),
     (req, res) => {
-      // console.log("login: req.user is", req.user);
       res.redirect("/");
     }
   );
 
   app.post("/api/signup", validateSchema(schema.userSchema), (req, res) => {
-    // console.log("signup: request body is", req.body);
     const username = req.body.username;
     const password = req.body.password;
+
     bcrypt.hash(password, (saltRounds = 10), (error, hash) => {
       if (error) {
         return res.status(400).json({ error });
       }
-      // console.log("signup: hashed password is", hash);
       db.query(
-        `SELECT * FROM User WHERE username = '${username}' AND password IS NOT NULL`,
+        "SELECT * FROM User WHERE username = ? AND password IS NOT NULL",
+        username,
         (error, results, fields) => {
           if (error) {
             res.status(404).json({ error });
           } else if (!results || results.length === 0) {
             db.query(
-              `INSERT INTO User VALUES (default, '${username}', '${hash}', NULL)`,
+              "INSERT INTO User VALUES (default, ?, ?, NULL)",
+              [username, hash],
               (error, results, fields) => {
                 if (error) {
                   res.status(400).json({ error });
                 } else if (results) {
                   res.status(201).json({ message: "Account created." });
-                  // res.redirect("/");
                 }
               }
             );

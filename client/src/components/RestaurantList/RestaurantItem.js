@@ -47,7 +47,9 @@ const RestaurantItem = ({
           <div className="restitem-rating">
             <Rate
               disabled
-              defaultValue={avgRating}
+              allowHalf
+              defaultValue={5}
+              value={avgRating}
               style={{ color: "#FF643D" }}
             />
             <div className="restitem-score">{formatRatingScore(avgRating)}</div>
