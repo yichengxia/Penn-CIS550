@@ -2,16 +2,19 @@ import React from "react";
 import { Card, Rate } from "antd";
 import { useNavigate } from "react-router-dom";
 import { formatRatingScore } from "utils";
-import { restaurantItemData } from "constants/mock";
 
-const RestaurantAnalyticsItem = (props) => {
+const RestaurantAnalyticsItem = ({
+  restaurantId,
+  restaurantName,
+  avgRating,
+  city,
+}) => {
   const navigate = useNavigate();
-  const { restaurantId, restaurantName, avgRating } = restaurantItemData;
 
   return (
     <Card
       hoverable
-      style={{ width: 260, height: 380, border: "1.5px solid #f3f3f3" }}
+      style={{ width: 260, height: 400, border: "1.5px solid #f3f3f3" }}
       size="small"
       cover={<img src="/images/restaurant.png" alt="restaurant" />}
       onClick={() =>
@@ -31,6 +34,7 @@ const RestaurantAnalyticsItem = (props) => {
         />
         <div className="restanalyt-score">{formatRatingScore(avgRating)}</div>
       </div>
+      <div className="restanalyt-city">{city}</div>
     </Card>
   );
 };

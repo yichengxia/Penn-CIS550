@@ -12,6 +12,9 @@
 
 .restanalyt-score {
   font-weight: 700;
-  color: #000000;
   margin-left: 30px;
+}
+
+.restanalyt-city {
+  margin-top: 8px;
 }

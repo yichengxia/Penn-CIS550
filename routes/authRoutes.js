@@ -1,7 +1,7 @@
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const db = require("../database");
-const validateSchema = require("../middlewares/validateSchema");
+const validator = require("express-joi-validation").createValidator({});
 const schema = require("../schema");
 
 module.exports = (app) => {
@@ -16,14 +16,14 @@ module.exports = (app) => {
 
   app.post(
     "/api/login",
-    validateSchema(schema.userSchema),
+    validator.body(schema.authBodySchema),
     passport.authenticate("local"),
     (req, res) => {
       res.redirect("/");
     }
   );
 
-  app.post("/api/signup", validateSchema(schema.userSchema), (req, res) => {
+  app.post("/api/signup", validator.body(schema.authBodySchema), (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
