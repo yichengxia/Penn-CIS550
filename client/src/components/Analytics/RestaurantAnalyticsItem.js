@@ -14,7 +14,7 @@ const RestaurantAnalyticsItem = ({
   return (
     <Card
       hoverable
-      style={{ width: 260, height: 400, border: "1.5px solid #f3f3f3" }}
+      style={{ width: 260, border: "1.5px solid #f3f3f3" }}
       size="small"
       cover={<img src="/images/restaurant.png" alt="restaurant" />}
       onClick={() =>
