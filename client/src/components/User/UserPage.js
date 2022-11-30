@@ -39,6 +39,7 @@ const UserPage = () => {
         setCurrentUser(user);
 
         const savedRestaurants = await fetchSavedRestaurants({
+          ...searchParams,
           userId: user.userId,
         });
         if (savedRestaurants) {
@@ -51,7 +52,7 @@ const UserPage = () => {
       }
     };
     fetchPageData();
-  }, []);
+  }, [searchParams]);
 
   return (
     <Layout>

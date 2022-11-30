@@ -13,10 +13,13 @@
   margin-bottom: -8px;
 }
 
+.restdet-header .det-name {
+  width: 700px;
+}
+
 .restdet-icon {
   width: 26px;
   height: 26px;
-  margin-left: 250px;
 }
 
 .restdet-score {
@@ -36,11 +39,26 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1150px) {
+  .restdet-header .det-name {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
   .restdet-icon {
     width: 22px;
     height: 22px;
-    margin-left: 100px;
+  }
+
+  .restdet-header .det-name {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 786px) {
+  .restdet-header .det-name {
+    width: 350px;
   }
 }
 
@@ -48,8 +66,10 @@
   .restdet-image {
     display: none;
   }
+}
 
-  .restdet-icon {
-    margin-left: 30px;
+@media only screen and (max-width: 428px) {
+  .restdet-header .det-name {
+    width: 300px;
   }
 }

@@ -20,7 +20,7 @@ module.exports = (app) => {
           if (error) {
             res.status(404).json({ error });
           } else if (results) {
-            res.status(200).json({ results });
+            res.status(201).json({ results });
           }
         }
       );
@@ -88,7 +88,7 @@ module.exports = (app) => {
 
   app.get(
     "/api/saved_restaurant",
-    validator.query(schema.isSavedQuerySchema),
+    validator.query(schema.savedRestaurantQuerySchema),
     (req, res) => {
       const userId = req.query.userId;
       const restaurantId = req.query.restaurantId;

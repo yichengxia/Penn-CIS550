@@ -51,7 +51,7 @@ exports.savedRestaurantsQuerySchema = Joi.object().keys({
   sort: Joi.string().valid("lastUpdated", "restaurantName"),
 });
 
-exports.isSavedQuerySchema = Joi.object().keys({
+exports.savedRestaurantQuerySchema = Joi.object().keys({
   userId: Joi.number().required(),
   restaurantId: Joi.string().required(),
 });

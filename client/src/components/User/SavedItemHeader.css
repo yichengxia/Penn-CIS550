@@ -13,3 +13,27 @@
   width: 26px;
   height: 26px;
 }
+
+@media only screen and (max-width: 1086px) {
+  .saveditem-name {
+    width: 550px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .saveditem-name {
+    width: 450px;
+  }
+}
+
+@media only screen and (max-width: 786px) {
+  .saveditem-name {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .saveditem-name {
+    width: 250px;
+  }
+}

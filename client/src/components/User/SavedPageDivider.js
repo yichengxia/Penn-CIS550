@@ -10,7 +10,6 @@ const SavedPageDivider = ({ searchParams, setSearchParams }) => {
   };
 
   return (
-    // Call /search on select
     <Row className="divid-container">
       <Col>
         <div className="divid-header">My Bookmarks</div>
