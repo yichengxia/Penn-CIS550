@@ -31,6 +31,8 @@ const AnalyticsPage = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
+      window.scrollTo(0, 0);
+
       const user = await fetchCurrentUser();
       if (user) {
         setUserId(user.userId);
