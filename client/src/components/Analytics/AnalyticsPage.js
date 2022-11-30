@@ -13,7 +13,6 @@ const AnalyticsPage = () => {
   const [fetchCurrentUser] = useFetchCurrentUser();
   const [recommend] = useRecommend();
 
-  const [userId, setUserId] = useState(0);
   const [bestInCategoryData, setBestInCategoryData] = useState([]);
   const [bestInReviewContentData, setBestInReviewContentData] = useState([]);
   const [bestEachCityData, setBestEachCityData] = useState([]);
@@ -30,85 +29,51 @@ const AnalyticsPage = () => {
   };
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchPageData = async () => {
       window.scrollTo(0, 0);
 
       const user = await fetchCurrentUser();
-      if (user) {
-        setUserId(user.userId);
-      } else {
+      if (!user) {
         message.error("You need to log in first!");
         navigate("/login", {
           state: { from: window.location.pathname },
         });
+      } else {
+        const bestInCategoryResults = await recommend({
+          userId: user.userId,
+          type: "BEST_IN_CATEGORY",
+        });
+        if (bestInCategoryResults) {
+          setBestInCategoryData(bestInCategoryResults);
+        }
+
+        const bestInReviewContentResults = await recommend({
+          userId: user.userId,
+          type: "BEST_IN_REVIEW_CONTENT",
+        });
+        if (bestInReviewContentResults) {
+          setBestInReviewContentData(bestInReviewContentResults);
+        }
+
+        const bestEachCityResults = await recommend({
+          userId: user.userId,
+          type: "BEST_EACH_CITY",
+        });
+        if (bestEachCityResults) {
+          setBestEachCityData(bestEachCityResults);
+        }
+
+        const bestSameCityResults = await recommend({
+          userId: user.userId,
+          type: "BEST_SAME_CITY",
+        });
+        if (bestSameCityResults) {
+          setBestSameCityData(bestSameCityResults);
+        }
       }
     };
-    fetchUser();
+    fetchPageData();
   }, []);
-
-  useEffect(() => {
-    const fetchBestInCategoryData = async () => {
-      const results = await recommend({
-        userId,
-        type: "BEST_IN_CATEGORY",
-      });
-      if (results) {
-        setBestInCategoryData(results);
-      } else {
-        message.error("Analytics data retrieval failed!");
-        navigate("/", { state: { from: window.location.pathname } });
-      }
-    };
-    fetchBestInCategoryData();
-  }, [userId]);
-
-  useEffect(() => {
-    const fetchBestInReviewContentData = async () => {
-      const results = await recommend({
-        userId,
-        type: "BEST_IN_REVIEW_CONTENT",
-      });
-      if (results) {
-        setBestInReviewContentData(results);
-      } else {
-        message.error("Analytics data retrieval failed!");
-        navigate("/", { state: { from: window.location.pathname } });
-      }
-    };
-    fetchBestInReviewContentData();
-  }, [userId]);
-
-  useEffect(() => {
-    const fetchBestEachCityData = async () => {
-      const results = await recommend({
-        userId,
-        type: "BEST_EACH_CITY",
-      });
-      if (results) {
-        setBestEachCityData(results);
-      } else {
-        message.error("Analytics data retrieval failed!");
-        navigate("/", { state: { from: window.location.pathname } });
-      }
-    };
-    fetchBestEachCityData();
-  }, [userId]);
-
-  useEffect(() => {
-    const fetchBestSameCityData = async () => {
-      const results = await recommend({
-        userId,
-        type: "BEST_SAME_CITY",
-      });
-      if (results) {
-        setBestSameCityData(results);
-      } else {
-        message.error("Analytics data retrieval failed!");
-        navigate("/", { state: { from: window.location.pathname } });
-      }
-    };
-    fetchBestSameCityData();
-  }, [userId]);
 
   return (
     <Layout>

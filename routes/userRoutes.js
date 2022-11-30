@@ -51,7 +51,7 @@ module.exports = (app) => {
   app.get(
     "/api/saved_restaurants",
     requireLogin,
-    validator.query(schema.userQuerySchema),
+    validator.query(schema.savedRestaurantsQuerySchema),
     (req, res) => {
       const userId = req.query.userId;
       const sort = req.query.sort ? req.query.sort : "lastUpdated";
@@ -75,6 +75,32 @@ module.exports = (app) => {
       db.query(
         sort === "lastUpdated" ? queryDefault : querySort,
         userId,
+        (error, results, fields) => {
+          if (error) {
+            res.status(404).json({ error });
+          } else if (results) {
+            res.status(200).json({ results });
+          }
+        }
+      );
+    }
+  );
+
+  app.get(
+    "/api/saved_restaurant",
+    validator.query(schema.isSavedQuerySchema),
+    (req, res) => {
+      const userId = req.query.userId;
+      const restaurantId = req.query.restaurantId;
+
+      db.query(
+        `
+        SELECT *
+        FROM SavedRestaurant
+        WHERE userId = ?
+          AND restaurantId = ?
+        `,
+        [userId, restaurantId],
         (error, results, fields) => {
           if (error) {
             res.status(404).json({ error });

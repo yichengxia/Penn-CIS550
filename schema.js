@@ -46,9 +46,14 @@ exports.userParamsSchema = Joi.object().keys({
   restaurantId: Joi.string().required(),
 });
 
-exports.userQuerySchema = Joi.object().keys({
+exports.savedRestaurantsQuerySchema = Joi.object().keys({
   userId: Joi.number().required(),
   sort: Joi.string().valid("lastUpdated", "restaurantName"),
+});
+
+exports.isSavedQuerySchema = Joi.object().keys({
+  userId: Joi.number().required(),
+  restaurantId: Joi.string().required(),
 });
 
 exports.analyticsQuerySchema = Joi.object().keys({

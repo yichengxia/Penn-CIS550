@@ -27,6 +27,8 @@
 @import "components/Reviewer/ReviewerDetail.css";
 @import "components/User/UserDetail.css";
 @import "components/User/SavedPageDivider.css";
+@import "components/User/UserPage.css";
+@import "components/User/SavedItemHeader.css";
 @import "components/Analytics/AnalyticsPage.css";
 @import "components/Analytics/RestaurantAnalyticsItem.css";
 @import "components/Common/EmptyItem.css";

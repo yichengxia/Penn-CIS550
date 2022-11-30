@@ -28,11 +28,20 @@
 
 .restdet-category {
   font-weight: 700;
+  margin-right: 12px;
 }
 
 .restdet-icon:hover,
 .restdet-address:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+  .restdet-icon {
+    width: 22px;
+    height: 22px;
+    margin-left: 100px;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -41,8 +50,6 @@
   }
 
   .restdet-icon {
-    width: 22px;
-    height: 22px;
     margin-left: 30px;
   }
 }

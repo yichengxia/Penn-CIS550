@@ -21,11 +21,6 @@ const LandingPage = () => {
     sort: "avgRating",
   });
 
-  let searchRef = null;
-  useEffect(() => {
-    searchRef.focus();
-  }, []);
-
   const onInputChange = (e) => {
     setSearchParams({ ...searchParams, name: e.target.value });
   };
@@ -53,9 +48,6 @@ const LandingPage = () => {
           className="landing-input"
           size="large"
           placeholder="Search Restaurants"
-          ref={(input) => {
-            searchRef = input;
-          }}
           value={searchParams.name}
           onChange={onInputChange}
           onPressEnter={navigateToSearch}

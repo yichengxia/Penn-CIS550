@@ -16,7 +16,7 @@ const RestaurantListPage = () => {
   const [fetchRestaurants] = useFetchRestaurants();
 
   const [restaurantListData, setRestaurantListData] = useState([]);
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
   const [pageSize, setPageSize] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -30,7 +30,7 @@ const RestaurantListPage = () => {
         paramsToObject(currentSearchParams.entries())
       );
       if (restaurantResults) {
-        setTotalPages(restaurantResults.length);
+        setTotalItems(restaurantResults.length);
         setRestaurantListData(restaurantResults);
       } else {
         message.error("Search failed!");
@@ -49,7 +49,7 @@ const RestaurantListPage = () => {
       <Content>
         <Row align="space-between" wrap={false}>
           <Col className="restlist-items">
-            {totalPages === 0 ? (
+            {totalItems === 0 ? (
               <EmptyItem description="No restaurants found" />
             ) : (
               <List
@@ -57,7 +57,7 @@ const RestaurantListPage = () => {
                 itemLayout="vertical"
                 size="large"
                 pagination={{
-                  total: totalPages,
+                  total: totalItems,
                   pageSize,
                   hideOnSinglePage: true,
                   showSizeChanger: false,
@@ -70,7 +70,11 @@ const RestaurantListPage = () => {
                 }}
                 dataSource={restaurantListData}
                 renderItem={(restaurantItem) => (
-                  <RestaurantItem {...restaurantItem} />
+                  <RestaurantItem
+                    restaurantItemData={restaurantItem}
+                    savedIcon={false}
+                    userId={0}
+                  />
                 )}
               />
             )}
