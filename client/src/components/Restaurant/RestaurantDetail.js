@@ -79,7 +79,11 @@ const RestaurantDetail = ({
   };
 
   const categoryItems = splitString(categories).map((category) => {
-    return <span key={category}>{category}</span>;
+    return (
+      <span className="restdet-category" key={category}>
+        {category}
+      </span>
+    );
   });
 
   return (
@@ -126,11 +130,7 @@ const RestaurantDetail = ({
               </div>
             </div>
 
-            <div className="restdet-category">
-              <Space direction="horizontal" size="middle">
-                {categoryItems}
-              </Space>
-            </div>
+            <div>{categoryItems}</div>
 
             <Tooltip placement="bottom" title={"Copy text to clipboard"}>
               <div

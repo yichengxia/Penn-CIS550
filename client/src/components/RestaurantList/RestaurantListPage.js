@@ -70,7 +70,11 @@ const RestaurantListPage = () => {
                 }}
                 dataSource={restaurantListData}
                 renderItem={(restaurantItem) => (
-                  <RestaurantItem {...restaurantItem} />
+                  <RestaurantItem
+                    restaurantItemData={restaurantItem}
+                    savedIcon={false}
+                    userId={0}
+                  />
                 )}
               />
             )}

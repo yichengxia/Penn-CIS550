@@ -7,12 +7,7 @@ import UserDetail from "./UserDetail";
 import SavedPageDivider from "./SavedPageDivider";
 import RestaurantItem from "components/RestaurantList/RestaurantItem";
 import EmptyItem from "components/Common/EmptyItem";
-import {
-  useFetchCurrentUser,
-  useFetchSavedRestaurants,
-  useSaveRestaurant,
-  useUnsaveRestaurant,
-} from "hooks";
+import { useFetchCurrentUser, useFetchSavedRestaurants } from "hooks";
 
 const { Content, Footer } = Layout;
 
@@ -20,8 +15,6 @@ const UserPage = () => {
   const navigate = useNavigate();
   const [fetchCurrentUser] = useFetchCurrentUser();
   const [fetchSavedRestaurants] = useFetchSavedRestaurants();
-  const [saveRestaurant] = useSaveRestaurant();
-  const [unsaveRestaurant] = useUnsaveRestaurant();
 
   const [currentUser, setCurrentUser] = useState({});
   const [savedRestaurantListData, setSavedRestaurantListData] = useState([]);
@@ -88,13 +81,17 @@ const UserPage = () => {
               showSizeChanger: false,
               showTotal: (total, range) =>
                 `${range[0]}-${range[1]} of ${total}`,
-              onChange: (page) => {
+              onChange: () => {
                 window.scrollTo(0, 0);
               },
             }}
             dataSource={savedRestaurantListData}
             renderItem={(restaurantItem) => (
-              <RestaurantItem {...restaurantItem} />
+              <RestaurantItem
+                restaurantItemData={restaurantItem}
+                savedIcon={true}
+                userId={currentUser.userId}
+              />
             )}
           />
         )}

@@ -1,0 +1,15 @@
+.saveditem-header {
+  display: flex;
+}
+
+.saveditem-name {
+  font-family: "Arvo";
+  font-size: 20px;
+  width: 700px;
+  margin-bottom: 8px;
+}
+
+.saveditem-icon {
+  width: 26px;
+  height: 26px;
+}

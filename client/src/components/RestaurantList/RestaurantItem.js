@@ -1,18 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Row, Col, Rate, Tag, Tooltip } from "antd";
+import { Row, Col, Rate, Tag } from "antd";
+import SavedItemHeader from "components/User/SavedItemHeader";
 import { splitString, formatRatingScore, formatOpen } from "utils";
 
-const RestaurantItem = ({
-  restaurantId,
-  restaurantName,
-  reviewCount,
-  address,
-  categories,
-  avgRating,
-  open,
-}) => {
+const RestaurantItem = ({ restaurantItemData, savedIcon, userId }) => {
   const navigate = useNavigate();
+
+  const {
+    restaurantId,
+    restaurantName,
+    reviewCount,
+    address,
+    categories,
+    avgRating,
+    open,
+  } = restaurantItemData;
 
   const categoryItems = splitString(categories).map((category) => {
     return (
@@ -43,7 +46,15 @@ const RestaurantItem = ({
 
       <Col>
         <div className="restitem-details">
-          <div className="restitem-name">{restaurantName}</div>
+          {savedIcon ? (
+            <SavedItemHeader
+              restaurantItemData={restaurantItemData}
+              userId={userId}
+            />
+          ) : (
+            <div className="restitem-name">{restaurantName}</div>
+          )}
+
           <div className="restitem-rating">
             <Rate
               disabled
