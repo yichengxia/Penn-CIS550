@@ -253,7 +253,7 @@ export const savedRestaurantSortOptions = [
     label: "Recently Added",
   },
   {
-    value: "name",
+    value: "restaurantName",
     label: "Name",
   },
 ];

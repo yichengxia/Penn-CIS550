@@ -6,3 +6,4 @@ export { default as useFetchRestaurants } from "./use-fetch-restaurants";
 export { default as useFetchRestaurant } from "./use-fetch-restaurant";
 export { default as useFetchReviews } from "./use-fetch-reviews";
 export { default as useFetchReviewer } from "./use-fetch-reviewer";
+export { default as useRecommend } from "./use-recommend";
