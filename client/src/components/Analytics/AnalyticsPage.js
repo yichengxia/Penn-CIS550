@@ -84,7 +84,7 @@ const AnalyticsPage = () => {
       <Content>
         <div className="analyt-items">
           <div className="analyt-item analyt-first">
-            <div className="analyt-text">Must-Try Chinese Food in Arizona</div>
+            <div className="analyt-text">Must-Try Chinese Food</div>
             <List
               grid={gridConfig}
               dataSource={bestInCategoryData}
@@ -97,7 +97,7 @@ const AnalyticsPage = () => {
           </div>
 
           <div className="analyt-item analyt-first">
-            <div className="analyt-text">Steakhouse Choices in Phoenix</div>
+            <div className="analyt-text">Steakhouse Choices</div>
             <List
               grid={gridConfig}
               dataSource={bestInReviewContentData}
@@ -110,7 +110,7 @@ const AnalyticsPage = () => {
           </div>
 
           <div className="analyt-item analyt-first">
-            <div className="analyt-text">Trending by City in Arizona</div>
+            <div className="analyt-text">Trending by City</div>
             <List
               grid={gridConfig}
               dataSource={bestEachCityData}
@@ -124,10 +124,7 @@ const AnalyticsPage = () => {
 
           {bestSameCityData.length === 0 ? null : (
             <div className="analyt-item analyt-first">
-              <div className="analyt-text">
-                Recommended Restaurants in {bestSameCityData[0].city} based on
-                Your Save History
-              </div>
+              <div className="analyt-text">Based on Save History</div>
               <List
                 grid={gridConfig}
                 dataSource={bestSameCityData}

@@ -59,22 +59,23 @@ const RestaurantDetail = ({
           restaurantId,
           new Date().toLocaleDateString()
         );
-        if (saveResponseStatus === 200) {
+        if (saveResponseStatus === 201) {
           message.success(
-            "You have successfully saved this restaurant to your profile."
+            "Restaurant saved to profile!"
           );
+          setRestaurantSaved(true);
         } else {
-          message.error("Save restaurant failed!");
+          message.error("Save failed!");
         }
       } else {
         const unsaveResponseStatus = await unsaveRestaurant(restaurantId);
         if (unsaveResponseStatus === 200) {
-          message.success("You have successfully unsaved this restaurant.");
+          message.success("Restaurant unsaved!");
+          setRestaurantSaved(false);
         } else {
-          message.error("Unsave restaurant failed!");
+          message.error("Unsave failed!");
         }
       }
-      setRestaurantSaved(!restaurantSaved);
     }
   };
 

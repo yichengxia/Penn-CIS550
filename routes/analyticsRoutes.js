@@ -18,6 +18,7 @@ module.exports = (app) => {
                       JOIN Review t2 ON t1.restaurantId = t2.restaurantId
              WHERE categories LIKE '%Chinese%'
                AND avgRating > 4.0
+               AND open = 'Y'
              GROUP BY t2.restaurantId
              ORDER BY reviews DESC)
       SELECT restaurantId, restaurantName, avgRating, city
@@ -31,7 +32,6 @@ module.exports = (app) => {
            LEFT JOIN Review t2 ON t1.restaurantId = t2.restaurantId
       WHERE content LIKE '%steak%'
         AND open = 'Y'
-        AND city = 'Phoenix'
       GROUP BY t1.restaurantId
       HAVING AVG(rating) > 4
         AND COUNT(t1.restaurantId) > 30
@@ -43,7 +43,7 @@ module.exports = (app) => {
       WITH temp1 AS (SELECT city, MAX(usefulCount) AS max_count
                FROM Restaurant t1
                         JOIN Review t2
-                             On t1.restaurantId = t2.restaurantId
+                             ON t1.restaurantId = t2.restaurantId
                GROUP BY city)
       SELECT t1.restaurantId, restaurantName, avgRating, t1.city
       FROM Restaurant t1
@@ -52,6 +52,7 @@ module.exports = (app) => {
                JOIN Review t3
                     ON t1.restaurantId = t3.restaurantId
       WHERE usefulCount = max_count
+        AND t1.open = 'Y'
       ORDER BY t1.city
       LIMIT 5;
       `;
@@ -72,6 +73,7 @@ module.exports = (app) => {
       WHERE R.city = t2.city
         AND R.state = t2.state
         AND R.reviewCount > 30
+        AND R.open = 'Y'
       ORDER BY avgRating DESC
       LIMIT 5;
       `;
