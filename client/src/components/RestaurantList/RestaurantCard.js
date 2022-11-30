@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Rate } from "antd";
 import { formatRatingScore } from "utils";
 
-const RestaurantCard = ({ restaurantId, restaurantName, avgRating }) => {
+const RestaurantCard = ({ restaurantId, restaurantName, avgRating, city }) => {
   return (
     <a href={`/restaurant/${restaurantId}`}>
       <Card
@@ -22,6 +22,7 @@ const RestaurantCard = ({ restaurantId, restaurantName, avgRating }) => {
           />
           <div className="restcard-score">{formatRatingScore(avgRating)}</div>
         </div>
+        <div className="restcard-city">{city}</div>
       </Card>
     </a>
   );
