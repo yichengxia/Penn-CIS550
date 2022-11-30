@@ -2,10 +2,7 @@ import React from "react";
 import { Row, Col, Avatar } from "antd";
 import { getInitial } from "utils";
 
-const UserDetail = (props) => {
-  const username = "Yifan Wu";
-  const savedCount = 2;
-
+const UserDetail = ({ username, savedCount }) => {
   return (
     <div className="det-container">
       <Row className="det-row">
@@ -16,7 +13,7 @@ const UserDetail = (props) => {
         </Col>
 
         <Col>
-          <div className="det-name">Yifan Wu</div>
+          <div className="det-name">{username}</div>
 
           <div className="det-stats">
             <img className="userdet-icon" src="/icons/saved.png" alt="saved" />

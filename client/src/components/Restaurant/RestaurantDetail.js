@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Row, Col, Tooltip, Space, message } from "antd";
 import { StarFilled } from "@ant-design/icons";
+import {
+  useFetchCurrentUser,
+  useFetchSavedRestaurant,
+  useSaveRestaurant,
+  useUnsaveRestaurant,
+} from "hooks";
 import { splitString, formatRatingScore, formatOpen } from "utils";
 
 const RestaurantDetail = ({
+  restaurantId,
   restaurantName,
   reviewCount,
   address,
@@ -11,21 +19,62 @@ const RestaurantDetail = ({
   avgRating,
   open,
 }) => {
-  // TODO: call hook in useEffect to get saved or not, and populate the saved state.
+  const navigate = useNavigate();
+  const [fetchCurrentUser] = useFetchCurrentUser();
+  const [fetchSavedRestaurant] = useFetchSavedRestaurant();
+  const [saveRestaurant] = useSaveRestaurant();
+  const [unsaveRestaurant] = useUnsaveRestaurant();
+
+  const [userId, setUserId] = useState(0);
   const [restaurantSaved, setRestaurantSaved] = useState(false);
 
-  const onBookmarkClick = () => {
-    setRestaurantSaved(!restaurantSaved);
-    // prompt to login (finish localStorage refactor first!)
-    if (restaurantSaved) {
-      // call save restaurants hook
-      message.success("You have successfully unsaved this restaurant.");
+  useEffect(() => {
+    const fetchPageData = async () => {
+      const user = await fetchCurrentUser();
+      if (user) {
+        setUserId(user.userId);
+
+        const savedRestaurant = await fetchSavedRestaurant({
+          userId: user.userId,
+          restaurantId: window.location.pathname.split("/")[2],
+        });
+        if (savedRestaurant && savedRestaurant.length === 1) {
+          setRestaurantSaved(true);
+        }
+      }
+    };
+    fetchPageData();
+  }, []);
+
+  const onBookmarkClick = async () => {
+    if (userId === 0) {
+      message.error("You need to log in first!");
+      navigate("/login", {
+        state: { from: window.location.pathname },
+      });
     } else {
-      // call unsave restaurants hook
-      message.success(
-        "You have successfully saved this restaurant to your profile."
-      );
-      // handle save failure message
+      if (!restaurantSaved) {
+        const saveResponseStatus = await saveRestaurant(
+          userId,
+          restaurantId,
+          new Date().toLocaleDateString()
+        );
+        if (saveResponseStatus === 200) {
+          message.success(
+            "You have successfully saved this restaurant to your profile."
+          );
+        } else {
+          message.error("Save restaurant failed!");
+        }
+      } else {
+        const unsaveResponseStatus = await unsaveRestaurant(restaurantId);
+        if (unsaveResponseStatus === 200) {
+          message.success("You have successfully unsaved this restaurant.");
+        } else {
+          message.error("Unsave restaurant failed!");
+        }
+      }
+      setRestaurantSaved(!restaurantSaved);
     }
   };
 

@@ -1,0 +1,9 @@
+.user-item {
+  margin-left: 10%;
+}
+
+@media only screen and (max-width: 428px) {
+  .user-item {
+    margin-left: 2%;
+  }
+}

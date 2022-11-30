@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Row, Col, Rate, Tag } from "antd";
+import { Row, Col, Rate, Tag, Tooltip } from "antd";
 import { splitString, formatRatingScore, formatOpen } from "utils";
 
 const RestaurantItem = ({
@@ -43,7 +43,7 @@ const RestaurantItem = ({
 
       <Col>
         <div className="restitem-details">
-          <div className="restitem-header">{restaurantName}</div>
+          <div className="restitem-name">{restaurantName}</div>
           <div className="restitem-rating">
             <Rate
               disabled

@@ -18,7 +18,7 @@ const ReviewerPage = () => {
 
   const [reviewerItemData, setReviewerItemData] = useState({});
   const [reviewListData, setReviewListData] = useState([]);
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
   const [pageSize, setPageSize] = useState(10);
 
   const [searchParams, setSearchParams] = useState({
@@ -37,7 +37,7 @@ const ReviewerPage = () => {
       if (reviewerResults && reviewerResults.length === 1) {
         setReviewerItemData(reviewerResults[0]);
       } else {
-        message.error("Reviewer not found!");
+        message.error("Reviewer id does not exist!");
         navigate("/", { state: { from: window.location.pathname } });
       }
     };
@@ -51,11 +51,8 @@ const ReviewerPage = () => {
         reviewerId,
       });
       if (reviewResults) {
-        setTotalPages(reviewResults.length);
+        setTotalItems(reviewResults.length);
         setReviewListData(reviewResults);
-      } else {
-        message.error("Unable to load reviews!");
-        navigate("/", { state: { from: window.location.pathname } });
       }
     };
     fetchReviewsData();
@@ -75,7 +72,7 @@ const ReviewerPage = () => {
           setSearchParams={setSearchParams}
         />
 
-        {totalPages === 0 ? (
+        {totalItems === 0 ? (
           <EmptyItem description="No reviews yet" />
         ) : (
           <List
@@ -83,7 +80,7 @@ const ReviewerPage = () => {
             itemLayout="vertical"
             size="large"
             pagination={{
-              total: totalPages,
+              total: totalItems,
               pageSize,
               hideOnSinglePage: true,
               showSizeChanger: false,

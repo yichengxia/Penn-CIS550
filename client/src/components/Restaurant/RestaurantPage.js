@@ -18,7 +18,7 @@ const RestaurantPage = () => {
 
   const [restaurantItemData, setRestaurantItemData] = useState({});
   const [reviewListData, setReviewListData] = useState([]);
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
   const [pageSize, setPageSize] = useState(10);
 
   const [searchParams, setSearchParams] = useState({
@@ -37,7 +37,7 @@ const RestaurantPage = () => {
       if (restaurantResults && restaurantResults.length === 1) {
         setRestaurantItemData(restaurantResults[0]);
       } else {
-        message.error("Restaurant not found!");
+        message.error("Restaurant id does not exist!");
         navigate("/", { state: { from: window.location.pathname } });
       }
     };
@@ -51,11 +51,8 @@ const RestaurantPage = () => {
         restaurantId,
       });
       if (reviewResults) {
-        setTotalPages(reviewResults.length);
+        setTotalItems(reviewResults.length);
         setReviewListData(reviewResults);
-      } else {
-        message.error("Unable to load reviews!");
-        navigate("/", { state: { from: window.location.pathname } });
       }
     };
     fetchReviewsData();
@@ -75,7 +72,7 @@ const RestaurantPage = () => {
           setSearchParams={setSearchParams}
         />
 
-        {totalPages === 0 ? (
+        {totalItems === 0 ? (
           <EmptyItem description="No reviews yet" />
         ) : (
           <List
@@ -83,7 +80,7 @@ const RestaurantPage = () => {
             itemLayout="vertical"
             size="large"
             pagination={{
-              total: totalPages,
+              total: totalItems,
               pageSize,
               hideOnSinglePage: true,
               showSizeChanger: false,
