@@ -20,7 +20,7 @@ const RestaurantDetail = ({
   open,
 }) => {
   const navigate = useNavigate();
-  const [fetchCurrentUser] = useFetchCurrentUser();
+  const [isFetchingCurrentUser, fetchCurrentUser] = useFetchCurrentUser();
   const [fetchSavedRestaurant] = useFetchSavedRestaurant();
   const [saveRestaurant] = useSaveRestaurant();
   const [unsaveRestaurant] = useUnsaveRestaurant();
@@ -60,9 +60,7 @@ const RestaurantDetail = ({
           new Date().toLocaleDateString()
         );
         if (saveResponseStatus === 201) {
-          message.success(
-            "Restaurant saved to profile!"
-          );
+          message.success("Restaurant saved to profile!");
           setRestaurantSaved(true);
         } else {
           message.error("Save failed!");
