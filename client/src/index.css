@@ -33,6 +33,7 @@
 @import "components/Analytics/RestaurantAnalyticsItem.css";
 @import "components/Common/Detail.css";
 @import "components/Common/PageDivider.css";
+@import "components/NotFound/NotFoundPage.css";
 /* Global */
 .ant-form-item-label label,
 #basic_username,
