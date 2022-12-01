@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Layout, Affix } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
