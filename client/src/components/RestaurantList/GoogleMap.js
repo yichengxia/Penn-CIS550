@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from "google-maps-react";
 import RestaurantCard from "./RestaurantCard";
 import { averageGeolocation } from "utils";
-import { defaultCoords } from "constants/constants";
+import { DEFAULT_COORDS } from "constants/constants";
 
 const GoogleMap = ({ google, restaurantItems }) => {
-  const [centerCoords, setCenterCoords] = useState(defaultCoords);
+  const [centerCoords, setCenterCoords] = useState(DEFAULT_COORDS);
 
   const [activeMarker, setActiveMarker] = useState({});
   const [showInfoWindow, setShowInfoWindow] = useState(false);

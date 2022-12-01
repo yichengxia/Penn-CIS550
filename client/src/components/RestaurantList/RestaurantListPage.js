@@ -6,18 +6,20 @@ import AppFooter from "components/Footer/AppFooter";
 import RestaurantItem from "./RestaurantItem";
 import EmptyItem from "components/Common/EmptyItem";
 import GoogleMap from "./GoogleMap";
+import LoadingItem from "components/Common/LoadingItem";
 import { useFetchRestaurants } from "hooks";
 import { paramsToObject, paginateResults } from "utils";
+import { PAGE_SIZE } from "constants/constants";
 
 const { Content, Footer } = Layout;
 
 const RestaurantListPage = () => {
   const navigate = useNavigate();
-  const [fetchRestaurants] = useFetchRestaurants();
+  const [isFetchingRestaurants, fetchRestaurants] = useFetchRestaurants();
 
   const [restaurantListData, setRestaurantListData] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(PAGE_SIZE);
   const [currentPage, setCurrentPage] = useState(1);
 
   let [currentSearchParams, setCurrentSearchParams] = useSearchParams();
@@ -49,7 +51,9 @@ const RestaurantListPage = () => {
       <Content>
         <Row align="space-between" wrap={false}>
           <Col className="restlist-items">
-            {totalItems === 0 ? (
+            {isFetchingRestaurants ? (
+              <LoadingItem />
+            ) : totalItems === 0 ? (
               <EmptyItem description="No restaurants found" />
             ) : (
               <List

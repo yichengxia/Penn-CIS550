@@ -258,7 +258,9 @@ export const savedRestaurantSortOptions = [
   },
 ];
 
-export const defaultCoords = {
+export const DEFAULT_COORDS = {
   lat: 33.448376,
   lng: -112.074036, // Phoenix, AZ
 };
+
+export const PAGE_SIZE = 10;
