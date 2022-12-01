@@ -5,17 +5,17 @@ const LoadingContainer = ({ type }) => {
   const containerStyles = {
     restaurant: (
       <div className="det-container" style={{ height: "265px" }}>
-        <Spin style={{ marginLeft: "40%", marginTop: "80px" }} />
+        <Spin style={{ marginTop: "80px", marginLeft: "40%" }} />
       </div>
     ),
     reviewer: (
       <div className="det-container" style={{ height: "115px" }}>
-        <Spin style={{ marginLeft: "40%", marginTop: "25px" }} />
+        <Spin style={{ marginTop: "25px", marginLeft: "40%" }} />
       </div>
     ),
     user: (
       <div className="det-container" style={{ height: "115px" }}>
-        <Spin style={{ marginLeft: "40%", marginTop: "25px" }} />
+        <Spin style={{ marginTop: "25px", marginLeft: "40%" }} />
       </div>
     ),
   };

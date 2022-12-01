@@ -3,7 +3,7 @@ import { Spin } from "antd";
 
 const LoadingItem = () => {
   return (
-    <Spin tip="Loading" style={{ marginTop: "100px", marginLeft: "20%" }} />
+    <Spin tip="Loading" style={{ marginTop: "100px", marginLeft: "40%" }} />
   );
 };
 
