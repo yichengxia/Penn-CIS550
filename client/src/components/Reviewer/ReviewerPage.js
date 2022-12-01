@@ -7,19 +7,21 @@ import ReviewerDetail from "./ReviewerDetail";
 import ReviewPageDivider from "components/Restaurant/ReviewPageDivider";
 import ReviewItem from "./ReviewItem";
 import EmptyItem from "components/Common/EmptyItem";
+import LoadingItem from "components/Common/LoadingItem";
 import { useFetchReviewer, useFetchReviews } from "hooks";
+import { PAGE_SIZE } from "constants/constants";
 
 const { Content, Footer } = Layout;
 
 const ReviewerPage = () => {
   const navigate = useNavigate();
   const [fetchReviewer] = useFetchReviewer();
-  const [fetchReviews] = useFetchReviews();
+  const [isFetchingReviews, fetchReviews] = useFetchReviews();
 
   const [reviewerItemData, setReviewerItemData] = useState({});
   const [reviewListData, setReviewListData] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(PAGE_SIZE);
 
   const [searchParams, setSearchParams] = useState({
     rating: "",
@@ -72,7 +74,9 @@ const ReviewerPage = () => {
           setSearchParams={setSearchParams}
         />
 
-        {totalItems === 0 ? (
+        {isFetchingReviews ? (
+          <LoadingItem />
+        ) : totalItems === 0 ? (
           <EmptyItem description="No reviews yet" />
         ) : (
           <List

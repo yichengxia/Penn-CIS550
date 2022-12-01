@@ -4,6 +4,7 @@ import { Layout, Affix, List, message } from "antd";
 import AppHeader from "components/Header/AppHeader";
 import AppFooter from "components/Footer/AppFooter";
 import RestaurantAnalyticsItem from "./RestaurantAnalyticsItem";
+import SkeletonItem from "components/Common/SkeletonItem";
 import { useFetchCurrentUser, useRecommend } from "hooks";
 
 const { Content, Footer } = Layout;
@@ -11,7 +12,7 @@ const { Content, Footer } = Layout;
 const AnalyticsPage = () => {
   const navigate = useNavigate();
   const [fetchCurrentUser] = useFetchCurrentUser();
-  const [recommend] = useRecommend();
+  const [isRecommending, recommend] = useRecommend();
 
   const [bestInCategoryData, setBestInCategoryData] = useState([]);
   const [bestInReviewContentData, setBestInReviewContentData] = useState([]);
@@ -85,55 +86,71 @@ const AnalyticsPage = () => {
         <div className="analyt-items">
           <div className="analyt-item analyt-first">
             <div className="analyt-text">Must-Try Chinese Food</div>
-            <List
-              grid={gridConfig}
-              dataSource={bestInCategoryData}
-              renderItem={(item) => (
-                <List.Item>
-                  <RestaurantAnalyticsItem {...item} />
-                </List.Item>
-              )}
-            />
-          </div>
-
-          <div className="analyt-item analyt-first">
-            <div className="analyt-text">Steakhouse Choices</div>
-            <List
-              grid={gridConfig}
-              dataSource={bestInReviewContentData}
-              renderItem={(item) => (
-                <List.Item>
-                  <RestaurantAnalyticsItem {...item} />
-                </List.Item>
-              )}
-            />
-          </div>
-
-          <div className="analyt-item analyt-first">
-            <div className="analyt-text">Trending by City</div>
-            <List
-              grid={gridConfig}
-              dataSource={bestEachCityData}
-              renderItem={(item) => (
-                <List.Item>
-                  <RestaurantAnalyticsItem {...item} />
-                </List.Item>
-              )}
-            />
-          </div>
-
-          {bestSameCityData.length === 0 ? null : (
-            <div className="analyt-item analyt-first">
-              <div className="analyt-text">Based on Save History</div>
+            {isRecommending ? (
+              <SkeletonItem />
+            ) : (
               <List
                 grid={gridConfig}
-                dataSource={bestSameCityData}
+                dataSource={bestInCategoryData}
                 renderItem={(item) => (
                   <List.Item>
                     <RestaurantAnalyticsItem {...item} />
                   </List.Item>
                 )}
               />
+            )}
+          </div>
+
+          <div className="analyt-item analyt-first">
+            <div className="analyt-text">Steakhouse Choices</div>
+            {isRecommending ? (
+              <SkeletonItem />
+            ) : (
+              <List
+                grid={gridConfig}
+                dataSource={bestInReviewContentData}
+                renderItem={(item) => (
+                  <List.Item>
+                    <RestaurantAnalyticsItem {...item} />
+                  </List.Item>
+                )}
+              />
+            )}
+          </div>
+
+          <div className="analyt-item analyt-first">
+            <div className="analyt-text">Trending by City</div>
+            {isRecommending ? (
+              <SkeletonItem />
+            ) : (
+              <List
+                grid={gridConfig}
+                dataSource={bestEachCityData}
+                renderItem={(item) => (
+                  <List.Item>
+                    <RestaurantAnalyticsItem {...item} />
+                  </List.Item>
+                )}
+              />
+            )}
+          </div>
+
+          {bestSameCityData.length === 0 ? null : (
+            <div className="analyt-item analyt-first">
+              <div className="analyt-text">Based on Save History</div>
+              {isRecommending ? (
+                <SkeletonItem />
+              ) : (
+                <List
+                  grid={gridConfig}
+                  dataSource={bestSameCityData}
+                  renderItem={(item) => (
+                    <List.Item>
+                      <RestaurantAnalyticsItem {...item} />
+                    </List.Item>
+                  )}
+                />
+              )}
             </div>
           )}
         </div>

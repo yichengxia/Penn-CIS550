@@ -80,4 +80,4 @@ Archive branch according to [https://gist.github.com/zkiraly/c378a1a43d8be9c9a8f
 ### Common Issues
 
 1. Port already in use: `lsof -i tcp:<port>`, then `kill -9 <PID>`
-2. Proxy server issues: `pkill -f nodemon`, then restart server
+2. Nodemon app crashed: `pkill -f nodemon`, then restart server
