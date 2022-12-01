@@ -7,7 +7,7 @@ import { getInitial } from "utils";
 
 const RightMenu = () => {
   const navigate = useNavigate();
-  const [fetchCurrentUser] = useFetchCurrentUser();
+  const [isFetchingCurrentUser, fetchCurrentUser] = useFetchCurrentUser();
   const [logout] = useLogout();
   const [currentUser, setCurrentUser] = useState("");
 

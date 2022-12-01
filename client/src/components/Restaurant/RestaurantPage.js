@@ -8,6 +8,7 @@ import ReviewPageDivider from "./ReviewPageDivider";
 import RestaurantReviewItem from "./RestaurantReviewItem";
 import EmptyItem from "components/Common/EmptyItem";
 import LoadingItem from "components/Common/LoadingItem";
+import LoadingContainer from "components/Common/LoadingContainer";
 import { useFetchReviews, useFetchRestaurant } from "hooks";
 import { PAGE_SIZE } from "constants/constants";
 
@@ -15,7 +16,7 @@ const { Content, Footer } = Layout;
 
 const RestaurantPage = () => {
   const navigate = useNavigate();
-  const [fetchRestaurant] = useFetchRestaurant();
+  const [isFetchingRestaurant, fetchRestaurant] = useFetchRestaurant();
   const [isFetchingReviews, fetchReviews] = useFetchReviews();
 
   const [restaurantItemData, setRestaurantItemData] = useState({});
@@ -67,7 +68,11 @@ const RestaurantPage = () => {
       </Affix>
 
       <Content>
-        <RestaurantDetail {...restaurantItemData} />
+        {isFetchingRestaurant ? (
+          <LoadingContainer type="restaurant" />
+        ) : (
+          <RestaurantDetail {...restaurantItemData} />
+        )}
 
         <ReviewPageDivider
           searchParams={searchParams}

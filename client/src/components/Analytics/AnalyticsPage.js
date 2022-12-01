@@ -11,7 +11,7 @@ const { Content, Footer } = Layout;
 
 const AnalyticsPage = () => {
   const navigate = useNavigate();
-  const [fetchCurrentUser] = useFetchCurrentUser();
+  const [isFetchingCurrentUser, fetchCurrentUser] = useFetchCurrentUser();
   const [isRecommending, recommend] = useRecommend();
 
   const [bestInCategoryData, setBestInCategoryData] = useState([]);

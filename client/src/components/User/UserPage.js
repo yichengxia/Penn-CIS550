@@ -8,6 +8,7 @@ import SavedPageDivider from "./SavedPageDivider";
 import RestaurantItem from "components/RestaurantList/RestaurantItem";
 import EmptyItem from "components/Common/EmptyItem";
 import LoadingItem from "components/Common/LoadingItem";
+import LoadingContainer from "components/Common/LoadingContainer";
 import { useFetchCurrentUser, useFetchSavedRestaurants } from "hooks";
 import { PAGE_SIZE } from "constants/constants";
 
@@ -15,7 +16,7 @@ const { Content, Footer } = Layout;
 
 const UserPage = () => {
   const navigate = useNavigate();
-  const [fetchCurrentUser] = useFetchCurrentUser();
+  const [isFetchingCurrentUser, fetchCurrentUser] = useFetchCurrentUser();
   const [isFetchingSavedRestaurants, fetchSavedRestaurants] =
     useFetchSavedRestaurants();
 
@@ -64,7 +65,11 @@ const UserPage = () => {
       </Affix>
 
       <Content>
-        <UserDetail username={currentUser.username} savedCount={totalItems} />
+        {isFetchingCurrentUser ? (
+          <LoadingContainer type="user" />
+        ) : (
+          <UserDetail username={currentUser.username} savedCount={totalItems} />
+        )}
 
         <SavedPageDivider
           searchParams={searchParams}
