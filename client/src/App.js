@@ -8,6 +8,7 @@ import RestaurantPage from "components/Restaurant/RestaurantPage";
 import ReviewerPage from "components/Reviewer/ReviewerPage";
 import UserPage from "components/User/UserPage";
 import AnalyticsPage from "components/Analytics/AnalyticsPage";
+import NotFoundPage from "components/NotFound/NotFoundPage";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/reviewer/:reviewerId" element={<ReviewerPage />} />
         <Route path="/user" element={<UserPage />} />
         <Route path="/analytics" element={<AnalyticsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
