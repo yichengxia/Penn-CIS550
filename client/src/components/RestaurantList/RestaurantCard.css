@@ -21,4 +21,5 @@
 .restcard-image {
   height: 200px;
   object-fit: cover;
+  border-radius: 5px !important;
 }
