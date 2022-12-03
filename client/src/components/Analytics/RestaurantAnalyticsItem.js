@@ -8,6 +8,7 @@ const RestaurantAnalyticsItem = ({
   restaurantName,
   avgRating,
   city,
+  imageUrl,
 }) => {
   const navigate = useNavigate();
 
@@ -16,7 +17,7 @@ const RestaurantAnalyticsItem = ({
       hoverable
       style={{ width: 260, border: "1.5px solid #f3f3f3" }}
       size="small"
-      cover={<img src="/images/restaurant.png" alt="restaurant" />}
+      cover={<img src={imageUrl} className="restcard-image" alt="restaurant" />}
       onClick={() =>
         navigate(`/restaurant/${restaurantId}`, {
           state: { from: window.location.pathname },

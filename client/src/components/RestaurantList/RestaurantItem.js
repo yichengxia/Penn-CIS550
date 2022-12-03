@@ -15,6 +15,7 @@ const RestaurantItem = ({ restaurantItemData, savedIcon, userId }) => {
     categories,
     avgRating,
     open,
+    imageUrl,
   } = restaurantItemData;
 
   const categoryItems = splitString(categories).map((category) => {
@@ -37,11 +38,7 @@ const RestaurantItem = ({ restaurantItemData, savedIcon, userId }) => {
       }
     >
       <Col>
-        <img
-          className="restitem-image"
-          src="/images/restaurant.png"
-          alt="restaurant"
-        />
+        <img src={imageUrl} className="restitem-image" alt="restaurant" />
       </Col>
 
       <Col>

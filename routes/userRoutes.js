@@ -60,6 +60,7 @@ module.exports = (app) => {
       SELECT *
       FROM SavedRestaurant
                NATURAL JOIN Restaurant
+               NATURAL JOIN RestaurantMedia
       WHERE userId = ?
       ORDER BY str_to_date(lastUpdated, '%d/%m/%Y') DESC
       `;
@@ -68,6 +69,7 @@ module.exports = (app) => {
       SELECT *
       FROM SavedRestaurant
                NATURAL JOIN Restaurant
+               NATURAL JOIN RestaurantMedia
       WHERE userId = ?
       ORDER BY ${sort}
       `;

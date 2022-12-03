@@ -2,14 +2,22 @@ import React from "react";
 import { Card, Rate } from "antd";
 import { formatRatingScore } from "utils";
 
-const RestaurantCard = ({ restaurantId, restaurantName, avgRating, city }) => {
+const RestaurantCard = ({
+  restaurantId,
+  restaurantName,
+  avgRating,
+  city,
+  imageUrl,
+}) => {
   return (
     <a href={`/restaurant/${restaurantId}`}>
       <Card
         size="small"
         style={{ width: 220 }}
         bordered={false}
-        cover={<img src="/images/restaurant.png" alt="restaurant" />}
+        cover={
+          <img src={imageUrl} className="restcard-image" alt="restaurant" />
+        }
       >
         <div className="restcard-header">{restaurantName}</div>
         <div className="restcard-rating">

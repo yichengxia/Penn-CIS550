@@ -18,6 +18,7 @@ const RestaurantDetail = ({
   categories,
   avgRating,
   open,
+  imageUrl,
 }) => {
   const navigate = useNavigate();
   const [isFetchingCurrentUser, fetchCurrentUser] = useFetchCurrentUser();
@@ -89,11 +90,7 @@ const RestaurantDetail = ({
     <div className="det-container">
       <Row className="det-row" wrap={false}>
         <Col>
-          <img
-            className="restdet-image"
-            src="/images/restaurant.png"
-            alt="restaurant"
-          />
+          <img src={imageUrl} className="restdet-image" alt="restaurant" />
         </Col>
 
         <Col className="restdet-details">
@@ -132,14 +129,14 @@ const RestaurantDetail = ({
             <div>{categoryItems}</div>
 
             <Tooltip placement="bottom" title={"Copy text to clipboard"}>
-              <div
+              <span
                 className="restdet-address"
                 onClick={() => {
                   navigator.clipboard.writeText(address);
                 }}
               >
                 {address}
-              </div>
+              </span>
             </Tooltip>
 
             <div className={open === "Y" ? "restitem-open" : "restitem-closed"}>

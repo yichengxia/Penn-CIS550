@@ -17,3 +17,8 @@
   font-weight: 400;
   margin-top: 5px;
 }
+
+.restcard-image {
+  height: 200px;
+  object-fit: cover;
+}
