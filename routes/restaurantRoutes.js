@@ -18,7 +18,9 @@ module.exports = (app) => {
       const sort = req.query.sort ? req.query.sort : "avgRating";
 
       const query = `
-      SELECT * FROM Restaurant
+      SELECT *
+      FROM Restaurant
+               NATURAL JOIN RestaurantMedia
       WHERE restaurantName LIKE ?
         AND city LIKE ?
         AND categories LIKE ?
@@ -47,9 +49,14 @@ module.exports = (app) => {
     validator.params(schema.restaurantParamsSchema),
     (req, res) => {
       const restaurantId = req.params.restaurantId;
-      
+
       db.query(
-        "SELECT * FROM Restaurant WHERE restaurantId = ?",
+        `
+        SELECT *
+        FROM Restaurant
+                 NATURAL JOIN RestaurantMedia
+        WHERE restaurantId = ?
+        `,
         restaurantId,
         (error, results, fields) => {
           if (error) {
