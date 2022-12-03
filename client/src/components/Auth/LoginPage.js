@@ -12,7 +12,7 @@ const LoginPage = () => {
       ? location.state.from
       : "/";
 
-  const [login] = useLogin();
+  const [isLoggingIn, login] = useLogin();
   const [form] = Form.useForm();
   const [formData, setFormData] = useState({
     username: "",
@@ -112,6 +112,7 @@ const LoginPage = () => {
                   htmlType="submit"
                   type="primary"
                   block
+                  loading={isLoggingIn}
                 >
                   Login
                 </Button>
