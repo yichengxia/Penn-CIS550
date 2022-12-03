@@ -14,6 +14,7 @@ const ReviewItem = ({
   coolCount,
   content,
   date,
+  imageUrl,
 }) => {
   const navigate = useNavigate();
 
@@ -23,8 +24,8 @@ const ReviewItem = ({
         <Col>
           <Tooltip placement="bottom" title="View Restaurant">
             <img
+              src={imageUrl}
               className="revitem-image"
-              src="/images/restaurant.png"
               alt="restaurant"
               onClick={() =>
                 navigate(`/restaurant/${restaurantId}`, {

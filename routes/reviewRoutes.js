@@ -63,12 +63,15 @@ module.exports = (app) => {
              t1.usefulCount,
              t1.coolCount,
              t1.content,
-             t1.date
+             t1.date,
+             RM.imageUrl
       FROM Review t1,
            Restaurant t2,
-           Reviewer t3
+           Reviewer t3,
+           RestaurantMedia RM
       WHERE t1.restaurantId = t2.restaurantId
         AND t1.reviewerId = t3.reviewerId
+        AND t1.restaurantId = RM.restaurantId
         AND t1.reviewerId = ?
         AND t1.rating LIKE ?
       ORDER BY str_to_date(t1.date, '%d/%m/%Y') DESC
@@ -83,12 +86,15 @@ module.exports = (app) => {
              t1.usefulCount,
              t1.coolCount,
              t1.content,
-             t1.date
+             t1.date,
+             RM.imageUrl
       FROM Review t1,
            Restaurant t2,
-           Reviewer t3
+           Reviewer t3,
+           RestaurantMedia RM
       WHERE t1.restaurantId = t2.restaurantId
         AND t1.reviewerId = t3.reviewerId
+        AND t1.restaurantId = RM.restaurantId
         AND t1.reviewerId = ?
         AND t1.rating LIKE ?
       ORDER BY ${sort} DESC

@@ -15,9 +15,15 @@ const RestaurantAnalyticsItem = ({
   return (
     <Card
       hoverable
-      style={{ width: 260, border: "1.5px solid #f3f3f3" }}
+      style={{
+        width: 260,
+        border: "1.5px solid #f3f3f3",
+        borderRadius: "5px",
+      }}
       size="small"
-      cover={<img src={imageUrl} className="restcard-image" alt="restaurant" />}
+      cover={
+        <img src={imageUrl} className="restanalyt-image" alt="restaurant" />
+      }
       onClick={() =>
         navigate(`/restaurant/${restaurantId}`, {
           state: { from: window.location.pathname },
