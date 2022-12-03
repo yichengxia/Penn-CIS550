@@ -36,14 +36,14 @@ We host our backend codes in the root project folder, and nest frontend codes in
 ├── services                # Third-party services, such as Passport.js
 ├── database.js             # MySQL connection
 ├── index.js                # Configures server, middlewares and routes
-└── schema.js               # Schema validation rules
+└── schema.js               # Request schema validation rules
 ```
 
 ## Development Guidelines
 
 Make sure you have installed `git`, `node`, `npm` before starting.
 
-### Get Started
+### 1. Get Started
 
 1. Clone repo: `git clone git@github.com:ruichen199801/cis550-fa22-project.git`
 2. Checkout feature branch: `git checkout -b <feature branch name>`
@@ -51,25 +51,25 @@ Make sure you have installed `git`, `node`, `npm` before starting.
 4. Install frontend dependencies: `cd client && npm i`
 5. Run frontend and backend concurrently: `cd .. && npm run dev`
 
-### Before Commit
+### 2. Before Commit
 
 1. Stash uncommited changes on your local branch: `git stash`
 2. Fetch remote changes into local main: `git checkout main && git pull origin main`
 3. Sync your branch with local main: `git checkout <your branch name> && git merge main`
 4. Restore changes and continue your work: `git stash pop`
 
-### Commit Your Work
+### 3. Commit Your Work
 
 1. Sanity check: `git status`, `git branch`
 2. Push changes: `git add .`, `git commit -m <commit message>`, `git push`
 3. Open pull request and assign code reviewer
 4. Merge codes after approval
 
-### After Merge
+### 4. After Merge
 
 Archive branch according to [https://gist.github.com/zkiraly/c378a1a43d8be9c9a8f9](https://gist.github.com/zkiraly/c378a1a43d8be9c9a8f9)
 
-### DO NOT
+### 5. DO NOT
 
 1. Push to main directly or force merge into main
 2. Push untested or bugged codes
@@ -77,7 +77,15 @@ Archive branch according to [https://gist.github.com/zkiraly/c378a1a43d8be9c9a8f
 4. Include node_modules in commits
 5. Overwrite package-lock.json without introducing new dependencies (use `npm ci` instead for subsequent `npm install`)
 
-### Common Issues
+### 6. Common Issues
 
 1. Port already in use: `lsof -i tcp:<port>`, then `kill -9 <PID>`
 2. Nodemon app crashed: `pkill -f nodemon`, then restart server
+
+### 7. Debug
+
+Heroku logs: `heroku logs -t`
+
+### 8. Test Suites
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/297c85e5a4e000c2d40a?action=collection%2Fimport)
