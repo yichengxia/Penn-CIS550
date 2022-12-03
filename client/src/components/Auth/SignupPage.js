@@ -5,7 +5,7 @@ import SplitLayout from "./SplitLayout";
 import { useSignup } from "hooks";
 
 const SignupPage = () => {
-  const [signup] = useSignup();
+  const [isSigningUp, signup] = useSignup();
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
@@ -103,6 +103,7 @@ const SignupPage = () => {
                   htmlType="submit"
                   type="primary"
                   block
+                  loading={isSigningUp}
                 >
                   Sign Up
                 </Button>
