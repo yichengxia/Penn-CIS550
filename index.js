@@ -3,6 +3,7 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
 const keys = require("./config/keys");
 require("./services/passport");
 
@@ -17,6 +18,14 @@ app.use(
   helmet({
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false,
+  })
+);
+app.use(
+  rateLimit({
+    windowMs: 1 * 60 * 1000,
+    max: 500,
+    standardHeaders: true,
+    legacyHeaders: false,
   })
 );
 app.use(
