@@ -73,8 +73,7 @@ module.exports = (app) => {
                   WHERE userId = ${userId}) temp
             WHERE temp.avgRating = (SELECT MAX(avgRating)
                                     FROM Restaurant
-                                    WHERE restaurantId in (SELECT restaurantId FROM SavedRestaurant WHERE userId = ${userId}))
-            LIMIT 1) t2
+                                    WHERE restaurantId in (SELECT restaurantId FROM SavedRestaurant WHERE userId = ${userId}))) t2
       WHERE R.city = t2.city
         AND R.state = t2.state
         AND R.reviewCount > 30
