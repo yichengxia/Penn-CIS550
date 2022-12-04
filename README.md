@@ -1,4 +1,4 @@
-# CIS550 Course Project: Forx News
+# Forx News
 
 <p align="center"><img src="client/public/github/forxnews.png" alt="forxnews"></p>
 
