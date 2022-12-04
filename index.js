@@ -2,6 +2,7 @@ const express = require("express");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const bodyParser = require("body-parser");
+const helmet = require("helmet");
 const keys = require("./config/keys");
 require("./services/passport");
 
@@ -12,6 +13,7 @@ app.use((req, res, next) => {
   console.log("handling request for: " + req.url);
   next();
 });
+app.use(helmet());
 app.use(
   bodyParser.urlencoded({
     extended: true,
