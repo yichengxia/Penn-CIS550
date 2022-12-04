@@ -13,7 +13,11 @@ app.use((req, res, next) => {
   console.log("handling request for: " + req.url);
   next();
 });
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 app.use(
   bodyParser.urlencoded({
     extended: true,
