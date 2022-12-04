@@ -8,8 +8,6 @@ Forx News is a restaurant review website based on Yelp datasets. It aims to help
 
 Project Wiki: [https://forx-news.gitbook.io/forx-news-wiki](https://forx-news.gitbook.io/forx-news-wiki)
 
-~~https://github.com/ruichen199801/cis550-fa22-project/wiki/Forx-News-Wiki~~
-
 Deployment on Heroku: [https://forxnews.herokuapp.com](https://forxnews.herokuapp.com/)
 
 ## Tech Stack
