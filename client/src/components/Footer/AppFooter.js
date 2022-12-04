@@ -6,7 +6,7 @@ const AppFooter = () => {
     <Row justify="space-evenly">
       <Col className="footer-col" span={8}>
         <a
-          href="https://app.gitbook.com/o/3NX3D2iFUb3JICUWd4ed/s/I4x9HIDkz03Vj7DLZHfa"
+          href="https://forx-news.gitbook.io/forx-news-wiki"
           target="_blank"
           rel="noopener noreferrer"
         >
