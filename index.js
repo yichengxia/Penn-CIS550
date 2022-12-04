@@ -16,6 +16,7 @@ app.use((req, res, next) => {
 app.use(
   helmet({
     contentSecurityPolicy: false,
+    crossOriginEmbedderPolicy: false,
   })
 );
 app.use(
