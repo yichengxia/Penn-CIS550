@@ -6,7 +6,7 @@ const AppFooter = () => {
     <Row justify="space-evenly">
       <Col className="footer-col" span={8}>
         <a
-          href="https://github.com/ruichen199801/cis550-fa22-project/wiki/Forx-News-Wiki"
+          href="https://app.gitbook.com/o/3NX3D2iFUb3JICUWd4ed/s/I4x9HIDkz03Vj7DLZHfa"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -16,7 +16,8 @@ const AppFooter = () => {
 
       <Col className="footer-col" span={8}>
         <a
-          href="https://github.com/ruichen199801/cis550-fa22-project"
+          // href="https://github.com/ruichen199801/cis550-fa22-project"
+          href="https://github.com/ruichen199801"
           target="_blank"
           rel="noopener noreferrer"
         >
