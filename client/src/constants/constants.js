@@ -177,7 +177,7 @@ export const restaurantOpenOptions = [
     label: "Open",
   },
   {
-    value: "",
+    value: "All",
     label: "All",
   },
   {

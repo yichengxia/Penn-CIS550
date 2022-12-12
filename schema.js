@@ -9,7 +9,7 @@ exports.restaurantQuerySchema = Joi.object().keys({
   name: Joi.string().allow(""),
   city: Joi.string().allow(""),
   category: Joi.string().allow(""),
-  open: Joi.string().valid("Y", "", "N"),
+  open: Joi.string().valid("Y", "All", "N"),
   ratingLow: Joi.string().valid("1", "4.5", "4", "3.5"),
   ratingHigh: Joi.string().valid("5"),
   sort: Joi.string().valid("avgRating", "reviewCount"),

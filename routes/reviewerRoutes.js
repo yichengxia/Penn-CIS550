@@ -8,7 +8,7 @@ module.exports = (app) => {
     validator.params(schema.reviewerParamsSchema),
     (req, res) => {
       const reviewerId = req.params.reviewerId;
-      
+
       db.query(
         "SELECT * FROM Reviewer WHERE reviewerId = ?",
         reviewerId,

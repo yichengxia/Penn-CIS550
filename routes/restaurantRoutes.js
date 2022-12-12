@@ -12,7 +12,10 @@ module.exports = (app) => {
       const category = req.query.category
         ? "%" + req.query.category + "%"
         : "%";
-      const open = req.query.open ? "%" + req.query.open + "%" : "%";
+      const open =
+        req.query.open && req.query.open !== "All"
+          ? "%" + req.query.open + "%"
+          : "%";
       const ratingLow = req.query.ratingLow ? req.query.ratingLow : "1";
       const ratingHigh = req.query.ratingHigh ? req.query.ratingHigh : "5";
       const sort = req.query.sort ? req.query.sort : "avgRating";

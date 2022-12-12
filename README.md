@@ -87,6 +87,7 @@ Archive branch according to [https://gist.github.com/zkiraly/c378a1a43d8be9c9a8f
 
 1. Port already in use: `lsof -i tcp:<port>`, then `kill -9 <PID>`
 2. Nodemon app crashed: `pkill -f nodemon`, then restart server
+3. Node.js Error: connect ECONNREFUSED: make sure installed node version is `14.17.6`, as the app may not be compatible with newer versions
 
 ### 7. Debug
 
