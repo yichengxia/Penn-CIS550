@@ -16,8 +16,7 @@ const AppFooter = () => {
 
       <Col className="footer-col" span={8}>
         <a
-          // href="https://github.com/ruichen199801/cis550-fa22-project"
-          href="https://github.com/ruichen199801"
+          href="https://github.com/yichengxia"
           target="_blank"
           rel="noopener noreferrer"
         >

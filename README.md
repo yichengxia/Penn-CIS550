@@ -51,9 +51,9 @@ Make sure you have installed `git`, `node`, `npm` before starting.
 
 ### 1. Get Started
 
-1. Clone repo: `git clone git@github.com:ruichen199801/cis550-fa22-project.git`
+1. Clone repo: `git clone git@github.com:yichengxia/Penn-CIS550.git`
 2. Checkout feature branch: `git checkout -b <feature branch name>`
-3. Install backend dependencies: `cd cis550-fa22-project && npm i`
+3. Install backend dependencies: `cd Penn-CIS550 && npm i`
 4. Install frontend dependencies: `cd client && npm i`
 5. Run frontend and backend concurrently: `cd .. && npm run dev`
 
